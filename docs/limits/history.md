@@ -1,12 +1,10 @@
-# Why These Fail
+# Why these fail
 
-The software factory idea isn't new. I've traced four serious attempts since 1968 and none of them ended well. What surprised me is how little of the post-mortem is technical -- the diagnoses I've read are mostly organisational, and unflattering with it. One of them describes something very close to modern platform engineering, forty years before the industry got there again.
-
-So what follows is how each of them died, as far as I can reconstruct it. Which of those are you designing against?
+The software factory idea isn't new. I've traced four serious attempts since 1968, and none ended well. Almost none of the post-mortem is technical -- the diagnoses are organisational. One of them describes modern platform engineering, forty years early.
 
 ## Four attempts, and the rejection that came first
 
-The 1968 entry sits outside the four. It records the field being told, before anyone had built anything, that this wouldn't work -- and most of what it objected to has since stopped being a problem. One part of it hasn't, which I come back to below.
+The 1968 entry sits outside the four. Before anyone had built anything the field was told this wouldn't work, and most of what it objected to has since stopped being a problem.
 
 | When | What | Outcome |
 |---|---|---|
@@ -16,11 +14,11 @@ The 1968 entry sits outside the four. It records the field being told, before an
 | **1986-93** | **Eureka Software Factory** -- a publicly funded European platform programme | Forgotten |
 | **2003-08** | **Microsoft Software Factories** -- model-driven development, domain-specific languages | Faded |
 
-**Hitachi predates SDC.** The Japanese movement ran on its own timeline, and as far as I can tell it had its own reasons for starting.
+**Hitachi predates SDC.**
 
 And after 1978 the term "became an anathema to both managers and programmers". I haven't found a US firm that claimed a software factory for roughly the next twenty years.
 
-## Diagnosis 1: SDC looks like an organisational failure
+## Diagnosis 1: SDC's failure was organisational
 
 Cusumano's account, in his order of importance:
 
@@ -28,23 +26,20 @@ Cusumano's account, in his order of importance:
 2. **Middle management refused to cede delivery control**, and were *"not required by top management to use the Software Factory, leading to a decline in the flow of work."*
 3. Infrastructure imposed *"without adequate analysis or anticipation of the work flow and the reactions of its personnel."*
 
-**Developer resistance comes third**, folded into the complaint about infrastructure imposed without analysis of the work flow. That ordering reads to me as a downgrade: the comfortable story (engineers hated it, engineers always hate change) ranks below both product variety and management control.
+**Developer resistance comes third**, folded into the infrastructure complaint.
 
-**Schedule and budget accuracy "improved dramatically."** So the factory was *partly working* when it was abandoned. On that reading it lost a political contest about control, starved of work because nobody was required to use it.
+**Schedule and budget accuracy "improved dramatically."** It was abandoned anyway -- it lost a political contest about control, starved of work because nobody was required to use it.
 
 !!! danger "The same funding shape shows up today"
     RAND finds that current defence software factories are mostly **customer-funded** -- each one must win its customers' budgets.
 
-    That looks to me like SDC's failure mode written into the budget line: optional adoption, leading to a decline in the flow of work. What to do about it is a funding decision, and it sits on [Mandate vs Adoption](../tradeoffs/mandate-vs-adoption.md).
+    That's SDC's failure mode in the budget line: optional adoption, leading to a decline in the flow of work. What to do about it is a funding decision, and it sits on [Mandate vs Adoption](../tradeoffs/mandate-vs-adoption.md).
 
 ### The compromise they retreated to
 
-The compromise SDC retreated to was to *"maintain the factory procedures and some of the tools, but **decentralize the factory workers**."*
+The compromise was to *"maintain the factory procedures and some of the tools, but **decentralize the factory workers**."*
 
-!!! success "This reads to me like modern platform engineering, described in 1978"
-    The half of SDC that survived looks a lot like what the industry arrived at again forty years later, apparently without anyone citing SDC on the way.
-
-    So the framing here is narrow: the part that survived is the part we're building, and the part that died stays on the shelf by design.
+That surviving half is platform engineering, written down in 1978, and the industry arrived there again forty years later without citing SDC on the way; it's the half this project builds.
 
 ## Diagnosis 2: Japan's long fade
 
@@ -52,17 +47,17 @@ The compromise SDC retreated to was to *"maintain the factory procedures and som
 2. The enabling conditions were local (captive customers, lifetime employment, high volumes of similar mainframe software).
 3. The product mix changed underneath it.
 
-The headline claim of the movement doesn't survive the best study I've found of it. Cusumano and Kemerer, *Management Science* 1990, n=40: **no statistically significant difference between US and Japanese organisations on productivity, quality or reuse.** Reused code costs about 64% of new.
+Cusumano and Kemerer, *Management Science* 1990, n=40: **no statistically significant difference between US and Japanese organisations on productivity, quality or reuse.** Reused code costs about 64% of new.
 
-And Toshiba's own productivity curve is the one that worries me: **+22% in year one, +70% by year five, then +8% across the next four** -- the explanation offered is a practical reuse ceiling around 50%.
+And Toshiba's own productivity curve: **+22% in year one, +70% by year five, then +8% across the next four** -- the explanation offered is a practical reuse ceiling around 50%.
 
-Underneath that, the reuse numbers move in steps, with a dead zone in the middle. Reuse **pays above 80% unchanged, does nothing between 20% and 80%, and is net harmful below 20%.** So the modification rate of shared assets is the number I'd want on the wall: a slot implementation every programme forks by 40% leaves you worse off than an empty shelf, because you pay the coordination cost and get none of the benefit.
+Reuse **pays above 80% unchanged, does nothing between 20% and 80%, and is net harmful below 20%.** So the modification rate of shared assets is the number to watch: a slot implementation every programme forks by 40% leaves you worse off than an empty shelf, because you pay the coordination cost and get none of the benefit.
 
 ## Does the modern version repeat them?
 
 **Solved:** the 1968 objections about machine dependence and component cataloguing.
 
-**Shifted ground:** the objection that reusable modules cannot be both general and efficient. The *assurance machinery* (SBOMs, provenance, signing, control evidence) does look uniform across applications. *Application architecture* varies with the system it serves, which is why [scope](../start/scope.md) gets a page of its own.
+**Shifted ground:** the objection that reusable modules cannot be both general and efficient. The *assurance machinery* (SBOMs, provenance, signing, control evidence) looks uniform across applications. *Application architecture* varies with the system it serves, which is why [scope](../start/scope.md) gets a page of its own.
 
 **Avoided:** centralising people. I've not seen anyone propose 200 programmers in one building.
 
@@ -81,19 +76,15 @@ The recent material adds failure modes the older attempts don't show:
 !!! quote "RAND, 2025"
     "Limited movement toward implementation of continuous authority to operate" -- despite three years of enabling policy.
 
-The RAND line bears directly on this project, because the economic leverage rests on control inheritance. If that inheritance isn't happening in practice, the leverage is theoretical. From the outside I can't tell how much of it is happening.
+The RAND line bears on this project directly: the economic case rests on control inheritance, and if that inheritance isn't happening in practice the case is theoretical. From the outside I can't tell how much of it is happening.
 
 ### What might be genuinely new this time
 
-The binding constraint seems to have moved from code production to evidence production. If that's right, a factory sits on a compliance chokepoint teams can't easily opt out of, which is a stronger position than SDC's ever was -- SDC's customers could simply decline.
+The binding constraint may have moved from code production to evidence production. If it has, a factory sits on a compliance chokepoint teams can't easily opt out of, unlike SDC, whose customers could decline.
 
-But the dependency is in plain sight: if control inheritance is weak, the leverage vanishes and you're back where SDC was.
+## The modern case study: Kessel Run
 
-## The modern case study
-
-The success story that gets cited most, in everything I've read.
-
-**Created** 2017, after a programme cancellation that had run from $374m to $745m in development against a lifecycle estimate over $3.5bn.
+**Created:** 2017, after a programme cancellation that had run from $374m to $745m in development against a lifecycle estimate over $3.5bn.
 
 **Delivered:** real applications, including one used during the Kabul evacuation of 123,000 people, and durable policy change -- continuous authorisation and a new software acquisition pathway exist partly because of it.
 
@@ -105,18 +96,13 @@ In March 2025 it reverted to a government-led, vendor-managed model with a singl
 
 In February 2026 it opened a new programme for the same capability, ten years after the cancellation it was created to fix.
 
-!!! tip "Operator rotation"
-    He names fifty per cent turnover every six months as the structural cause, and I find that convincing -- though his account is the one I've got, and he has a reason to tell it that way.
-
-    If he's right, a factory whose operation depends on institutional memory is in trouble at exactly the organisations that need it most. How much of yours currently lives in somebody's head?
+His account is the only one I've got, and he has a reason to tell it that way. But if the turnover figure is the cause, a factory whose operation depends on institutional memory is in trouble at the organisations that need it most.
 
 ## Why not just build the apps?
 
-From the person who coined the modern term, and it's a good objection:
+From the person who coined the modern term:
 
 !!! quote
     "If you want to make toast, you don't go build a toaster... Just build the apps."
 
-He may well be right about platforms. My answer is that the thing being built here is the evidence that the toast is safe to eat -- the apps can't produce that for themselves, as far as I can see, and twelve regulatory regimes now require it.
-
-If that answer doesn't convince you, the objection stands.
+What's being built here is the evidence that the toast is safe to eat -- the apps can't produce it themselves, and twelve regulatory regimes now require it.

@@ -6,9 +6,9 @@ cloud or an air-gapped enclave without becoming two different products.
 
 ## Where to start
 
-1. [`notes/00-premise.md`](notes/00-premise.md) — why this project exists and what it is for.
-2. [`discovery/00-index.md`](discovery/00-index.md) — **the catalogue of everything we have found, with how much to trust each item.** Start here for facts.
-3. [`design/01-layers-and-handoffs.md`](design/01-layers-and-handoffs.md) — what we concluded: the five primitives and the five trust-domain transitions.
+1. [`notes/00-premise.md`](notes/00-premise.md) -- why this project exists and what it is for.
+2. [`discovery/00-index.md`](discovery/00-index.md) -- **the catalogue of everything we have found, with how much to trust each item.** Start here for facts.
+3. [`design/01-layers-and-handoffs.md`](design/01-layers-and-handoffs.md) -- what we concluded: the five primitives and the five trust-domain transitions.
 
 ## Running the site
 
