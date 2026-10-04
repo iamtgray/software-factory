@@ -1,0 +1,1669 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="What a secure software factory actually is, what it can and cannot deliver, where the trade-offs are, and what the evidence says -- including where the evidence says we were wrong">
+      
+      
+      
+      
+        <link rel="prev" href="../mandate-vs-adoption/">
+      
+      
+        <link rel="next" href="../build-vs-adopt/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>AI -- Capability vs Provability - Secure Software Factory</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ai-capability-vs-provability" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Secure Software Factory" class="md-header__button md-logo" aria-label="Secure Software Factory" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 18v2h4v-2zm0-4v2h10v-2zm6 4v2h4v-2zm6-4v2h4v-2zm0 4v2h4v-2zM2 22V8l5 4V8l5 4V8l5 4 1-10h3l1 10v10z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Secure Software Factory
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AI -- Capability vs Provability
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Secure Software Factory" class="md-nav__button md-logo" aria-label="Secure Software Factory" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 18v2h4v-2zm0-4v2h10v-2zm6 4v2h4v-2zm6-4v2h4v-2zm0 4v2h4v-2zM2 22V8l5 4V8l5 4V8l5 4 1-10h3l1 10v10z"/></svg>
+
+    </a>
+    Secure Software Factory
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../start/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/the-problem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Problem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/corrections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What We Got Wrong
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/scope/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scope -- What This Is Not
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../how/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How It Works
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    How It Works
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how/primitives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Five Primitives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how/handoffs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Hand-offs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how/slots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slots and Outcomes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../example/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Worked Example
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    A Worked Example
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../example/connected/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Change, End to End
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../example/airgap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Same Change, Air-Gapped
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trade-offs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Trade-offs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integrity-vs-inspection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integrity vs Inspection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gates-vs-attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gates vs Attention
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mandate-vs-adoption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mandate vs Adoption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI -- Capability vs Provability
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI -- Capability vs Provability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ai-breaks-the-determinism-that-provenance-assumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. AI breaks the determinism that provenance assumes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. AI breaks the determinism that provenance assumes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-follows-the-human-boundary-becomes-load-bearing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What follows: the human boundary becomes load-bearing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-verifiability-and-determinism-trade-off-against-each-other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Verifiability and determinism trade off against each other
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Verifiability and determinism trade off against each other">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-provenance-fork-this-settles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The provenance fork this settles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-air-gapped-tier-gets-the-better-ai-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The air-gapped tier gets the better AI story
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-shape-every-working-pattern-shares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The shape every working pattern shares
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-real-what-is-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is real, what is not
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-attack-surface-you-take-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The attack surface you take on
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-regulator-has-anything-to-say-about-this-yet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No regulator has anything to say about this yet
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-vs-adopt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build vs Adopt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../limits/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Limitations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../limits/unanswerable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What We Cannot Answer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../limits/history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Has Failed Before
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../limits/ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem Health
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evidence Status
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ai-capability-vs-provability">AI: Capability vs Provability</h1>
+<p>The capability you want and the provability you need pull in opposite directions, in three separate ways. All three have counterintuitive resolutions.</p>
+<h2 id="1-ai-breaks-the-determinism-that-provenance-assumes">1. AI breaks the determinism that provenance assumes</h2>
+<p>The whole supply-chain integrity model assumes a <strong>derivation</strong>. Provenance says <em>this builder, with these parameters, produced this digest</em>. Reproducible builds are the gold standard because a third party can re-run the derivation and compare.</p>
+<p>An agent isn't a derivation. Run it twice on the same ticket and you get two different diffs, both possibly correct. So the strongest available claim collapses from:</p>
+<blockquote>
+<p>"this artefact is the correct output of this process applied to these inputs"</p>
+</blockquote>
+<p>to:</p>
+<blockquote>
+<p>"this diff was produced by this process at this time, and a named human accepted it"</p>
+</blockquote>
+<p>That's a materially weaker guarantee, and pretending otherwise to an assessor would be dishonest.</p>
+<h3 id="what-follows-the-human-boundary-becomes-load-bearing">What follows: the human boundary becomes load-bearing</h3>
+<p>In a conventional factory, review catches mistakes while the provenance chain carries the integrity guarantee. Under heavy AI authorship, <strong>review is the only place where a non-deterministic process becomes an accountable assertion.</strong></p>
+<p>Which is awkward, because review demonstrably fails against adversarial content. A real worm used Unicode variation selectors that render as blank lines (invisible in editors, diffs and most static analysis, executable to the interpreter) and reached a major marketplace.</p>
+<div class="admonition success">
+<p class="admonition-title">Split the two jobs</p>
+<p><strong>Machines detect.</strong> Unicode normalisation, invisible-character detection, licence scanning, reachability, tests, policy.</p>
+<p><strong>Humans are accountable.</strong> A named person asserts they understand the change and will defend it. Only a human can certify the Developer Certificate of Origin -- an agent may never sign off on its own work.</p>
+<p>Neither substitutes for the other. Record both.</p>
+</div>
+<p>There's an uncomfortable structural gap here. This transition (author to source of record) is <strong>the only hand-off in the architecture with no signed artefact anywhere in open source.</strong> Everything either configures review rules or reports on them. Nothing signs "policy X was met for commit Y".</p>
+<h2 id="2-verifiability-and-determinism-trade-off-against-each-other">2. Verifiability and determinism trade off against each other</h2>
+<p>This is the genuinely surprising one.</p>
+<p>The intuition is that making generation reproducible (pin the weights, pin the prompt, temperature zero) gets you back to a derivation, and therefore back to strong provenance. An air-gapped enclave with fixed local weights is the one place all of that is natural.</p>
+<p>The evidence says the opposite. A pre-registered study found that the <strong>uncited</strong> generation condition is significantly <em>more</em> deterministic (d ≈ −0.72 to −0.76), while <strong>only</strong> the cited condition enables hallucination detection -- <strong>86-88% versus 0%</strong>.</p>
+<div class="admonition quote">
+<p class="admonition-title">You cannot have both</p>
+<p>The more reproducible configuration is the <strong>less checkable</strong> one.</p>
+</div>
+<p><strong>So don't chase reproducible generation.</strong> Take the deterministic <strong>citation-resolution check</strong> at verify time instead: 86-88% hallucination detection at a 0% false-positive rate, with <strong>no model in the verification path at all</strong>.</p>
+<h3 id="the-provenance-fork-this-settles">The provenance fork this settles</h3>
+<p>If a specification becomes the source of truth and code is generated from it, what gets attested?</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attest the specification, treat code as a build output</td>
+<td>Cleaner in principle. Requires reproducible generation, which per above is the less verifiable configuration.</td>
+</tr>
+<tr>
+<td><strong>Attest the commit; record the specification, prompts, model identity and evaluation results as <em>inputs</em></strong></td>
+<td><strong>Take this one.</strong> The specification goes in the resolved-dependencies list exactly like a lock file. Code is committed and reviewed, so a human stays in the accountability chain -- which no regime currently lets you avoid.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-the-air-gapped-tier-gets-the-better-ai-story">3. The air-gapped tier gets the better AI story</h2>
+<p>The usual framing is that a disconnected enclave is the degraded tier. For AI specifically, that's backwards.</p>
+<p><strong>The capability gap is now a hardware gap, not a classification gap:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Capability vs frontier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Government cloud with managed models</td>
+<td>Near parity -- the penalty is operational, not capability</td>
+</tr>
+<tr>
+<td>Enclave, ~8 high-end GPUs</td>
+<td><strong>~95-100%</strong> on contamination-controlled bug fixing</td>
+</tr>
+<tr>
+<td>Enclave, 1-2 GPUs</td>
+<td><strong>48-60%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>On the one contamination-controlled independent leaderboard available, an open-weight model placed <strong>fourth of seventeen at 62.9% against a 64.5% leader</strong>, within overlapping error bars, with the highest pass-at-any score on the board, at <strong>a third of the cost</strong>. Permissively licensed weights are available at every size band that matters, which materially simplifies accreditation.</p>
+<div class="admonition success">
+<p class="admonition-title">The inversion</p>
+<p><strong>What survives without frontier models is exactly the set of patterns that have deterministic verifiers -- which is exactly the set that is attestable.</strong></p>
+<p>Survives: false-positive triage of scanner findings, validated test generation behind a filter chain, mechanical refactoring from recipes, local evaluation harnesses, agent sandboxing.</p>
+<p>Dies: agentic review as a gate, autonomous multi-file remediation, VEX justification selection, multi-agent planning.</p>
+<p>Most of what dies is what a factory shouldn't have trusted anyway.</p>
+</div>
+<h2 id="the-shape-every-working-pattern-shares">The shape every working pattern shares</h2>
+<p>Across every stage where AI is genuinely useful today, one structure recurs:</p>
+<div class="admonition quote">
+<p class="admonition-title">A non-deterministic generator proposes. A deterministic verifier decides.</p>
+<p>Which is why <strong>AI doesn't change the architecture -- it validates it.</strong> The delegated verdict was already the right pattern; AI makes it mandatory rather than merely sensible.</p>
+</div>
+<p>Two additions this forces:</p>
+<ul>
+<li>the verdict must record the <strong>model identity and capability-descriptor digest</strong>, so a model swap invalidates prior verdicts exactly as a policy change does</li>
+<li>the capability descriptor must carry <strong>measured</strong> capability -- last night's signed evaluation score -- not a hand-maintained list of promises</li>
+</ul>
+<h2 id="what-is-real-what-is-not">What is real, what is not</h2>
+<p>Harsh, because the field is full of launch announcements:</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>False-positive triage of static-analysis findings</td>
+<td><strong>Real.</strong> F1 0.91-0.96; one deployment eliminated 94-98% at &lt;$0.12/alarm</td>
+</tr>
+<tr>
+<td>Agent-authored diffs and pull requests</td>
+<td><strong>Real.</strong> 33,000 measured -- documentation, CI and build changes merge well; performance work and bug fixes badly</td>
+</tr>
+<tr>
+<td>Mechanical refactoring</td>
+<td><strong>Real, and not AI.</strong> Recipe-based tools are deterministic, reproducible, offline -- strictly better than a model where a recipe exists</td>
+</tr>
+<tr>
+<td>Validated test generation</td>
+<td><strong>Real, but only behind a filter chain</strong> -- 75% build / 57% pass / 25% coverage gain means roughly <strong>3 in 4 discarded</strong></td>
+</tr>
+<tr>
+<td>Exploitability assessment</td>
+<td><strong>Emerging.</strong> ~80% F1 binary, but <strong>under 70%</strong> on selecting the justification</td>
+</tr>
+<tr>
+<td>AI code review as a <strong>gate</strong></td>
+<td><strong>Vapour.</strong> 56.3% of comments rejected in the wild; nothing emits a signed verdict</td>
+</tr>
+<tr>
+<td><code>AGENTS.md</code> as a performance lever</td>
+<td><strong>Vapour.</strong> Two studies find no correctness gain and &gt;20% cost increase. Keep it for <em>constraints</em>, not capability</td>
+</tr>
+<tr>
+<td>LLM inside the policy gate</td>
+<td><strong>Vapour, and architecturally wrong.</strong> The gate must be deterministic</td>
+</tr>
+<tr>
+<td>AI in admission control</td>
+<td><strong>Never.</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-attack-surface-you-take-on">The attack surface you take on</h2>
+<p>The factory's agent has all three legs of the exfiltration trifecta <strong>by default</strong>: access to private data (source, secrets, tickets), exposure to untrusted content (dependency source, issue text, tool output), and the ability to communicate externally.</p>
+<p>This must be broken structurally, not by prompt engineering:</p>
+<ul>
+<li><strong>the agent never holds a push credential</strong> -- it proposes, a separate non-model process acts after a gate</li>
+<li><strong>tool output is untrusted input</strong> -- it may never alter the agent's permissions, tool list or instructions</li>
+<li><strong>no dynamic tool loading</strong> -- pin the tool set per task</li>
+<li><strong>keep agents as leaves</strong> -- no delegation chains, because they launder attribution and "independent" verifiers collapse to very few genuinely distinct domains</li>
+</ul>
+<p>And one finding that redirects where to spend security effort: the critical vulnerabilities in agent harnesses are <strong>structural rather than model-behavioural</strong> -- credential and configuration handling in CI, with all four major providers vulnerable by default. So record the credential and egress posture the agent ran under, in the authorship attestation.</p>
+<h2 id="no-regulator-has-anything-to-say-about-this-yet">No regulator has anything to say about this yet</h2>
+<p>Across every regime surveyed, <strong>nothing imposes requirements on AI-generated code in assured software.</strong> The obligations attach to outcomes -- tested, reviewed, provenanced, vulnerability-managed -- regardless of authorship.</p>
+<p>That's good news: a factory producing the same evidence regardless of who wrote the code is already aligned.</p>
+<div class="admonition tip">
+<p class="admonition-title">The asymmetry worth acting on</p>
+<p>The forward risk runs one way. If a future rule <em>does</em> require authorship disclosure, a factory that recorded nothing can't retrofit it.</p>
+<p><strong>Recording model identity per diff from day one is cheap insurance against a regulation that doesn't exist yet</strong> -- and it doesn't depend on any current rule to be worth doing.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../mandate-vs-adoption/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Mandate vs Adoption">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Mandate vs Adoption
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../build-vs-adopt/" class="md-footer__link md-footer__link--next" aria-label="Next: Build vs Adopt">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Build vs Adopt
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.indexes", "navigation.top", "navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
