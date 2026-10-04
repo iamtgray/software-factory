@@ -419,6 +419,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#somebody-has-already-done-this-and-it-worked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Somebody has already done this, and it worked
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-this-is-not-just-a-defence-problem" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1446,6 +1457,14 @@
 </div>
 <p>This matters more now than it did three years ago, because there's a new and hungry reader: an AI agent working inside the factory wants exactly this data. An agent fixing a vulnerability needs the SBOM and reachability analysis to judge whether the finding is real. An agent proposing a dependency bump needs the provenance of the thing it's bumping to.</p>
 <p>Of <strong>36,870</strong> real-world dependency upgrade recommendations analysed from registry telemetry, <strong>27.76% referenced versions that do not exist</strong>. That's what ungrounded generation looks like at scale, and it's an argument for the evidence graph being queryable rather than merely attached -- "which versions actually exist for this component" is a graph question.</p>
+<h2 id="somebody-has-already-done-this-and-it-worked">Somebody has already done this, and it worked</h2>
+<p>The strongest evidence for any of the above is not an argument. It's a DoD practitioner, quoted anonymously in a DoD CIO publication, describing exactly this approach as a success:</p>
+<div class="admonition quote">
+<p class="admonition-title">From <em>The State of DevSecOps</em>, §6.6</p>
+<p>"The RMF process was going to be the bottleneck. We looked at the NIST 853 controls and identified <strong>100 controls that were required at the application layer. We baked those into our pipeline for automated control and testing.</strong> Then we <strong>continuously monitor</strong> and make sure the controls stay up to date."</p>
+</div>
+<p>That is the thesis in four sentences: take the controls, make them a pipeline output, and keep them current. Published by the organisation whose own flagship platform ships compliance evidence that hasn't been reviewed since 2023.</p>
+<p>The gap isn't conceptual. Someone has done it, inside DoD, and said so in DoD's own report. It just isn't the norm, and nothing makes it the norm.</p>
 <h2 id="why-this-is-not-just-a-defence-problem">Why this is not just a defence problem</h2>
 <p>The air-gapped and cross-domain case is the <strong>sharpest demonstration</strong> of the thesis, because a boundary that strips evidence makes the failure visible and unavoidable.</p>
 <p>The general case is any organisation that has to answer "what is running, where did it come from, and what is wrong with it" on demand rather than on an annual cycle. Which, after a survey of twelve regimes, is most of them.</p>

@@ -75,6 +75,17 @@ This matters more now than it did three years ago, because there's a new and hun
 
 Of **36,870** real-world dependency upgrade recommendations analysed from registry telemetry, **27.76% referenced versions that do not exist**. That's what ungrounded generation looks like at scale, and it's an argument for the evidence graph being queryable rather than merely attached -- "which versions actually exist for this component" is a graph question.
 
+## Somebody has already done this, and it worked
+
+The strongest evidence for any of the above is not an argument. It's a DoD practitioner, quoted anonymously in a DoD CIO publication, describing exactly this approach as a success:
+
+!!! quote "From *The State of DevSecOps*, §6.6"
+    "The RMF process was going to be the bottleneck. We looked at the NIST 853 controls and identified **100 controls that were required at the application layer. We baked those into our pipeline for automated control and testing.** Then we **continuously monitor** and make sure the controls stay up to date."
+
+That is the thesis in four sentences: take the controls, make them a pipeline output, and keep them current. Published by the organisation whose own flagship platform ships compliance evidence that hasn't been reviewed since 2023.
+
+The gap isn't conceptual. Someone has done it, inside DoD, and said so in DoD's own report. It just isn't the norm, and nothing makes it the norm.
+
 ## Why this is not just a defence problem
 
 The air-gapped and cross-domain case is the **sharpest demonstration** of the thesis, because a boundary that strips evidence makes the failure visible and unavoidable.

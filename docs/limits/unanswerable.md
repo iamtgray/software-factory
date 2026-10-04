@@ -44,7 +44,11 @@ The relevant requirement sets, baseline lists and assessment methodologies are *
 
 Different category. These are knowable in principle; nobody has done the work.
 
-**Does any software factory improve delivery outcomes?** Four separate audit findings record the absence. No controlled study, no before-and-after baseline, no peer-reviewed evaluation of any named factory. A metrics framework exists (published October 2024) and **nobody has published any values against it.**
+**Does any software factory improve delivery outcomes?** Four separate audit findings record the absence, and the precise version is: **nobody has published delivery or outcome metrics for a named software factory.** There is measured data -- a self-reported cultural survey of 36 practitioners across 19 organisations -- but every delivery figure in it is cited to earlier publications rather than measured, the correlation between maturity score and delivery speed is described as something that could "potentially correlate" and was never run, and one of its four factory categories had **no participants at all**.
+
+DoD says the same thing about itself more bluntly than any auditor does. Its own modernisation plan carries, as **Carryover** items: *"Establish software factory criteria and metrics"*, *"Collect cost data on agile software programs"*, and *"Publish SBOM Implementation Guidance for DoD"*. And on continuous authorisation: *"Organizations don't have to provide metrics for cATO effectiveness, but we are interested in potential metrics to evaluate the effectiveness of the cATO process."* **Effectiveness is unmeasured by design, not by oversight.**
+
+A metrics framework exists (published October 2024) and **nobody has published any values against it.** The word DORA appears zero times in 47 pages of DoD's own state-of-practice report.
 
 **What is the real pre-factory baseline for authorisation timelines?** There's no agreed figure. One source says six months to two years; another says 18 to 24 months; neither cites anything. "Six months" circulates as a de facto baseline, converging independently across several vendors, with no documented origin.
 

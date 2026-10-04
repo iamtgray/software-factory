@@ -79,7 +79,7 @@ Guard
 :   A device enforcing content policy at a security boundary, which may transform data to sanitise it. Transformation changes bytes, and changed bytes break every signature over them. This is the central tension of the whole design. See [Integrity vs Inspection](tradeoffs/integrity-vs-inspection.md).
 
 cATO
-:   Continuous Authorization to Operate. Real US DoD policy since February 2022, requiring continuous monitoring fed into a live dashboard. **It modifies how you keep an authorisation; it is not a route to getting one.** Effectively nobody holds one.
+:   Continuous Authorization to Operate. Real US DoD policy since February 2022, requiring continuous monitoring fed into a live dashboard. **It modifies how you keep an authorisation; it is not a route to getting one.** A few pre-2022 programmes still operate one; no count has ever been published.
 
 !!! note "On confidence"
     Every claim on this site carries a provenance status -- verified against a primary source, reported by research, or explicitly unverified. The research ran **without a working search engine**, which makes positive findings unusually strong (they came from reading specs and source) and every negative finding weak. See [Evidence Status](reference/status.md).

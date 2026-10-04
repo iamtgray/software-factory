@@ -10,7 +10,7 @@ Capability descriptor
 :   A machine-readable declaration by a slot implementation of which outcomes it can actually deliver. Lets the factory core turn features off rather than discovering limits as production flakiness. Should carry **measured** capability, not promises. See [The Five Primitives](how/primitives.md).
 
 cATO
-:   Continuous Authorization to Operate. US DoD policy since February 2022, requiring continuous monitoring fed into a live dashboard. It authorises **systems**, not organisations, and **modifies how you keep an authorisation rather than providing a route to getting one**. Effectively nobody holds one.
+:   Continuous Authorization to Operate. US DoD policy since February 2022, requiring continuous monitoring fed into a live dashboard. It authorises **systems**, not organisations, and **modifies how you keep an authorisation rather than providing a route to getting one**. A handful of pre-2022 programmes still operate one; no count has ever been published, and DoD's own plan still lists issuing a cATO as carried-over work.
 
 CDR -- Content Disarm and Reconstruction
 :   Deconstructing a file, discarding anything not explicitly permitted, and regenerating it. Protects document viewers from documents. **Cannot meaningfully sanitise compiled code**, because the payload is executable by design -- so applying it to software changes every digest without addressing the threat.
