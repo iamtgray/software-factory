@@ -10,6 +10,19 @@ cloud or an air-gapped enclave without becoming two different products.
 2. [`discovery/00-index.md`](discovery/00-index.md) — **the catalogue of everything we have found, with how much to trust each item.** Start here for facts.
 3. [`design/01-layers-and-handoffs.md`](design/01-layers-and-handoffs.md) — what we concluded: the three primitives and the four trust-domain transitions.
 
+## Running the site
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install mkdocs-material pyyaml markdown
+.venv/bin/mkdocs serve                  # http://127.0.0.1:8000
+.venv/bin/mkdocs build --strict         # must pass before committing
+.venv/bin/python build_single_page.py   # one self-contained HTML file
+```
+
+`.github/workflows/deploy-docs.yml` publishes to GitHub Pages on push to `main`.
+`site_url` in `mkdocs.yml` assumes the repo will be called `software-factory` --
+change it if not, or internal links in the published build will be wrong.
+
 ## Layout
 
 | Path | Contents |

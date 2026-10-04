@@ -1,5 +1,6 @@
 site_name: Secure Software Factory
 site_description: What a secure software factory actually is, what it can and cannot deliver, where the trade-offs are, and what the evidence says -- including where the evidence says we were wrong
+site_url: https://iamtgray.github.io/software-factory/
 
 theme:
   name: material
