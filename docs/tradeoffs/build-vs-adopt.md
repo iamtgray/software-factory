@@ -5,7 +5,9 @@ The default answer is adopt. The harder question is **whether it will still exis
 ## The strongest consensus in the field
 
 !!! quote "Do not build your own platform"
-    Said by a consultancy, by a platform vendor, **and by the DoD's own implementation guide**, which puts it as "should be avoided if possible".
+    Said by a consultancy, by a platform vendor, **and by DoD's own guidance**, which ranks the ways to obtain a platform and puts building your own last on the grounds that it is the most time-consuming.
+
+(The wording is not quoted here: that document carries **Distribution Statement C**, limiting it to US Government agencies and their contractors, so it is not citable on a public site. The point stands on the two commercial sources, which disagree with each other about almost everything else.)
 
     When a consultancy that bills for building things, a vendor that sells one, and a government guide all agree, that's as close to settled as this field gets.
 

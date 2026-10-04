@@ -64,7 +64,11 @@ Given this site argues that a gate which gets switched off is worth less than no
 
 The interface is custom resources plus an admission webhook. If two projects share a cluster, they cannot hold different slot versions or different gate policies enforced by separate webhooks, and a tenant with the ability to edit a custom resource may be able to weaken its own gate.
 
-That decides the cost model and the gate-integrity story simultaneously. Note also that a multi-tenancy isolation test was a stated **must** in the 2019 defence reference design and was quietly dropped in October 2024 — so the one regime that asked for it has stopped asking, which is not the same as it not mattering.
+That decides the cost model and the gate-integrity story simultaneously.
+
+An earlier version of this page claimed a multi-tenancy isolation test was mandated in 2019 and quietly dropped in 2024. **Both halves were wrong**, and the truth is more useful: the October 2024 document carries the *strongest* language of any version -- a hard *"It must be designed for multi-tenancy"* -- and **no document in any version ever defines a test that would demonstrate the isolation holds.** Searched for `isolation`, `isolated`, `demonstrat`, `breakout`, `escape`.
+
+So multi-tenancy is a mandated design property with no acceptance criterion attached. Anyone claiming to have met it is self-certifying against nothing.
 
 ## The name is wrong and no decision has been taken
 

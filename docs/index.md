@@ -61,7 +61,7 @@ A software factory is a set of components that turn source code into a deployabl
 ## Key concepts
 
 Software factory
-:   A set of components that produce a deployable artefact plus machine-verifiable evidence of its provenance. In US defence usage specifically, one that has adopted an approved DevSecOps reference design. The civilian equivalent term is *internal developer platform*.
+:   DoD defines it as *"a collection of people, tools, and processes that enables teams to continuously deliver value by deploying software to meet the needs of a specific community of end users"* -- a definition that mentions neither evidence nor provenance, which is rather the point of this site. The civilian equivalent term is *internal developer platform*.
 
 Attestation
 :   A small signed document that makes a claim about an artefact, bound to it by cryptographic digest. The universal currency of a factory. See [The Five Primitives](how/primitives.md).

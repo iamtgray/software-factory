@@ -57,6 +57,9 @@ Provenance
 Reachability
 :   Whether vulnerable code can actually be invoked from the application. The question that decides whether a finding is real. **52.9% of real-world SBOMs declare no dependency edges at all**, so reachability analysis over them silently returns "not reachable" for everything.
 
+Software factory
+:   DoD's own definition, from *DevSecOps Fundamentals v2.5* section 2.3: *"a collection of people, tools, and processes that enables teams to continuously deliver value by deploying software to meet the needs of a specific community of end users. It leverages automation to replace manual processes."* Note what it does **not** mention: evidence, provenance, signatures or compliance. The same document distinguishes it from a **DevSecOps platform** -- *"A software factory encompasses the entire set of software capabilities required to deliver resilient software capability at speed. The DevSecOps platform consists of those software capabilities that are common across all software factories."* So the containment runs platform, then factories, then pipelines. The civilian equivalent term is *internal developer platform*.
+
 Slot
 :   A component position defined by the **outcome it must produce** rather than the tool that fills it. The mechanism that lets one architecture serve a cloud and an enclave. See [Slots and Outcomes](how/slots.md).
 

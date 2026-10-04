@@ -58,11 +58,15 @@ Anything that **gates a build** gets maintained, because it breaks loudly when i
 
 === "The policy case"
 
-    The DoD's cATO memo has required, since February 2022, that *"all security controls will need to be fed into a system level dashboard view, providing a real time and robust mechanism for AOs to view the environment."*
+    The DoD's cATO memo required, in February 2022, that *"all security controls will need to be fed into a system level dashboard view, providing a real time and robust mechanism for AOs to view the environment."*
+
+    By the 2024 evaluation criteria, "all" had become **"which"**: *"Demonstrate which security controls are fed into a system-level dashboard view."* And the criteria go on to accept, as satisfactory evidence of a control gate working, *"screen shots of control gate output as displayed in a dashboard."*
+
+    **A PNG meets the requirement.**
 
     RAND, in 2025: *"limited movement toward implementation of continuous authority to operate."*
 
-    The policy demands continuous evidence. The implementations produce stale documents.
+    So the honest version is not that policy demands machine-verifiable evidence and implementations fail to deliver it. **Policy demands continuous evidence, names the pipeline as its source, and then specifies no machine-verifiable form.** That gap is where the stale document walks back in -- and in the same criteria, automating control validation is listed as an *objective* rather than a threshold requirement. Optional.
 
 ## The sharper diagnosis
 
