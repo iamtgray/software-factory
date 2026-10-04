@@ -1,6 +1,6 @@
-# Ecosystem Health
+# Ecosystem Risk
 
-A factory is an assembly of other people's projects. So the health of those projects is an architectural property, not an operational detail.
+A factory is an assembly of other people's projects. So the health of those projects is an architectural property, not an operational detail, and every dependency below is a risk you are choosing to carry.
 
 ## Twelve projects on the critical path with no substitute
 
@@ -17,7 +17,7 @@ A factory is an assembly of other people's projects. So the health of those proj
 
 Two deserve particular attention.
 
-The **44-star project** is actively maintained -- it cut a release two days before this was written. So the risk is **bus factor, not abandonment**. It's simultaneously the most load-bearing and the least known component in the whole stack: nothing else in open source signs a verdict over a set of attestations, which is the mechanism the entire delegated-verdict pattern depends on.
+The **44-star project** is actively maintained and cutting releases. So the risk is **bus factor, not abandonment**. It's simultaneously the most load-bearing and the least known component in the whole stack: nothing else in open source signs a verdict over a set of attestations, which is the mechanism the entire delegated-verdict pattern depends on.
 
 The **277-star project** carries the entire evidence chain. Also healthy, also tiny.
 
@@ -45,8 +45,6 @@ One project is at **v5.130.1 on 62 stars** and is in a foundation's sandbox tier
 !!! warning "Health-check before adopting, every time"
     Stars measure past attention, not current maintenance. A release feed and a last-commit date take thirty seconds and will save you a year.
 
-    The method that made this survey possible: **project release feeds aren't rate-limited**, so hundreds of repositories can be checked without authentication.
-
 ## The licence pattern
 
 | Trap | Why it hurts |
@@ -66,7 +64,7 @@ A related finding: the open factory most often cited as a reference implementati
 
 ## The OSCAL retreat
 
-The clearest case of informed abandonment in the whole survey. Several well-resourced, independently motivated organisations built on OSCAL and walked away, and at least one said why. Read the direction rather than the snapshot: **the ecosystem is drifting back towards documents.** The evidence is catalogued under [Build vs Adopt](../tradeoffs/build-vs-adopt.md), since what it changes is a decision about what to build rather than a tool to cross off.
+The clearest case of informed abandonment anywhere in this stack. Several well-resourced, independently motivated organisations built on OSCAL and walked away, and at least one said why. Read the direction rather than the snapshot: **the ecosystem is drifting back towards documents.** The evidence is catalogued under [Build vs Adopt](../tradeoffs/build-vs-adopt.md), since what it changes is a decision about what to build rather than a tool to cross off.
 
 ## Where disconnected operation is genuinely first-class
 

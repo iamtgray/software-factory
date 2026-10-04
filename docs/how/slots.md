@@ -25,8 +25,8 @@ A custom resource gives you two things a configuration path cannot:
 - **schema-validated admission** -- a bad slot declaration is rejected at the API server
 - **runtime discoverability** -- the core can query what is installed and how to invoke it
 
-!!! note "Correction on the renderer"
-    A natural follow-on is to generate those controllers with a composition tool. Two candidates were checked directly, and neither is usable yet: one publishes its latest release under a rolling `latest` tag with no semantic version since 2024, which makes it **unpinnable and therefore unusable in an air-gapped bundle**; the other is still a release candidate.
+!!! note "On generating the controllers"
+    A natural follow-on is to generate those controllers with a composition tool. Neither of the two candidates is usable yet: one publishes its latest release under a rolling `latest` tag with no semantic version since 2024, which makes it **unpinnable and therefore unusable in an air-gapped bundle**; the other is still a release candidate.
 
     **Keep the custom resource as the contract and write the controllers plainly for now.** The contract is renderer-independent, and committing to either option would import an unpinnable or pre-release dependency into the one component everything else depends on.
 

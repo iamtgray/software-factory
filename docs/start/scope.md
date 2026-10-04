@@ -1,6 +1,6 @@
 # Scope -- What This Is Not
 
-The most consequential decision on this site, and it's about scope rather than technology.
+The most consequential decision in designing a factory, and it is about scope rather than technology.
 
 ## The risk that forces it
 

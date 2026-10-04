@@ -1,11 +1,13 @@
-# Limitations
+# What To Decide
 
-What this approach cannot do, what cannot be known, what nobody thought to ask, and what has already been tried.
+Four pages of decisions. Each one is something you have to settle, price or deliberately accept before you commit money — not a list of things that are missing.
 
-**[What Nobody Asked](unasked.md)** -- Three critics were pointed at the research and asked what was missing. There is no named buyer, no operating model, no cost in money, and no response in the architecture to either of the two failure modes the research itself ranked highest. Also a correctness defect: restoring the high side from backup silently defeats the anti-rollback guarantee. Start here if you are deciding whether to fund this.
+**[Open Questions](unasked.md)** -- Nine items, mostly commercial. Who the buyer is, given that the thesis bills the budget holder for a benefit that accrues to an assessor. Whether this is a product or a consulting engagement, because that choice picks the architecture. What the GPU estate costs. Which signing algorithm the customer mandates, against a primitive that cannot be reversed. Plus one correctness defect: restoring the high side from backup resets the anti-rollback high-water mark and lets an older, validly-signed bundle replay. Start here if you are deciding whether to fund this.
 
-**[What We Cannot Answer](unanswerable.md)** -- Questions that aren't answerable from public sources, most of them about how real cross-domain guards actually behave. Six of seven things you'd need to design a transfer format are controlled information. Designing against a guess is worse than not designing.
+**[What Cannot Be Known](unanswerable.md)** -- Where more effort buys nothing, because the information is controlled or has never been measured. Six of the seven things you need to design a transfer format are controlled. Designing against a guess is worse than not designing, so the decision is who to go and ask.
 
-**[What Has Failed Before](history.md)** -- The idea has failed four times since 1968, and the diagnoses are consistent and unflattering. The compromise the 1978 attempt retreated to is modern platform engineering, forty years early.
+**[Why These Fail](history.md)** -- The idea has failed four times since 1968 and the diagnoses are consistent: optional adoption, no workflow analysis, product variety, operator turnover. Decide which of those you are designing against. The compromise the 1978 attempt retreated to is modern platform engineering, forty years early.
 
-**[Ecosystem Health](ecosystem.md)** -- Twelve projects under 300 stars on the critical path, well-known tools that are dead despite their star counts, and a licence pattern where the paid tier is reliably the feature a regulated deployment needs.
+**[Ecosystem Risk](ecosystem.md)** -- Twelve projects under 300 stars on the critical path with no substitute, well-known tools that are dead despite their star counts, and a licence pattern where the paid tier is reliably the feature a regulated deployment needs. Decide which of these you carry and which you replace.
+
+Before quoting any of it outside your own organisation, check [What You Can Quote](../reference/status.md).

@@ -1,11 +1,8 @@
 # The Five Primitives
 
-Four research streams working on different questions (supply-chain integrity, cross-domain transfer, deployment composition, the AI layer) independently arrived at the same small set of mechanisms.
+Four different problems -- supply-chain integrity, cross-domain transfer, deployment composition and the AI layer -- converge on the same small set of mechanisms.
 
 Strip the domain language away and there are five building blocks. Every hand-off in the factory is made from them.
-
-!!! note "This started as three"
-    The original formulation had three primitives. Adversarial verification found two more -- trust configuration and freshness state -- which had been quietly treated as *fields in a manifest* rather than as things the architecture must carry everywhere. That was a real hole. See [What We Got Wrong](../start/corrections.md).
 
 ---
 
@@ -35,7 +32,7 @@ Three predicates are already registered and should be extended rather than reinv
 
 An accountable party performs an expensive verification once and signs a cheap assertion that everything downstream trusts instead of repeating the work.
 
-The research found this pattern three times without noticing it was one thing:
+The pattern appears in three places that look unrelated:
 
 | Instance | Verifies | Downstream reads |
 |---|---|---|
@@ -72,7 +69,7 @@ lastMeasured: { suite: swe-bench-subset, score: 0.42, attestation: "sha256:..." 
 This is how **degradation becomes a design decision rather than a production surprise**. A factory that says "in this enclave, autonomous multi-file change is disabled, and here is the measurement that justifies it" is far more credible to an assessor than one claiming uniform capability that quietly flakes.
 
 !!! danger "Declared is not good enough"
-    The descriptor must carry **measured** capability -- last night's signed evaluation score -- not a hand-maintained list of promises. Otherwise it rots exactly like every other hand-written artefact, and this site is largely about artefacts that rot.
+    The descriptor must carry **measured** capability -- last night's signed evaluation score -- not a hand-maintained list of promises. Otherwise it rots exactly like every other hand-written artefact.
 
 ## 4. Trust configuration
 
@@ -133,4 +130,4 @@ graph LR
 
 If the five are fixed, the components become nearly interchangeable. Swapping Syft for Trivy changes which tool produces an SBOM attestation; it doesn't change the envelope, the binding, the discovery mechanism, the gate, or anything downstream.
 
-That's what makes one architecture serve a hyperscale cloud and a disconnected enclave without becoming two products -- which was the original design goal, and the only part of the original position that survived verification untouched.
+That's what makes one architecture serve a hyperscale cloud and a disconnected enclave without becoming two products.

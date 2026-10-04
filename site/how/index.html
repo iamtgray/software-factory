@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="What a secure software factory actually is, what it can and cannot deliver, where the trade-offs are, and what the evidence says -- including where the evidence says we were wrong">
+        <meta name="description" content="What a secure software factory actually is, what good looks like, where the real trade-offs are, and what you have to decide before committing money">
       
       
       
@@ -16,7 +16,7 @@
         <link rel="prev" href="../start/scope/">
       
       
-        <link rel="next" href="primitives/">
+        <link rel="next" href="what-good-looks-like/">
       
       
         
@@ -261,8 +261,6 @@
       
         
       
-        
-      
     
     
     
@@ -354,34 +352,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../start/corrections/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What We Got Wrong
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../start/scope/" class="md-nav__link">
         
   
@@ -423,6 +393,8 @@
       
         
           
+        
+      
         
       
         
@@ -483,6 +455,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="what-good-looks-like/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Good Looks Like
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -985,7 +985,7 @@
   <span class="md-ellipsis">
     
   
-    Limitations
+    What To Decide
   
 
     
@@ -1007,7 +1007,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations
+    What To Decide
   
 
           </label>
@@ -1029,7 +1029,7 @@
   <span class="md-ellipsis">
     
   
-    What Nobody Asked
+    Open Questions
   
 
     
@@ -1057,7 +1057,7 @@
   <span class="md-ellipsis">
     
   
-    What We Cannot Answer
+    What Cannot Be Known
   
 
     
@@ -1085,7 +1085,7 @@
   <span class="md-ellipsis">
     
   
-    What Has Failed Before
+    Why These Fail
   
 
     
@@ -1113,7 +1113,7 @@
   <span class="md-ellipsis">
     
   
-    Ecosystem Health
+    Ecosystem Risk
   
 
     
@@ -1208,7 +1208,7 @@
   <span class="md-ellipsis">
     
   
-    Evidence Status
+    What You Can Quote
   
 
     
@@ -1278,10 +1278,6 @@
 <p>Every hand-off in the factory is built from the same five things, and <a href="primitives/">The Five Primitives</a> names them: a digest-bound statement, a delegated verdict, a capability descriptor, trust configuration, and freshness state. Fix those five and the choice of tools becomes close to arbitrary -- swapping Syft for Trivy changes which binary emits an SBOM attestation, and nothing downstream of it.</p>
 <p><a href="handoffs/">The Hand-offs</a> spends the primitives on the boundaries that need them. Most boundaries inside a factory are ordinary function calls; five are trust-domain transitions, where the receiver can't verify what the sender did by inspection and has to rely on a signature. Those five are the architecture. Everything else is plumbing.</p>
 <p>Then the contract. <a href="slots/">Slots and Outcomes</a> defines each component position by the outcome it owes -- a signed SBOM, a reviewed diff, a scanned artefact -- so the tool that fills it is an implementation detail; it also covers how an implementation declares machine-readably what it can actually do, and why that contract has to be a Kubernetes custom resource and not a 2,653-line values file.</p>
-<div class="admonition note">
-<p class="admonition-title">Three became five</p>
-<p>The original formulation had three primitives. Adversarial verification found two more -- trust configuration and freshness state -- which had been quietly treated as fields in a manifest, when they're things the architecture has to carry everywhere. The five on the primitives page are the corrected set. See <a href="../start/corrections/">What We Got Wrong</a>.</p>
-</div>
 
 
 
@@ -1336,13 +1332,13 @@
         
         
           
-          <a href="primitives/" class="md-footer__link md-footer__link--next" aria-label="Next: The Five Primitives">
+          <a href="what-good-looks-like/" class="md-footer__link md-footer__link--next" aria-label="Next: What Good Looks Like">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                The Five Primitives
+                What Good Looks Like
               </div>
             </div>
             <div class="md-footer__button md-icon">

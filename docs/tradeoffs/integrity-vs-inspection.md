@@ -87,10 +87,10 @@ So stop designing the envelope format until someone cleared answers them. It's a
 
 ## And the one nobody asks for
 
-Having now read the primary documents rather than summaries of them, the absence is starker than first reported. Across the DoD reference design and the DevSecOps Fundamentals, these terms occur **zero times**: `reproducible`, `OSCAL`, `admission`, `attestation`, `SLSA`, `in-toto`, `Sigstore`, `cosign`, `provenance`, `notary`, `checksum`, `digest`.
+Across the DoD reference design and the DevSecOps Fundamentals, these terms occur **zero times**: `reproducible`, `OSCAL`, `admission`, `attestation`, `SLSA`, `in-toto`, `Sigstore`, `cosign`, `provenance`, `notary`, `checksum`, `digest`.
 
 And the sharpest one: **the word "signed" appears zero times in DevSecOps Fundamentals v2.5.** In the reference design it appears twice, both describing a hardened-image registry's output. **Nobody is ever told to verify a signature** -- not at pull, not at build, not at admission, not at deploy. The security model is trust-by-source plus rescan, with two different scanners mandated "because scan results are too disparate".
 
-One correction to make honestly: **SBOM *is* demanded**, once, in Fundamentals section 3.3.1.2 -- *"cATO includes the need for a Secure Software Supply Chain (SSSC) and requires a Software Bill of Materials (SBOM)."* A single occurrence in 44 pages, absent from both the acronym list and the glossary, with no format, depth, timing, consumer or consequence specified. Demanded, but barely.
+**SBOM is the exception**, demanded once, in Fundamentals section 3.3.1.2 -- *"cATO includes the need for a Secure Software Supply Chain (SSSC) and requires a Software Bill of Materials (SBOM)."* A single occurrence in 44 pages, absent from both the acronym list and the glossary, with no format, depth, timing, consumer or consequence specified. Demanded, but barely.
 
 That's not an argument against doing them. It's an argument for justifying them on merit rather than waving them through as compliance requirements -- because when budgets tighten, the things nobody asked for go first.

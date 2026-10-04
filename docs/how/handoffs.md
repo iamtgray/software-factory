@@ -88,7 +88,7 @@ This is the hard one, and the one most commonly described wrongly. Two distinct 
 
 === "Media gap (sneakernet)"
 
-    **Largely solved, contrary to what this project originally claimed.** A standard OCI layout carries images, signatures, attestations, SBOMs and the referrers graph. Hauler does this by default; `zarf package verify` performs full offline verification with a trust root embedded in the binary.
+    **Largely solved.** A standard OCI layout carries images, signatures, attestations, SBOMs and the referrers graph. Hauler does this by default; `zarf package verify` performs full offline verification with a trust root embedded in the binary.
 
     **What's missing is the obligation to look.** Hauler's receiving-side `load` command has one flag and no verification. Zarf's deploy-time `--verify` defaults to `if-possible`. The buildable thing is a **fail-closed gate over a signed shipment manifest** -- stating what the transfer should contain, who authorised it, and what sequence number it carries.
 

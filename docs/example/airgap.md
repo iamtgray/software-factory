@@ -16,9 +16,7 @@ Almost all confusion in this field comes from treating these as one thing. They 
 
 === "Air gap -- largely solved"
 
-    A standard OCI layout carries images, signatures, attestations, SBOMs and the referrers graph. One widely-used tool does this by default; another performs full offline verification with a trust root **embedded in its own binary**.
-
-    The original premise of this project was that evidence does not cross. That was **wrong**, and the correction is on the [What We Got Wrong](../start/corrections.md) page.
+    A standard OCI layout carries images, signatures, attestations, SBOMs and the referrers graph. One widely-used tool does this by default; another performs full offline verification with a trust root **embedded in its own binary**. Evidence crosses an air gap intact.
 
 === "Cross-domain -- genuinely unsolved"
 
@@ -80,9 +78,9 @@ That intuition is wrong, and it is the problem Sigstore was built to solve.
 
     The proof ships inside the bundle -- a transparency-log inclusion proof and signed checkpoint, or an RFC 3161 timestamp. No network call, and no long-lived key.
 
-This was tested rather than argued. A package bundle whose leaf certificate was valid for ten minutes on 28 July 2026, carrying no RFC 3161 timestamps and no long-lived key, verified successfully offline **two months after that certificate expired**, with all egress forced through a dead proxy. Flipping one byte of the inclusion proof's root hash made it fail, so the Merkle proof is doing the work.
+A package bundle whose leaf certificate was valid for ten minutes on 28 July 2026, carrying no RFC 3161 timestamps and no long-lived key, verified successfully offline **two months after that certificate expired**, with all egress forced through a dead proxy. Flipping one byte of the inclusion proof's root hash made it fail, so the Merkle proof is doing the work.
 
-So the earlier rule here -- *keyless within a trust domain, long-lived keys across* -- had the pairing backwards, and it has been removed. What is genuinely true is narrower:
+The usual rule of thumb -- *keyless within a trust domain, long-lived keys across* -- has the pairing backwards. What is true is narrower:
 
 - **Inside a trust domain, keyless is right and cheap.** A workload-identity system feeding your own certificate authority is configuration rather than code: the CA has a first-class SPIFFE issuer type, a validated trust-domain field, and config validation that rejects a SPIFFE issuer without one.
 - **Across a boundary, keyless still works, provided the bundle carries its own verification material** -- the inclusion proof, the checkpoint, the trusted root. That is a bundle-construction requirement, not a key-management one.

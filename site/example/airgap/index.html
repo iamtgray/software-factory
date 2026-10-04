@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="What a secure software factory actually is, what it can and cannot deliver, where the trade-offs are, and what the evidence says -- including where the evidence says we were wrong">
+        <meta name="description" content="What a secure software factory actually is, what good looks like, where the real trade-offs are, and what you have to decide before committing money">
       
       
       
@@ -261,8 +261,6 @@
       
         
       
-        
-      
     
     
     
@@ -354,34 +352,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../start/corrections/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What We Got Wrong
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../start/scope/" class="md-nav__link">
         
   
@@ -421,6 +391,8 @@
       
         
           
+        
+      
         
       
         
@@ -483,6 +455,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how/what-good-looks-like/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Good Looks Like
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1137,7 +1137,7 @@
   <span class="md-ellipsis">
     
   
-    Limitations
+    What To Decide
   
 
     
@@ -1159,7 +1159,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations
+    What To Decide
   
 
           </label>
@@ -1181,7 +1181,7 @@
   <span class="md-ellipsis">
     
   
-    What Nobody Asked
+    Open Questions
   
 
     
@@ -1209,7 +1209,7 @@
   <span class="md-ellipsis">
     
   
-    What We Cannot Answer
+    What Cannot Be Known
   
 
     
@@ -1237,7 +1237,7 @@
   <span class="md-ellipsis">
     
   
-    What Has Failed Before
+    Why These Fail
   
 
     
@@ -1265,7 +1265,7 @@
   <span class="md-ellipsis">
     
   
-    Ecosystem Health
+    Ecosystem Risk
   
 
     
@@ -1360,7 +1360,7 @@
   <span class="md-ellipsis">
     
   
-    Evidence Status
+    What You Can Quote
   
 
     
@@ -1437,8 +1437,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Air gap -- largely solved</label><label for="__tabbed_1_2">Cross-domain -- genuinely unsolved</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>A standard OCI layout carries images, signatures, attestations, SBOMs and the referrers graph. One widely-used tool does this by default; another performs full offline verification with a trust root <strong>embedded in its own binary</strong>.</p>
-<p>The original premise of this project was that evidence does not cross. That was <strong>wrong</strong>, and the correction is on the <a href="../../start/corrections/">What We Got Wrong</a> page.</p>
+<p>A standard OCI layout carries images, signatures, attestations, SBOMs and the referrers graph. One widely-used tool does this by default; another performs full offline verification with a trust root <strong>embedded in its own binary</strong>. Evidence crosses an air gap intact.</p>
 </div>
 <div class="tabbed-block">
 <p>A guard enforcing content policy may transform data to sanitise it. Transformation changes bytes; changed bytes break every signature over them.</p>
@@ -1506,8 +1505,8 @@
 <p>The signer has the signature timestamped, and the verifier checks that the timestamp falls inside the certificate's validity window. The client specification states the design goal directly: <em>"we decouple the payload lifetime from the certificate lifetime."</em></p>
 <p>The proof ships inside the bundle -- a transparency-log inclusion proof and signed checkpoint, or an RFC 3161 timestamp. No network call, and no long-lived key.</p>
 </div>
-<p>This was tested rather than argued. A package bundle whose leaf certificate was valid for ten minutes on 28 July 2026, carrying no RFC 3161 timestamps and no long-lived key, verified successfully offline <strong>two months after that certificate expired</strong>, with all egress forced through a dead proxy. Flipping one byte of the inclusion proof's root hash made it fail, so the Merkle proof is doing the work.</p>
-<p>So the earlier rule here -- <em>keyless within a trust domain, long-lived keys across</em> -- had the pairing backwards, and it has been removed. What is genuinely true is narrower:</p>
+<p>A package bundle whose leaf certificate was valid for ten minutes on 28 July 2026, carrying no RFC 3161 timestamps and no long-lived key, verified successfully offline <strong>two months after that certificate expired</strong>, with all egress forced through a dead proxy. Flipping one byte of the inclusion proof's root hash made it fail, so the Merkle proof is doing the work.</p>
+<p>The usual rule of thumb -- <em>keyless within a trust domain, long-lived keys across</em> -- has the pairing backwards. What is true is narrower:</p>
 <ul>
 <li><strong>Inside a trust domain, keyless is right and cheap.</strong> A workload-identity system feeding your own certificate authority is configuration rather than code: the CA has a first-class SPIFFE issuer type, a validated trust-domain field, and config validation that rejects a SPIFFE issuer without one.</li>
 <li><strong>Across a boundary, keyless still works, provided the bundle carries its own verification material</strong> -- the inclusion proof, the checkpoint, the trusted root. That is a bundle-construction requirement, not a key-management one.</li>

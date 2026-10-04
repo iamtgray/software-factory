@@ -35,7 +35,7 @@ From a sweep of 24 outcome-defined slots against open source, with 250+ reposito
 
 One of those eight looked as though it could move to the adopt list, and the story of why it can't is instructive. A tool exists that turns a maintainer's single structured comment into a Sigstore-signed in-toto VEX attestation, authorised against a code-owners file. The design is exactly right, and it contains no AI -- correctly, since a model scores under 70% on that decision.
 
-But it is at **10 stars, v0.0.1, one maintainer, with a README that calls it experimental.** An earlier version of this page said that removed the signed-VEX item from the build list. It doesn't: adopting it means owning it. **Take the design as a head start; budget for the implementation.**
+But it is at **10 stars, v0.0.1, one maintainer, with a README that calls it experimental.** So it does not take signed VEX off your build list: adopting it means owning it. **Take the design as a head start; budget for the implementation.**
 
 That is the general shape of the adopt decision in this field, and it is why the next section matters more than the slot count.
 

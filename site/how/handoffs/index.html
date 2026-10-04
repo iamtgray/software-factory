@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="What a secure software factory actually is, what it can and cannot deliver, where the trade-offs are, and what the evidence says -- including where the evidence says we were wrong">
+        <meta name="description" content="What a secure software factory actually is, what good looks like, where the real trade-offs are, and what you have to decide before committing money">
       
       
       
@@ -261,8 +261,6 @@
       
         
       
-        
-      
     
     
     
@@ -354,34 +352,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../start/corrections/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What We Got Wrong
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../start/scope/" class="md-nav__link">
         
   
@@ -423,6 +393,8 @@
       
         
           
+        
+      
         
       
         
@@ -483,6 +455,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-good-looks-like/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Good Looks Like
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1098,7 +1098,7 @@
   <span class="md-ellipsis">
     
   
-    Limitations
+    What To Decide
   
 
     
@@ -1120,7 +1120,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations
+    What To Decide
   
 
           </label>
@@ -1142,7 +1142,7 @@
   <span class="md-ellipsis">
     
   
-    What Nobody Asked
+    Open Questions
   
 
     
@@ -1170,7 +1170,7 @@
   <span class="md-ellipsis">
     
   
-    What We Cannot Answer
+    What Cannot Be Known
   
 
     
@@ -1198,7 +1198,7 @@
   <span class="md-ellipsis">
     
   
-    What Has Failed Before
+    Why These Fail
   
 
     
@@ -1226,7 +1226,7 @@
   <span class="md-ellipsis">
     
   
-    Ecosystem Health
+    Ecosystem Risk
   
 
     
@@ -1321,7 +1321,7 @@
   <span class="md-ellipsis">
     
   
-    Evidence Status
+    What You Can Quote
   
 
     
@@ -1478,7 +1478,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Media gap (sneakernet)</label><label for="__tabbed_1_2">Guard-mediated (cross-domain)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><strong>Largely solved, contrary to what this project originally claimed.</strong> A standard OCI layout carries images, signatures, attestations, SBOMs and the referrers graph. Hauler does this by default; <code>zarf package verify</code> performs full offline verification with a trust root embedded in the binary.</p>
+<p><strong>Largely solved.</strong> A standard OCI layout carries images, signatures, attestations, SBOMs and the referrers graph. Hauler does this by default; <code>zarf package verify</code> performs full offline verification with a trust root embedded in the binary.</p>
 <p><strong>What's missing is the obligation to look.</strong> Hauler's receiving-side <code>load</code> command has one flag and no verification. Zarf's deploy-time <code>--verify</code> defaults to <code>if-possible</code>. The buildable thing is a <strong>fail-closed gate over a signed shipment manifest</strong> -- stating what the transfer should contain, who authorised it, and what sequence number it carries.</p>
 </div>
 <div class="tabbed-block">

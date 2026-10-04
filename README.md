@@ -34,26 +34,27 @@ change it if not, or internal links in the published build will be wrong.
 
 ## The short version
 
-The original premise — that no open-source project integrates best-of-breed components
-into a coherent software factory with SBOM production — turned out to be falsifiable in
-about ninety seconds. Konflux-CI already describes itself as exactly that, and SBOM
-generation is commodity.
+Twelve regulatory regimes, across US and UK defence, the EU, financial services, medical
+devices, automotive and aviation, reduce to three machine-readable artefacts: a current
+component inventory, build-and-release provenance, and a vulnerability-and-remediation
+ledger. Serialising those is cheap and already solved. Generating them authoritatively,
+currently, and with transitive completeness is the product.
 
-The narrow, defensible gap is that **the evidence does not cross the boundary with the
-artefact**. Everything upstream of an air-gap is solved well by several projects. The
-moment an artefact crosses into a high-side enclave it arrives as a bare tarball and the
-receiver takes it on trust. The only cross-domain packaging implementation in open code
-verifies the signature on the low side and then discards it.
+Policy demands continuous evidence and names the pipeline as its source, but specifies no
+machine-verifiable form. The DoD's cATO evaluation criteria accept "screen shots of
+control gate output as displayed in a dashboard" as proof that a control gate works, and
+list automating control validation as an objective rather than a requirement. That gap is
+where the stale document walks back in.
 
-Generalised: evidence is produced as a side effect, stored where nobody reads it, and
-never checked against what it describes. Anything that gates a build gets maintained;
-anything read only by a human at accreditation time rots silently, because nothing fails
-when it does. The flagship DoD platform's OSCAL component definition — the artefact that
-makes control inheritance and therefore cATO work — has not been touched in three and a
-half years.
+Evidence rots because nothing reads it. Anything that gates a build gets maintained,
+because it breaks loudly when it drifts. Anything read only by a human at assessment time
+rots silently. The flagship DoD platform built live compliance validation in February
+2024, disabled the gate that August, and deleted the capability in September 2025.
 
-So the factory's distinguishing claim is that evidence is a first-class artefact with its
-own freshness and verification gates, and stale provenance is a build failure rather than
-an accreditation surprise.
+Transport is not the gap: a standard OCI layout already carries signatures, attestations
+and SBOMs across an air gap, and an existing command verifies them offline. What is
+missing is that nothing on the far side is obliged to look. The buildable work is a
+fail-closed receiver-side gate over a signed shipment manifest, and the guard-mediated
+case, which no open-source project models at all.
 
 Status: research phase. Nothing is built yet.

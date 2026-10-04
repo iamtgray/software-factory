@@ -1,6 +1,8 @@
-# What Has Failed Before
+# Why These Fail
 
-The software factory idea has been tried four times and failed four times. The diagnoses are consistent and unflattering, and one of them describes modern platform engineering forty years before the industry reinvented it.
+The software factory idea has been tried four times and failed four times. The diagnoses are consistent and unflattering, almost none of them are technical, and one of them describes modern platform engineering forty years before the industry reinvented it.
+
+Read this as a list of the ways your attempt dies, and decide which of them you are designing against.
 
 ## Four attempts, and the rejection that came first
 
@@ -83,7 +85,7 @@ The reuse numbers underneath it are a step function rather than a gradient. Reus
 
 That second one matters because the project's economic leverage rests on control inheritance. If that mechanism isn't actually happening, the leverage is theoretical.
 
-### The one genuinely new condition, in our favour
+### The one genuinely new condition, and it favours the attempt
 
 The binding constraint has moved from **code production to evidence production.** That puts a factory on a compliance chokepoint no team can opt out of -- which is structurally stronger than SDC's position, because SDC's customers could simply decline.
 

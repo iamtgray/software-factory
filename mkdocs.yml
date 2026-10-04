@@ -1,5 +1,5 @@
 site_name: Secure Software Factory
-site_description: What a secure software factory actually is, what it can and cannot deliver, where the trade-offs are, and what the evidence says -- including where the evidence says we were wrong
+site_description: What a secure software factory actually is, what good looks like, where the real trade-offs are, and what you have to decide before committing money
 site_url: https://iamtgray.github.io/software-factory/
 
 theme:
@@ -50,11 +50,11 @@ nav:
   - Getting Started:
     - start/index.md
     - The Problem: start/the-problem.md
-    - What We Got Wrong: start/corrections.md
     - Scope -- What This Is Not: start/scope.md
 
   - How It Works:
     - how/index.md
+    - What Good Looks Like: how/what-good-looks-like.md
     - The Five Primitives: how/primitives.md
     - The Hand-offs: how/handoffs.md
     - Slots and Outcomes: how/slots.md
@@ -72,13 +72,13 @@ nav:
     - AI -- Capability vs Provability: tradeoffs/ai.md
     - Build vs Adopt: tradeoffs/build-vs-adopt.md
 
-  - Limitations:
+  - What To Decide:
     - limits/index.md
-    - What Nobody Asked: limits/unasked.md
-    - What We Cannot Answer: limits/unanswerable.md
-    - What Has Failed Before: limits/history.md
-    - Ecosystem Health: limits/ecosystem.md
+    - Open Questions: limits/unasked.md
+    - What Cannot Be Known: limits/unanswerable.md
+    - Why These Fail: limits/history.md
+    - Ecosystem Risk: limits/ecosystem.md
 
   - Reference:
-    - Evidence Status: reference/status.md
+    - What You Can Quote: reference/status.md
     - Glossary: glossary.md

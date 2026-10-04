@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="What a secure software factory actually is, what it can and cannot deliver, where the trade-offs are, and what the evidence says -- including where the evidence says we were wrong">
+        <meta name="description" content="What a secure software factory actually is, what good looks like, where the real trade-offs are, and what you have to decide before committing money">
       
       
       
@@ -261,8 +261,6 @@
       
         
       
-        
-      
     
     
     
@@ -354,34 +352,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../start/corrections/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What We Got Wrong
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../start/scope/" class="md-nav__link">
         
   
@@ -421,6 +391,8 @@
       
         
           
+        
+      
         
       
         
@@ -483,6 +455,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how/what-good-looks-like/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Good Looks Like
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1175,7 +1175,7 @@
   <span class="md-ellipsis">
     
   
-    Limitations
+    What To Decide
   
 
     
@@ -1197,7 +1197,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations
+    What To Decide
   
 
           </label>
@@ -1219,7 +1219,7 @@
   <span class="md-ellipsis">
     
   
-    What Nobody Asked
+    Open Questions
   
 
     
@@ -1247,7 +1247,7 @@
   <span class="md-ellipsis">
     
   
-    What We Cannot Answer
+    What Cannot Be Known
   
 
     
@@ -1275,7 +1275,7 @@
   <span class="md-ellipsis">
     
   
-    What Has Failed Before
+    Why These Fail
   
 
     
@@ -1303,7 +1303,7 @@
   <span class="md-ellipsis">
     
   
-    Ecosystem Health
+    Ecosystem Risk
   
 
     
@@ -1398,7 +1398,7 @@
   <span class="md-ellipsis">
     
   
-    Evidence Status
+    What You Can Quote
   
 
     
@@ -1470,7 +1470,7 @@
 <hr />
 <h2 id="1-the-advisory-arrives">1. The advisory arrives</h2>
 <p>A new CVE lands in the vulnerability database. A scheduled scan of what is <em>already running</em> flags <code>payments-api</code> as affected.</p>
-<p><strong>The scan is of the running system, not of a build.</strong> The surviving US federal obligation after the 2026 deregulation is "an SBOM of the <strong>runtime production environment</strong> upon request" -- so this scan is the compliance artefact, not the build-time one. Runtime SBOM assembly is thinly served rather than empty: a Kubernetes operator for the <em>Deployed</em> type exists at a few hundred stars, and the underlying research marked this a <strong>weak negative on a narrow search</strong> rather than an absence. Treat it as a gap to size properly, not a gap to claim.</p>
+<p><strong>The scan is of the running system, not of a build.</strong> The surviving US federal obligation after the 2026 deregulation is "an SBOM of the <strong>runtime production environment</strong> upon request" -- so this scan is the compliance artefact, not the build-time one. Runtime SBOM assembly is thinly served rather than empty: a Kubernetes operator for the <em>Deployed</em> type exists at a few hundred stars, and the evidence for anything beyond it is a <strong>weak negative on a narrow search</strong> rather than a confirmed absence. Treat it as a gap to size properly, not a gap to claim.</p>
 <p><strong>The finding is probably wrong.</strong> Registry telemetry: 65% of open-source CVEs lack a severity score in the national database, and independent severity assessments agree with it only <strong>55.7%</strong> of the time. Matching on vendor-product identifiers against open-ended version ranges is the dominant source of false positives, and false positives are what get gates switched off.</p>
 <p>So the first real step is not fixing anything.</p>
 <h2 id="2-triage-and-the-question-that-actually-matters">2. Triage, and the question that actually matters</h2>
@@ -1507,7 +1507,7 @@
 <p class="admonition-title">A tool exists for this, and it contains no AI -- but read the version number</p>
 <p>An existing open-source tool turns a maintainer typing a single structured comment into a <strong>Sigstore-signed in-toto VEX attestation</strong>, authorised against a code-owners file. Thirty seconds of human effort produces a durable, verifiable statement.</p>
 <p>It's coupled to one forge by default, but through pluggable interfaces, so porting it is bounded work against a designed seam.</p>
-<p><strong>The correction, though:</strong> this site originally said that removed the signed-VEX work from the build list entirely. It doesn't. The tool is at <strong>10 stars, v0.0.1, one maintainer, and its own README calls it experimental.</strong> The <em>design</em> is the thing worth adopting; the implementation is a prototype you would end up owning. Treat it as a head start, not a dependency.</p>
+<p>It does not, however, remove the signed-VEX work from the build list. The tool is at <strong>10 stars, v0.0.1, one maintainer, and its own README calls it experimental.</strong> The <em>design</em> is the thing worth adopting; the implementation is a prototype you would end up owning. Treat it as a head start, not a dependency.</p>
 <p>A model should <em>not</em> make this call either way: the best measured performance on selecting the right VEX justification is under 70%.</p>
 </div>
 <p>A caveat: <strong>52.9% of 78,000 real-world SBOMs declare no dependency edges at all.</strong> Reachability analysis over a graph with no edges silently returns "not reachable" for everything. Detecting that degenerate case moved recall on known-exploited vulnerabilities from 0.60 to 0.95 -- a cheap mechanical check with a very large effect.</p>
@@ -1575,7 +1575,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>The SBOM must be signed</strong>, and an author signature is now a baseline element in the current minimum-elements guidance. Note the correction here: the most mature open factory ships its <em>build-time</em> SBOM unsigned but does cryptographically sign its <em>release-time</em> one, so this is a narrower gap than this site originally claimed and <strong>not</strong> the cheap differentiator it was billed as.</p>
+<p><strong>The SBOM must be signed</strong>, and an author signature is now a baseline element in the current minimum-elements guidance. The most mature open factory ships its <em>build-time</em> SBOM unsigned but does cryptographically sign its <em>release-time</em> one, so the gap is a narrow one and signing a build-time SBOM is <strong>not</strong> a cheap differentiator.</p>
 <h2 id="8-the-gate">8. The gate</h2>
 <p>Now the expensive reasoning happens, once:</p>
 <ul>

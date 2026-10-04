@@ -6,14 +6,14 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="What a secure software factory actually is, what it can and cannot deliver, where the trade-offs are, and what the evidence says -- including where the evidence says we were wrong">
+        <meta name="description" content="What a secure software factory actually is, what good looks like, where the real trade-offs are, and what you have to decide before committing money">
       
       
       
         <link rel="canonical" href="https://iamtgray.github.io/software-factory/how/primitives/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../what-good-looks-like/">
       
       
         <link rel="next" href="../handoffs/">
@@ -261,8 +261,6 @@
       
         
       
-        
-      
     
     
     
@@ -354,34 +352,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../start/corrections/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What We Got Wrong
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../start/scope/" class="md-nav__link">
         
   
@@ -423,6 +393,8 @@
       
         
           
+        
+      
         
       
         
@@ -483,6 +455,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-good-looks-like/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Good Looks Like
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1109,7 +1109,7 @@
   <span class="md-ellipsis">
     
   
-    Limitations
+    What To Decide
   
 
     
@@ -1131,7 +1131,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations
+    What To Decide
   
 
           </label>
@@ -1153,7 +1153,7 @@
   <span class="md-ellipsis">
     
   
-    What Nobody Asked
+    Open Questions
   
 
     
@@ -1181,7 +1181,7 @@
   <span class="md-ellipsis">
     
   
-    What We Cannot Answer
+    What Cannot Be Known
   
 
     
@@ -1209,7 +1209,7 @@
   <span class="md-ellipsis">
     
   
-    What Has Failed Before
+    Why These Fail
   
 
     
@@ -1237,7 +1237,7 @@
   <span class="md-ellipsis">
     
   
-    Ecosystem Health
+    Ecosystem Risk
   
 
     
@@ -1332,7 +1332,7 @@
   <span class="md-ellipsis">
     
   
-    Evidence Status
+    What You Can Quote
   
 
     
@@ -1399,12 +1399,8 @@
 
 
 <h1 id="the-five-primitives">The Five Primitives</h1>
-<p>Four research streams working on different questions (supply-chain integrity, cross-domain transfer, deployment composition, the AI layer) independently arrived at the same small set of mechanisms.</p>
+<p>Four different problems -- supply-chain integrity, cross-domain transfer, deployment composition and the AI layer -- converge on the same small set of mechanisms.</p>
 <p>Strip the domain language away and there are five building blocks. Every hand-off in the factory is made from them.</p>
-<div class="admonition note">
-<p class="admonition-title">This started as three</p>
-<p>The original formulation had three primitives. Adversarial verification found two more -- trust configuration and freshness state -- which had been quietly treated as <em>fields in a manifest</em> rather than as things the architecture must carry everywhere. That was a real hole. See <a href="../../start/corrections/">What We Got Wrong</a>.</p>
-</div>
 <hr />
 <h2 id="1-the-digest-bound-statement">1. The digest-bound statement</h2>
 <p>A small signed document that commits to a large thing by cryptographic hash, carrying a declared type.</p>
@@ -1424,7 +1420,7 @@
 <p>Three predicates are already registered and should be extended rather than reinvented: <code>test-result/v0.1</code>, <code>runtime-trace/v0.1</code>, and <code>svr/v0.2</code>.</p>
 <h2 id="2-the-delegated-verdict">2. The delegated verdict</h2>
 <p>An accountable party performs an expensive verification once and signs a cheap assertion that everything downstream trusts instead of repeating the work.</p>
-<p>The research found this pattern three times without noticing it was one thing:</p>
+<p>The pattern appears in three places that look unrelated:</p>
 <table>
 <thead>
 <tr>
@@ -1476,7 +1472,7 @@
 <p>This is how <strong>degradation becomes a design decision rather than a production surprise</strong>. A factory that says "in this enclave, autonomous multi-file change is disabled, and here is the measurement that justifies it" is far more credible to an assessor than one claiming uniform capability that quietly flakes.</p>
 <div class="admonition danger">
 <p class="admonition-title">Declared is not good enough</p>
-<p>The descriptor must carry <strong>measured</strong> capability -- last night's signed evaluation score -- not a hand-maintained list of promises. Otherwise it rots exactly like every other hand-written artefact, and this site is largely about artefacts that rot.</p>
+<p>The descriptor must carry <strong>measured</strong> capability -- last night's signed evaluation score -- not a hand-maintained list of promises. Otherwise it rots exactly like every other hand-written artefact.</p>
 </div>
 <h2 id="4-trust-configuration">4. Trust configuration</h2>
 <p>The set of keys, roots, revocations and validity windows a verifier needs to check anything at all.</p>
@@ -1546,7 +1542,7 @@
 </ul>
 <h2 id="what-this-buys">What this buys</h2>
 <p>If the five are fixed, the components become nearly interchangeable. Swapping Syft for Trivy changes which tool produces an SBOM attestation; it doesn't change the envelope, the binding, the discovery mechanism, the gate, or anything downstream.</p>
-<p>That's what makes one architecture serve a hyperscale cloud and a disconnected enclave without becoming two products -- which was the original design goal, and the only part of the original position that survived verification untouched.</p>
+<p>That's what makes one architecture serve a hyperscale cloud and a disconnected enclave without becoming two products.</p>
 
 
 
@@ -1584,7 +1580,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: How It Works">
+          <a href="../what-good-looks-like/" class="md-footer__link md-footer__link--prev" aria-label="Previous: What Good Looks Like">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1594,7 +1590,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                How It Works
+                What Good Looks Like
               </div>
             </div>
           </a>

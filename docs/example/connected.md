@@ -10,7 +10,7 @@ Throughout: **D** is the final image digest, **C** is the git commit.
 
 A new CVE lands in the vulnerability database. A scheduled scan of what is *already running* flags `payments-api` as affected.
 
-**The scan is of the running system, not of a build.** The surviving US federal obligation after the 2026 deregulation is "an SBOM of the **runtime production environment** upon request" -- so this scan is the compliance artefact, not the build-time one. Runtime SBOM assembly is thinly served rather than empty: a Kubernetes operator for the *Deployed* type exists at a few hundred stars, and the underlying research marked this a **weak negative on a narrow search** rather than an absence. Treat it as a gap to size properly, not a gap to claim.
+**The scan is of the running system, not of a build.** The surviving US federal obligation after the 2026 deregulation is "an SBOM of the **runtime production environment** upon request" -- so this scan is the compliance artefact, not the build-time one. Runtime SBOM assembly is thinly served rather than empty: a Kubernetes operator for the *Deployed* type exists at a few hundred stars, and the evidence for anything beyond it is a **weak negative on a narrow search** rather than a confirmed absence. Treat it as a gap to size properly, not a gap to claim.
 
 **The finding is probably wrong.** Registry telemetry: 65% of open-source CVEs lack a severity score in the national database, and independent severity assessments agree with it only **55.7%** of the time. Matching on vendor-product identifiers against open-ended version ranges is the dominant source of false positives, and false positives are what get gates switched off.
 
@@ -35,7 +35,7 @@ This is where most factories fail, and the failure is social rather than technic
 
     It's coupled to one forge by default, but through pluggable interfaces, so porting it is bounded work against a designed seam.
 
-    **The correction, though:** this site originally said that removed the signed-VEX work from the build list entirely. It doesn't. The tool is at **10 stars, v0.0.1, one maintainer, and its own README calls it experimental.** The *design* is the thing worth adopting; the implementation is a prototype you would end up owning. Treat it as a head start, not a dependency.
+    It does not, however, remove the signed-VEX work from the build list. The tool is at **10 stars, v0.0.1, one maintainer, and its own README calls it experimental.** The *design* is the thing worth adopting; the implementation is a prototype you would end up owning. Treat it as a head start, not a dependency.
 
     A model should *not* make this call either way: the best measured performance on selecting the right VEX justification is under 70%.
 
@@ -100,7 +100,7 @@ The build emits, all bound to **D** by digest, all wrapped in the same envelope:
 | Test results | Test task identity |
 | The step-2 VEX | VEX-issuer identity |
 
-**The SBOM must be signed**, and an author signature is now a baseline element in the current minimum-elements guidance. Note the correction here: the most mature open factory ships its *build-time* SBOM unsigned but does cryptographically sign its *release-time* one, so this is a narrower gap than this site originally claimed and **not** the cheap differentiator it was billed as.
+**The SBOM must be signed**, and an author signature is now a baseline element in the current minimum-elements guidance. The most mature open factory ships its *build-time* SBOM unsigned but does cryptographically sign its *release-time* one, so the gap is a narrow one and signing a build-time SBOM is **not** a cheap differentiator.
 
 ## 8. The gate
 

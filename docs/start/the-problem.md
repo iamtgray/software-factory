@@ -27,7 +27,7 @@ One line: *five regulations asking five things are asking what is in it, where i
 
 ## The pattern behind every documented failure
 
-Across four independently researched examples, the same mechanism appears. Evidence is produced as a side effect of some other process, stored somewhere nothing reads it, and never verified against the thing it describes.
+Across four documented examples, the same mechanism appears. Evidence is produced as a side effect of some other process, stored somewhere nothing reads it, and never verified against the thing it describes.
 
 Anything that **gates a build** gets maintained, because it breaks loudly when it drifts. Anything read only by a human at assessment time **rots silently**, because nothing fails when it does.
 
@@ -66,7 +66,7 @@ Anything that **gates a build** gets maintained, because it breaks loudly when i
 
     RAND, in 2025: *"limited movement toward implementation of continuous authority to operate."*
 
-    So the honest version is not that policy demands machine-verifiable evidence and implementations fail to deliver it. **Policy demands continuous evidence, names the pipeline as its source, and then specifies no machine-verifiable form.** That gap is where the stale document walks back in -- and in the same criteria, automating control validation is listed as an *objective* rather than a threshold requirement. Optional.
+    The failure is not that policy demands machine-verifiable evidence and implementations fail to deliver it. **Policy demands continuous evidence, names the pipeline as its source, and then specifies no machine-verifiable form.** That gap is where the stale document walks back in -- and in the same criteria, automating control validation is listed as an *objective* rather than a threshold requirement. Optional.
 
 ## The sharper diagnosis
 
@@ -98,4 +98,4 @@ The general case is any organisation that has to answer "what is running, where 
 
 ---
 
-**Next:** [What We Got Wrong](corrections.md) -- before you repeat any of the above, find out which parts of it didn't survive verification.
+**Next:** [Scope -- What This Is Not](scope.md) -- the boundary that keeps the whole idea from collapsing, and the one layer that is explicitly out of bounds.

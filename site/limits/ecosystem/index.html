@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="What a secure software factory actually is, what it can and cannot deliver, where the trade-offs are, and what the evidence says -- including where the evidence says we were wrong">
+        <meta name="description" content="What a secure software factory actually is, what good looks like, where the real trade-offs are, and what you have to decide before committing money">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Ecosystem Health - Secure Software Factory</title>
+        <title>Ecosystem Risk - Secure Software Factory</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ecosystem-health" class="md-skip">
+        <a href="#ecosystem-risk" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ecosystem Health
+              Ecosystem Risk
             
           </span>
         </div>
@@ -261,8 +261,6 @@
       
         
       
-        
-      
     
     
     
@@ -354,34 +352,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../start/corrections/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What We Got Wrong
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../start/scope/" class="md-nav__link">
         
   
@@ -421,6 +391,8 @@
       
         
           
+        
+      
         
       
         
@@ -483,6 +455,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how/what-good-looks-like/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Good Looks Like
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -985,7 +985,7 @@
   <span class="md-ellipsis">
     
   
-    Limitations
+    What To Decide
   
 
     
@@ -1007,7 +1007,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations
+    What To Decide
   
 
           </label>
@@ -1029,7 +1029,7 @@
   <span class="md-ellipsis">
     
   
-    What Nobody Asked
+    Open Questions
   
 
     
@@ -1057,7 +1057,7 @@
   <span class="md-ellipsis">
     
   
-    What We Cannot Answer
+    What Cannot Be Known
   
 
     
@@ -1085,7 +1085,7 @@
   <span class="md-ellipsis">
     
   
-    What Has Failed Before
+    Why These Fail
   
 
     
@@ -1122,7 +1122,7 @@
   <span class="md-ellipsis">
     
   
-    Ecosystem Health
+    Ecosystem Risk
   
 
     
@@ -1140,7 +1140,7 @@
   <span class="md-ellipsis">
     
   
-    Ecosystem Health
+    Ecosystem Risk
   
 
     
@@ -1327,7 +1327,7 @@
   <span class="md-ellipsis">
     
   
-    Evidence Status
+    What You Can Quote
   
 
     
@@ -1393,8 +1393,8 @@
 
 
 
-<h1 id="ecosystem-health">Ecosystem Health</h1>
-<p>A factory is an assembly of other people's projects. So the health of those projects is an architectural property, not an operational detail.</p>
+<h1 id="ecosystem-risk">Ecosystem Risk</h1>
+<p>A factory is an assembly of other people's projects. So the health of those projects is an architectural property, not an operational detail, and every dependency below is a risk you are choosing to carry.</p>
 <h2 id="twelve-projects-on-the-critical-path-with-no-substitute">Twelve projects on the critical path with no substitute</h2>
 <table>
 <thead>
@@ -1439,7 +1439,7 @@
 </tbody>
 </table>
 <p>Two deserve particular attention.</p>
-<p>The <strong>44-star project</strong> is actively maintained -- it cut a release two days before this was written. So the risk is <strong>bus factor, not abandonment</strong>. It's simultaneously the most load-bearing and the least known component in the whole stack: nothing else in open source signs a verdict over a set of attestations, which is the mechanism the entire delegated-verdict pattern depends on.</p>
+<p>The <strong>44-star project</strong> is actively maintained and cutting releases. So the risk is <strong>bus factor, not abandonment</strong>. It's simultaneously the most load-bearing and the least known component in the whole stack: nothing else in open source signs a verdict over a set of attestations, which is the mechanism the entire delegated-verdict pattern depends on.</p>
 <p>The <strong>277-star project</strong> carries the entire evidence chain. Also healthy, also tiny.</p>
 <p>What to do about that is a decision rather than a health finding, so it lives on <a href="../../tradeoffs/build-vs-adopt/">Build vs Adopt</a>.</p>
 <h2 id="the-graveyard-with-famous-residents">The graveyard, with famous residents</h2>
@@ -1484,7 +1484,6 @@
 <div class="admonition warning">
 <p class="admonition-title">Health-check before adopting, every time</p>
 <p>Stars measure past attention, not current maintenance. A release feed and a last-commit date take thirty seconds and will save you a year.</p>
-<p>The method that made this survey possible: <strong>project release feeds aren't rate-limited</strong>, so hundreds of repositories can be checked without authentication.</p>
 </div>
 <h2 id="the-licence-pattern">The licence pattern</h2>
 <table>
@@ -1524,7 +1523,7 @@
 </div>
 <p>A related finding: the open factory most often cited as a reference implementation has its security-scanning slot filled by <strong>commercial products</strong>, with dependency scanning requiring a paid forge tier. <strong>An all-open-source version of it doesn't exist.</strong> Mine its patterns; don't adopt it as a substrate and expect to stay open source.</p>
 <h2 id="the-oscal-retreat">The OSCAL retreat</h2>
-<p>The clearest case of informed abandonment in the whole survey. Several well-resourced, independently motivated organisations built on OSCAL and walked away, and at least one said why. Read the direction rather than the snapshot: <strong>the ecosystem is drifting back towards documents.</strong> The evidence is catalogued under <a href="../../tradeoffs/build-vs-adopt/">Build vs Adopt</a>, since what it changes is a decision about what to build rather than a tool to cross off.</p>
+<p>The clearest case of informed abandonment anywhere in this stack. Several well-resourced, independently motivated organisations built on OSCAL and walked away, and at least one said why. Read the direction rather than the snapshot: <strong>the ecosystem is drifting back towards documents.</strong> The evidence is catalogued under <a href="../../tradeoffs/build-vs-adopt/">Build vs Adopt</a>, since what it changes is a decision about what to build rather than a tool to cross off.</p>
 <h2 id="where-disconnected-operation-is-genuinely-first-class">Where disconnected operation is genuinely first-class</h2>
 <p>Rare, and worth knowing precisely:</p>
 <p><strong>Only two projects in 2,430 catalogued exist <em>because of</em> air-gap.</strong> Three more treat disconnected operation as first-class -- one signing tool with the best offline flag surface of anything surveyed, one OS image system with <strong>the best delta design in open source</strong> (a signed index over static deltas, which is the pattern a transfer bundle should copy), and one scanner that reads a bundle in place without extraction or network.</p>
@@ -1567,7 +1566,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../history/" class="md-footer__link md-footer__link--prev" aria-label="Previous: What Has Failed Before">
+          <a href="../history/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Why These Fail">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1577,20 +1576,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                What Has Failed Before
+                Why These Fail
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../reference/status/" class="md-footer__link md-footer__link--next" aria-label="Next: Evidence Status">
+          <a href="../../reference/status/" class="md-footer__link md-footer__link--next" aria-label="Next: What You Can Quote">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Evidence Status
+                What You Can Quote
               </div>
             </div>
             <div class="md-footer__button md-icon">

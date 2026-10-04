@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="What a secure software factory actually is, what it can and cannot deliver, where the trade-offs are, and what the evidence says -- including where the evidence says we were wrong">
+        <meta name="description" content="What a secure software factory actually is, what good looks like, where the real trade-offs are, and what you have to decide before committing money">
       
       
       
@@ -16,7 +16,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../corrections/">
+        <link rel="next" href="../scope/">
       
       
         
@@ -263,8 +263,6 @@
       
         
       
-        
-      
     
     
     
@@ -456,34 +454,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../corrections/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What We Got Wrong
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../scope/" class="md-nav__link">
         
   
@@ -523,6 +493,8 @@
       
         
           
+        
+      
         
       
         
@@ -585,6 +557,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how/what-good-looks-like/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Good Looks Like
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1087,7 +1087,7 @@
   <span class="md-ellipsis">
     
   
-    Limitations
+    What To Decide
   
 
     
@@ -1109,7 +1109,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Limitations
+    What To Decide
   
 
           </label>
@@ -1131,7 +1131,7 @@
   <span class="md-ellipsis">
     
   
-    What Nobody Asked
+    Open Questions
   
 
     
@@ -1159,7 +1159,7 @@
   <span class="md-ellipsis">
     
   
-    What We Cannot Answer
+    What Cannot Be Known
   
 
     
@@ -1187,7 +1187,7 @@
   <span class="md-ellipsis">
     
   
-    What Has Failed Before
+    Why These Fail
   
 
     
@@ -1215,7 +1215,7 @@
   <span class="md-ellipsis">
     
   
-    Ecosystem Health
+    Ecosystem Risk
   
 
     
@@ -1310,7 +1310,7 @@
   <span class="md-ellipsis">
     
   
-    Evidence Status
+    What You Can Quote
   
 
     
@@ -1419,7 +1419,7 @@
 <p>Serialising these artefacts is cheap and already solved. <strong>Generating them authoritatively, currently, and with transitive completeness is the product.</strong> That's a much narrower claim than "we build software factories", and it's defensible.</p>
 </div>
 <h2 id="the-pattern-behind-every-documented-failure">The pattern behind every documented failure</h2>
-<p>Across four independently researched examples, the same mechanism appears. Evidence is produced as a side effect of some other process, stored somewhere nothing reads it, and never verified against the thing it describes.</p>
+<p>Across four documented examples, the same mechanism appears. Evidence is produced as a side effect of some other process, stored somewhere nothing reads it, and never verified against the thing it describes.</p>
 <p>Anything that <strong>gates a build</strong> gets maintained, because it breaks loudly when it drifts. Anything read only by a human at assessment time <strong>rots silently</strong>, because nothing fails when it does.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">The boundary case</label><label for="__tabbed_1_2">The compliance case</label><label for="__tabbed_1_3">The gate case</label><label for="__tabbed_1_4">The policy case</label></div>
 <div class="tabbed-content">
@@ -1447,7 +1447,7 @@
 <p>By the 2024 evaluation criteria, "all" had become <strong>"which"</strong>: <em>"Demonstrate which security controls are fed into a system-level dashboard view."</em> And the criteria go on to accept, as satisfactory evidence of a control gate working, <em>"screen shots of control gate output as displayed in a dashboard."</em></p>
 <p><strong>A PNG meets the requirement.</strong></p>
 <p>RAND, in 2025: <em>"limited movement toward implementation of continuous authority to operate."</em></p>
-<p>So the honest version is not that policy demands machine-verifiable evidence and implementations fail to deliver it. <strong>Policy demands continuous evidence, names the pipeline as its source, and then specifies no machine-verifiable form.</strong> That gap is where the stale document walks back in -- and in the same criteria, automating control validation is listed as an <em>objective</em> rather than a threshold requirement. Optional.</p>
+<p>The failure is not that policy demands machine-verifiable evidence and implementations fail to deliver it. <strong>Policy demands continuous evidence, names the pipeline as its source, and then specifies no machine-verifiable form.</strong> That gap is where the stale document walks back in -- and in the same criteria, automating control validation is listed as an <em>objective</em> rather than a threshold requirement. Optional.</p>
 </div>
 </div>
 </div>
@@ -1471,7 +1471,7 @@
 <p>The air-gapped and cross-domain case is the <strong>sharpest demonstration</strong> of the thesis, because a boundary that strips evidence makes the failure visible and unavoidable.</p>
 <p>The general case is any organisation that has to answer "what is running, where did it come from, and what is wrong with it" on demand rather than on an annual cycle. Which, after a survey of twelve regimes, is most of them.</p>
 <hr />
-<p><strong>Next:</strong> <a href="../corrections/">What We Got Wrong</a> -- before you repeat any of the above, find out which parts of it didn't survive verification.</p>
+<p><strong>Next:</strong> <a href="../scope/">Scope -- What This Is Not</a> -- the boundary that keeps the whole idea from collapsing, and the one layer that is explicitly out of bounds.</p>
 
 
 
@@ -1526,13 +1526,13 @@
         
         
           
-          <a href="../corrections/" class="md-footer__link md-footer__link--next" aria-label="Next: What We Got Wrong">
+          <a href="../scope/" class="md-footer__link md-footer__link--next" aria-label="Next: Scope -- What This Is Not">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                What We Got Wrong
+                Scope -- What This Is Not
               </div>
             </div>
             <div class="md-footer__button md-icon">

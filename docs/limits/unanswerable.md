@@ -1,8 +1,8 @@
-# What We Cannot Answer
+# What Cannot Be Known
 
-Some questions are hard. These are different -- the information is controlled, and no amount of research will produce it.
+Some questions are hard. These are different -- the information is controlled or unmeasured, and no amount of effort from this side will produce it.
 
-Knowing which is which matters, because the response to "hard" is more effort and the response to "controlled" is a different conversation with different people.
+Knowing which is which decides what you do next, because the response to "hard" is more work and the response to "controlled" is a different conversation with different people.
 
 ## The one that blocks design
 
@@ -56,29 +56,4 @@ A metrics framework exists (published October 2024) and **nobody has published a
 
 What to do with that absence is a positioning decision rather than a research task, and it sits on [Mandate vs Adoption](../tradeoffs/mandate-vs-adoption.md).
 
-## The research conditions, and what they weaken
-
-**No search engine was available for any of this work.** The fetch tooling failed session-wide, and every general search engine tried was blocked by CAPTCHAs or rate limits. Everything was gathered by fetching known URLs, cloning repositories and grepping them, and using open APIs -- plus, late in the programme, a text-extraction proxy that turned out to defeat the government-site blocking that had stopped everything else.
-
-Two consequences, pulling in opposite directions:
-
-**Positive findings are unusually strong.** They come from reading specifications, source code and commit histories rather than summarising blog posts. Several corrections on this site exist *because* someone read the source instead of the documentation.
-
-**Every negative finding is weak.** "We found no X" means "we did not find one by constructing likely URLs and following links". That isn't the same as absence.
-
-!!! example "How that was learned"
-    The claim "only one cross-domain implementation exists in open code" was refuted within minutes once someone went looking properly -- three one-way transfer projects turned up that nobody had mentioned.
-
-    Hence the standing rule on [Evidence Status](../reference/status.md): no claim may assert a universal negative over open code.
-
-## How to read confidence on this site
-
-| Status | Meaning |
-|---|---|
-| **Verified** | Checked against a primary source directly. Quote it. |
-| **Primary** | Read from a specification, repository or vendor document, with the source cited. Strong. |
-| **Weak negative** | "We found no X." Treat as a lead, not a fact. |
-| **Unverified** | Flagged as unconfirmed. Do not repeat it externally. |
-| **Blocked** | Not publicly knowable. Needs a cleared conversation. |
-
-See [Evidence Status](../reference/status.md) for the full catalogue.
+Every item above carries a confidence marker -- blocked, weak negative, or unverified -- and the marker decides whether you may say it to a customer. [What You Can Quote](../reference/status.md) holds the full catalogue.

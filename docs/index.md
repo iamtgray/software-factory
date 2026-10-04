@@ -2,7 +2,7 @@
 
 What a software factory actually is, what the evidence says it can deliver, and where the trade-offs are.
 
-This site is the readable version of a research programme that read the primary sources instead of the marketing. Where the research proved the original premise **wrong**, the corrections are here too -- the central thesis was one of them.
+This site reads the primary sources -- specifications, source code, commit histories and published measurements -- rather than the marketing. It tells you what can be confirmed, what good looks like, and what you still have to decide for yourself.
 
 ---
 
@@ -11,8 +11,8 @@ This site is the readable version of a research programme that read the primary 
     In order:
 
     1. **[The Problem](start/the-problem.md)** -- what a software factory is for, and the gap worth attacking
-    2. **[What We Got Wrong](start/corrections.md)** -- four confident claims the evidence demolished. Read this before repeating anything from the first page.
-    3. **[Scope -- What This Is Not](start/scope.md)** -- three layers: a platform, a product line, and one that is out of bounds
+    2. **[Scope -- What This Is Not](start/scope.md)** -- three layers: a platform, a product line, and one that is out of bounds
+    3. **[What Good Looks Like](how/what-good-looks-like.md)** -- the three standards to hold a real factory against, and what a verdict needs
     4. **[A Worked Example](example/connected.md)** -- one bug fix traced from ticket to running container, showing what gets signed at each step
 
     Then [Trade-offs](tradeoffs/index.md).
@@ -82,4 +82,4 @@ cATO
 :   Continuous Authorization to Operate. Real US DoD policy since February 2022, requiring continuous monitoring fed into a live dashboard. **It modifies how you keep an authorisation; it is not a route to getting one.** A few pre-2022 programmes still operate one; no count has ever been published.
 
 !!! note "On confidence"
-    Every claim on this site carries a provenance status -- verified against a primary source, reported by research, or explicitly unverified. The research ran **without a working search engine**, which makes positive findings unusually strong (they came from reading specs and source) and every negative finding weak. See [Evidence Status](reference/status.md).
+    Every claim on this site carries a provenance status -- verified against a primary source, reported, or explicitly unverified. Positive findings are unusually strong, because they come from reading specifications and source. Negative findings -- *nothing exists for this* -- are weak, and are marked as such. See [Evidence Status](reference/status.md).
