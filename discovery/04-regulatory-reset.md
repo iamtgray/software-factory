@@ -26,9 +26,11 @@ Two obligations remain in M-26-05, and they are *more* aligned with the project'
 
 Read that second one carefully, because it is the find. The surviving requirement is not a build-time SBOM of an artefact. It is an SBOM of **the runtime production environment** — what is actually deployed and running, now.
 
-And `research/03` established, independently and before this was known, that **Deployed and Runtime SBOMs have no tooling at all.** Every generator produces Source, Build or Analyzed scope against an artefact. Nobody assembles a current inventory of a running system.
+`research/03` established, independently and before this was known, that almost every SBOM generator produces Source, Build or Analyzed scope against an artefact rather than assembling a current inventory of a running system.
 
-So the one US obligation that survived a deregulatory purge is precisely the one the entire tooling ecosystem cannot satisfy. That is a better gap than the one we started with, and it is not defence-specific.
+> **CORRECTED 2026-10-04 — the claim that stood here, "Deployed and Runtime SBOMs have no tooling at all", is wrong and must not be repeated. See `00-index.md` 8.3.** **Runtime/Deployed SBOM tooling is thin, not absent:** a Deployed-type Kubernetes operator exists at a few hundred stars, and the underlying research marked this a **weak negative on a narrow search**. Claim immaturity, and go and measure it. Do not claim an absence — and note the standing rule (0.2) that no document here may assert a universal negative over open code.
+
+So the one US obligation that survived a deregulatory purge is the one the tooling ecosystem serves worst. That is a better gap than the one we started with, and it is not defence-specific. **Before committing to build anything here, assess the Deployed-type operator that already exists.**
 
 ## The pattern this confirms
 

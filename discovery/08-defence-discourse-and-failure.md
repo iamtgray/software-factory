@@ -38,7 +38,15 @@ I retrieved the signed memo (4 Feb 2022, Office of the Secretary of Defense). Ve
 
 > "For cATO, **all security controls will need to be fed into a system level dashboard view, providing a real time and robust mechanism for AOs to view the environment.** Using this information, the AO will be better positioned to make real time and informed risk decisions…"
 
-A continuous, machine-fed evidence requirement, in authoritative policy, since February 2022. Set against RAND's 2025 finding of "limited movement toward implementation of continuous authority to operate", and Big Bang's three-and-a-half-year-stale OSCAL file, the gap is now documented from both ends: **the policy demands continuous evidence; the implementations produce stale documents.**
+A continuous, machine-fed evidence requirement, in authoritative policy, since February 2022.
+
+> **CORRECTED 2026-10-04, twice over. See `00-index.md` 0.8 / 13.4 and 1.5.**
+>
+> **(a) Do not use the strong thesis.** The memo sentence above does not survive its own successors: the 2024 Evaluation Criteria reissued "**all** security controls" as "**which** security controls", accepts *"screen shots of control gate output as displayed in a dashboard"* as evidence (a PNG meets the requirement), makes "automate security control configurations and validation" an **Objective** rather than a threshold requirement, and the memo itself licenses manual controls — *"Manual controls will have different timelines associated"*. **The statement that survives: policy demands continuous evidence and names the pipeline as its source, but specifies no machine-verifiable form — and that gap is where the stale document returns.**
+>
+> **(b) Do not write "three-and-a-half-year-stale OSCAL file."** Big Bang's `oscal-component.yaml` has **six commits ever**; the last substantive edit was **April 2023**; the later commits are a URL fix and a global departmental find-and-replace, so **mechanical sweeps make it look maintained in the commit log** while nobody has reviewed its substance. Its metadata still claims 2022. The sharper framing is the gate, with dates: **built Feb 2024, disabled Aug 2024 ("known issues"), deleted Sep 2025.**
+
+Set against RAND's 2025 finding of "limited movement toward implementation of continuous authority to operate", the weaker version of the gap is still documented from both ends — and it is the version that survives someone reading the primaries in front of you.
 
 All the other DoD primaries are now reachable the same way — the Reference Designs, the cATO Evaluation Criteria, the Continuous Authorization Implementation Guide, DoWI 8430.01 "Accelerated Mission Software", the Software Modernization Strategy, and *The State of DevSecOps Report*.
 
