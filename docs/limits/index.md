@@ -8,6 +8,6 @@ Four pages of decisions. Each one is something you have to settle, price or deli
 
 **[Why These Fail](history.md)** -- The idea has failed four times since 1968 and the diagnoses are consistent: optional adoption, no workflow analysis, product variety, operator turnover. Decide which of those you are designing against. The compromise the 1978 attempt retreated to is modern platform engineering, forty years early.
 
-**[Ecosystem Risk](ecosystem.md)** -- Twelve projects under 300 stars on the critical path with no substitute, well-known tools that are dead despite their star counts, and a licence pattern where the paid tier is reliably the feature a regulated deployment needs. Decide which of these you carry and which you replace.
+**[Ecosystem Risk](ecosystem.md)** -- Twelve projects under 300 stars, nine of them on the critical path and two with no substitute at all, well-known tools that are dead despite their star counts, and a licence pattern where the paid tier is reliably the feature a regulated deployment needs. Decide which of these you carry and which you replace.
 
 Before quoting any of it outside your own organisation, check [What You Can Quote](../reference/status.md).

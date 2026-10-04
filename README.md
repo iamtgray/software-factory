@@ -8,7 +8,7 @@ cloud or an air-gapped enclave without becoming two different products.
 
 1. [`notes/00-premise.md`](notes/00-premise.md) — why this project exists and what it is for.
 2. [`discovery/00-index.md`](discovery/00-index.md) — **the catalogue of everything we have found, with how much to trust each item.** Start here for facts.
-3. [`design/01-layers-and-handoffs.md`](design/01-layers-and-handoffs.md) — what we concluded: the three primitives and the four trust-domain transitions.
+3. [`design/01-layers-and-handoffs.md`](design/01-layers-and-handoffs.md) — what we concluded: the five primitives and the five trust-domain transitions.
 
 ## Running the site
 
@@ -43,8 +43,8 @@ currently, and with transitive completeness is the product.
 Policy demands continuous evidence and names the pipeline as its source, but specifies no
 machine-verifiable form. The DoD's cATO evaluation criteria accept "screen shots of
 control gate output as displayed in a dashboard" as proof that a control gate works, and
-list automating control validation as an objective rather than a requirement. That gap is
-where the stale document walks back in.
+the cATO memo licenses the manual route outright. That gap is where the stale document
+walks back in.
 
 Evidence rots because nothing reads it. Anything that gates a build gets maintained,
 because it breaks loudly when it drifts. Anything read only by a human at assessment time

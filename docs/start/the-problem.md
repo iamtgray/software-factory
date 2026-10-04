@@ -20,7 +20,7 @@ Regulated organisations, mostly, and the demand is more consolidated than it loo
 
 Plus two things that don't automate: a risk narrative, and an accountable human signature. No regime pretends otherwise.
 
-One line: *five regulations asking five things are asking what is in it, where it came from, and what is wrong with it -- plus a risk story and a signature.*
+One line: *twelve regimes asking twelve different things are all asking what is in it, where it came from, and what is wrong with it -- plus a risk story and a signature.*
 
 !!! tip "The useful consequence"
     Serialising these artefacts is cheap and already solved. **Generating them authoritatively, currently, and with transitive completeness is the product.** That's a much narrower claim than "we build software factories", and it's defensible.
@@ -66,7 +66,7 @@ Anything that **gates a build** gets maintained, because it breaks loudly when i
 
     RAND, in 2025: *"limited movement toward implementation of continuous authority to operate."*
 
-    The failure is not that policy demands machine-verifiable evidence and implementations fail to deliver it. **Policy demands continuous evidence, names the pipeline as its source, and then specifies no machine-verifiable form.** That gap is where the stale document walks back in -- and in the same criteria, automating control validation is listed as an *objective* rather than a threshold requirement. Optional.
+    The failure is not that policy demands machine-verifiable evidence and implementations fail to deliver it. **Policy demands continuous evidence, names the pipeline as its source, and then specifies no machine-verifiable form.** That gap is where the stale document walks back in -- and the memo itself licenses the manual route: *"Manual controls will have different timelines associated."*
 
 ## The sharper diagnosis
 

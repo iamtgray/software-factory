@@ -14,7 +14,7 @@ Six of seven things you'd need to design a transfer format aren't publicly answe
 |---|---|
 | Maximum single-file size | Decides whether chunking is mandatory |
 | Maximum object count per transfer | Decides whether a flat blob store is viable at all |
-| **Does an uncompressed tar of content-addressed files count as a "simple, verifiable type", or as an archive requiring recursive expansion?** | **This single answer determines the whole format.** One reading passes through; the other triggers the transformation that breaks every signature. |
+| **Does a tar of content-addressed files count as a "simple, verifiable type", or as an archive requiring recursive expansion?** | **This single answer determines the whole format.** One reading passes through; the other triggers the transformation that breaks every signature. The payload *is* nested -- it is container layers -- so "nothing to recurse into" is not available as an answer. |
 | Is per-blob compression permitted? | Decides the size budget |
 | Will a guard accept a hash-only validation policy in lieu of semantic inspection? | Decides whether the two-control-point design is acceptable at all |
 | Sustained throughput and transfer-window cadence | Decides whether delta transfer is optional or essential |
@@ -46,7 +46,9 @@ Different category. These are knowable in principle; nobody has done the work.
 
 **Does any software factory improve delivery outcomes?** Four separate audit findings record the absence, and the precise version is: **nobody has published delivery or outcome metrics for a named software factory.** There is measured data -- a self-reported cultural survey of 36 practitioners across 19 organisations -- but every delivery figure in it is cited to earlier publications rather than measured, the correlation between maturity score and delivery speed is described as something that could "potentially correlate" and was never run, and one of its four factory categories had **no participants at all**.
 
-DoD says the same thing about itself more bluntly than any auditor does. Its own modernisation plan carries, as **Carryover** items: *"Establish software factory criteria and metrics"*, *"Collect cost data on agile software programs"*, and *"Publish SBOM Implementation Guidance for DoD"*. And on continuous authorisation: *"Organizations don't have to provide metrics for cATO effectiveness, but we are interested in potential metrics to evaluate the effectiveness of the cATO process."* **Effectiveness is unmeasured by design, not by oversight.**
+DoD says the same thing about itself more bluntly than any auditor does. Its **Software Modernization Implementation Plan** carries, as *Carryover* items, *"Establish software factory criteria and metrics"* and *"Collect cost data on agile software programs"* -- so there are no agreed criteria and no cost data, by the department's own accounting.
+
+And on continuous authorisation, from *The State of DevSecOps*: *"Organizations don't have to provide metrics for cATO effectiveness, but we are interested in potential metrics to evaluate the effectiveness of the cATO process from a DoD governance perspective."* **Effectiveness is unmeasured by design rather than by oversight.**
 
 A metrics framework exists (published October 2024) and **nobody has published any values against it.** The word DORA appears zero times in 47 pages of DoD's own state-of-practice report.
 

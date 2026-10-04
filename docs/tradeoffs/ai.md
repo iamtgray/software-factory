@@ -113,6 +113,6 @@ And one finding that redirects where to spend security effort: the critical vuln
 
 ## No regulator has anything to say about this yet
 
-Across every regime surveyed, **nothing imposes requirements on AI-generated code in assured software.** The obligations attach to outcomes -- tested, reviewed, provenanced, vulnerability-managed -- regardless of authorship.
+Across the twelve regimes surveyed -- US federal, UK MOD, EU CRA, DORA, FDA, automotive, aviation, rail and industrial among them -- **none imposes requirements on AI-generated code in assured software.** That is a scoped finding, not a universal one: it is a survey of twelve, not a search of everything. The obligations attach to outcomes -- tested, reviewed, provenanced, vulnerability-managed -- regardless of authorship.
 
 A factory producing the same evidence regardless of who wrote the code is therefore already aligned. The forward risk runs one way, though: if a future rule *does* require authorship disclosure, a factory that recorded nothing can't retrofit it. Recording model identity per diff is cheap now and impossible retrospectively.

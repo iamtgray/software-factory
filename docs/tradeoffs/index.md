@@ -19,7 +19,7 @@ Five of them actually change a design decision.
 :   The capability you want and the provability you need pull in opposite directions. Reproducible generation is *less* verifiable than non-reproducible generation. And the air-gapped tier gets the better AI story, because what survives without frontier models is exactly what has deterministic verifiers.
 
 **[Build vs Adopt](build-vs-adopt.md)**
-:   Eight slots are empty, but twelve projects with under 300 stars sit on the critical path with no substitute. Whether a tool exists matters less than whether it will still exist in three years, and whether the feature we need is behind a licence.
+:   Eight slots are empty, and twelve projects with under 300 stars carry the stack -- nine of them on the critical path. Whether a tool exists matters less than whether it will still exist in three years, and whether the feature we need is behind a licence.
 
 ---
 

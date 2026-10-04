@@ -62,7 +62,7 @@ The deduplication is the useful output. Across twelve regimes the machine-readab
 
 Plus two that do not automate: a risk/threat narrative (the factory supplies inputs and change triggers, not the prose), and the accountable human signature (MOD Statement of Assurance, CMMC affirmation, CRA Declaration of Conformity). No regime pretends the signature automates away — which is the same conclusion `design/02` reached from the AI direction.
 
-One line: *five regulations asking five things are asking what is in it, where it came from, and what is wrong with it — plus a risk story and a signature.*
+One line: *twelve regimes asking twelve different things are all asking what is in it, where it came from, and what is wrong with it — plus a risk story and a signature.*
 
 ## Corrections to things the project believed
 

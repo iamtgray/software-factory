@@ -2,18 +2,24 @@
 
 A factory is an assembly of other people's projects. So the health of those projects is an architectural property, not an operational detail, and every dependency below is a risk you are choosing to carry.
 
-## Twelve projects on the critical path with no substitute
+## Twelve projects under 300 stars, nine of them on the critical path
 
-| Role | Stars |
-|---|---|
-| **The only tool that issues a signed verdict over an attestation set** | **44** |
-| Air-gapped bundle CLI | 54 |
-| Private signing infrastructure scaffolding | 89 |
-| Hermetic dependency prefetch | 111 |
-| Attestation graph store | 116 |
-| Remote attestation verification | 186 |
-| **The provenance generator the whole evidence chain hangs off** | **277** |
-| Compliance toolkit | 281 |
+| Role | Stars | If it dies |
+|---|---|---|
+| **The only tool that issues a signed verdict over an attestation set** | **44** | **Nothing replaces it** |
+| Compliance-evidence generator | 46 | Build it |
+| Air-gapped bundle CLI | 54 | Drop to the bundler underneath it |
+| VEX document library | 71 | Write it |
+| CSAF/VEX library | 72 | Write it |
+| Private signing infrastructure scaffolding | 89 | Deploy the components by hand |
+| Hermetic dependency prefetch | 111 | A functional package manager, at roughly ten times the cost |
+| Attestation graph store | 116 | OCI referrers only, losing the graph queries |
+| Admission controller | 182 | A general-purpose policy engine |
+| Remote attestation verification | 186 | **Nothing replaces it** |
+| **The provenance generator the whole evidence chain hangs off** | **277** | One alternative, less mature |
+| Compliance toolkit | 281 | Hand-written documents |
+
+Only two have no substitute at all. For the rest "substitute" means *write it yourself* or *accept a worse option*, which is a cost rather than a rescue -- and all twelve are small enough that one maintainer leaving is an architectural event.
 
 Two deserve particular attention.
 
@@ -72,6 +78,6 @@ Rare, and worth knowing precisely:
 
 **Only two projects in 2,430 catalogued exist *because of* air-gap.** Three more treat disconnected operation as first-class -- one signing tool with the best offline flag surface of anything surveyed, one OS image system with **the best delta design in open source** (a signed index over static deltas, which is the pattern a transfer bundle should copy), and one scanner that reads a bundle in place without extraction or network.
 
-**Zero address cross-domain.** Which is both the gap and the warning: nobody has done it, and the reasons may include it being genuinely hard.
+**Zero of the 2,430 address cross-domain.** That bound is on the catalogue, not on open source as a whole: outside it, one-way transfer implementations do exist, and a universal negative over open code is exactly the claim this project had refuted once already. The gap is that nothing bundles artefacts *and* their evidence for a guard-mediated crossing -- and the warning inside it is that the reasons may include its being genuinely hard.
 
 One encouraging signal: the cloud-native community now has a formally recognised **air-gapped working group**. It's a stub with no content yet, but the problem domain has been acknowledged.

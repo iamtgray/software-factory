@@ -121,7 +121,7 @@ The gate signs a **verdict** recording the digest of the policy that produced it
 
 ## 9. Signing and promotion
 
-The release authority signs the image. All ten documents are attached to **D** in the registry as referrers, discoverable by querying the digest.
+The release authority signs a release approval, and signs the image. All ten documents -- build provenance, build-time SBOM, scan result, VEX, test results, review-policy evidence, AI authorship, the verdict, the release approval and the image signature -- are attached in the registry as referrers, discoverable by querying the digest.
 
 **Hard registry requirement:** the referrers API must be supported. The fallback tag scheme is race-prone by the specification's own admission, and two concurrent attestation pushes will silently lose one.
 
@@ -139,7 +139,7 @@ The running-system inventory updates. The next scheduled scan sees the new versi
 
 ## What exists at the end
 
-Ten signed documents bound to one image digest, by six distinct identities:
+Ten signed documents by six distinct identities -- eight bound to the image digest **D**, and two (review-policy evidence and AI authorship) bound to the commit **C**, because that is what they are statements about:
 
 ```mermaid
 graph LR
@@ -152,6 +152,7 @@ graph LR
     R[Review-policy evidence] --> C
     A[AI authorship] --> C
     G[<b>Verdict</b>] --> D
+    RA[Release approval] --> D
     L[Image signature] --> D
     G -.->|the only one admission reads| ADM[Admission control]
 ```

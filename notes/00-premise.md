@@ -2,7 +2,7 @@
 
 Captured 2026-10-03, before any research. Revised 2026-10-04, after six research streams, an adversarial refutation pass over eight load-bearing claims and three completeness critics.
 
-This is a living document. The original is kept below rather than overwritten, because this project is about documents that drift from the reality they describe, and quietly editing the founding statement to look prescient would be the same failure in miniature. Three of the original claims were wrong. One of them was the central thesis.
+This is a living document. The original is kept below rather than overwritten, because this project is about documents that drift from the reality they describe, and quietly editing the founding statement to look prescient would be the same failure in miniature. Five things listed below were wrong — the first two being the two halves of a single original sentence — and one of them was the central thesis.
 
 ---
 

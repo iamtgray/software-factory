@@ -44,7 +44,7 @@ Big Bang:
 3. **Deleted** it — September 2025.
 4. **Replaced the file with a markdown table.**
 
-Someone built the machine that checks the evidence, it produced inconvenient results, the gate was switched off, and eighteen months later the capability was removed. That is "evidence rots because nothing fails when it does" with a commit log attached. Use this, not the staleness claim.
+Someone built the machine that checks the evidence, it produced inconvenient results, the gate was switched off after six months, and thirteen months after that the capability was removed — nineteen months from built to deleted. That is "evidence rots because nothing fails when it does" with a commit log attached. Use this, not the staleness claim.
 
 ## 3. But OSCAL is a graveyard, and this challenges my build recommendation
 

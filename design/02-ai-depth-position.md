@@ -88,7 +88,7 @@ I think this is the strongest argument for the project, and it is a *better* arg
 
 ## 4. The five primitives hold — and AI stresses three of them
 
-The original formulation had three primitives. Verification found two more — trust configuration and freshness state — which had been quietly treated as fields in a manifest rather than as things the architecture must carry everywhere. That was a real hole, and it matters here because one of the two missing primitives is the one AI leans on hardest.
+The original formulation had three primitives. Verification found two more — trust configuration and freshness state — which had been quietly treated as fields in a manifest rather than as things the architecture must carry everywhere. That was a real hole, and it matters here because one of the two missing primitives — freshness state — is among the three AI stresses, so the original three-primitive formulation had no place to put the staleness problem AI creates. (The primitive AI leans on *hardest* is the capability descriptor, which was in the original three but peripheral to it.)
 
 | Primitive | What AI does to it |
 |---|---|

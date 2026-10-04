@@ -73,7 +73,7 @@ A second metric, from the reuse evidence: **track the modification rate of share
 
 ## And the funding model, which is where this usually dies
 
-The documented failure mode is specific, recurring, and nearly fifty years old: the first organisation to build a software factory was starved of demand because nobody above it was required to use the thing ([the 1978 account](../limits/history.md)).
+The documented failure mode is specific, recurring, and nearly fifty years old: the first organisation to trademark "The Software Factory" was starved of demand because nobody above it was required to use the thing ([the 1978 account](../limits/history.md)). It was not the first to build one -- the Japanese factories predate it by six years -- but it is the one whose failure was written up.
 
 RAND finds that modern defence software factories are mostly **customer-funded** -- which writes that exact failure into the budget line. A factory that must win each customer's budget is a factory whose work flow can decline.
 

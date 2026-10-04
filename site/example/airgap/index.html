@@ -827,10 +827,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#steps-11-and-12-barely-exist" class="md-nav__link">
+  <a href="#step-11-the-loop-closing-barely-exists" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Steps 11 and 12 barely exist
+        Step 11, the loop closing, barely exists
       
     </span>
   </a>
@@ -1428,7 +1428,7 @@
 
 <h1 id="the-same-change-air-gapped">The Same Change, Air-Gapped</h1>
 <p>The same fix, delivered into an enclave with no network path out. No DNS, no registry pull, no transparency log, no identity provider.</p>
-<p>Read this as a diff against <a href="../connected/">the connected flow</a>. Steps 1 to 9 happen on the low side much as before. After that, two steps break and a third only appears to.</p>
+<p>Read this as a diff against <a href="../connected/">the connected flow</a>. Most of the eleven steps happen on the low side much as before. Two break -- step 3, the agent, and step 9, attestation discovery -- and a third, step 10 onward, only appears to.</p>
 <hr />
 <h2 id="air-gap-and-cross-domain-are-different-problems">Air gap and cross-domain are different problems</h2>
 <p><strong>Air gap</strong> means no network path. Transfer happens by physical media, and nothing inspects the bytes.</p>
@@ -1546,7 +1546,7 @@
 <p>If a guard transformed anything, or the far side cannot reach the near side's signing infrastructure, <strong>trust terminates at the importer, not the original builder.</strong></p>
 <p>That is a delegated, auditable, <em>named</em> link rather than an unbroken cryptographic chain. Say so in the architecture document. An assessor who discovers it themselves will trust nothing else you wrote.</p>
 </div>
-<h2 id="steps-11-and-12-barely-exist">Steps 11 and 12 barely exist</h2>
+<h2 id="step-11-the-loop-closing-barely-exists">Step 11, the loop closing, barely exists</h2>
 <p>The feedback loop is the quiet casualty, and most designs forget it.</p>
 <p>In a strictly one-way architecture, <em>did the deployment work</em> cannot come back. The only automatable exception published anywhere is a <strong>tiny fixed-schema receipt</strong>: bundle manifest digest, an outcome from a closed enumeration, a component pass/fail bitmap, a monotonic counter, a timestamp, and a signature. Fixed length, no free text, no attacker-influenceable content.</p>
 <p>That is enough to resynchronise the sender's delta bookkeeping and confirm deployment, at a covert-channel bandwidth of a few bits -- which is quantifiable, and therefore arguable in an accreditation conversation. Anything richer goes through human review on a slower cadence, or does not come back.</p>

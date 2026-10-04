@@ -97,10 +97,12 @@ This one was marked as blocking, because the wrong version was advice someone co
 
 **"Review becomes the bottleneck"** was flagged as unmeasured; it turns out to be supported, with a correction. **Reviewer attention** is the scarce thing, not review itself, and build and test capacity *rise* in importance rather than falling. See [Gates vs Attention](../tradeoffs/gates-vs-attention.md).
 
+**"Policy demands machine-verifiable evidence while implementations fail to deliver it"** -- the strong form does not survive the primaries, and this is the fifth weakened claim. The cATO memo's *"**all** security controls will need to be fed into a system level dashboard view"* became *"**which** security controls"* in the 2024 Evaluation Criteria; those criteria accept *"screen shots of control gate output as displayed in a dashboard"*, so a PNG meets the requirement; *"Automate security control configurations and validation"* is an **Objective**, not a threshold requirement; the memo itself licenses manual controls (*"Manual controls will have different timelines associated"*); and the Implementation Guide describes the method as a shift to *"a periodic assessment"*. **Corrected statement: policy demands continuous evidence and names the pipeline as its source, but specifies no machine-verifiable form — and that gap is where the stale document returns.** Weaker, and still a good argument. (This claim was omitted from an earlier version of this list, which is why the list read "five weakened" over four entries.) See [The Problem](the-problem.md).
+
 ---
 
 ## What this exercise is worth
 
-Verification caught four factual errors, one architectural omission and two overclaims, in a position that had already been through six research streams. The errors weren't careless -- they were confident inferences from real evidence, which is the dangerous kind.
+Across the eight claims, verification caught four factual errors, one architectural omission and three overclaims, in a position that had already been through the research. The errors weren't careless -- they were confident inferences from real evidence, which is the dangerous kind.
 
 **A claim with nothing checking it drifts.** That applies to this project's own documents exactly as much as to Big Bang's OSCAL file.

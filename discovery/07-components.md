@@ -15,7 +15,7 @@ From `research/11-component-landscape.md` — 24 outcome-defined slots, 250+ rep
 7. **Signed model-weight distribution.** `sigstore/model-transparency` has had no release in a year.
 8. **AI-authorship predicate** — confirmed empty across all 51 CNCF AI Agent entries.
 
-**Items 3–6 are one work item**: mint the predicates, teach Tekton Chains and Conforma to emit and check them. That is a far smaller build than the slot count suggests.
+**Items 3, 4, 5 and 8 are one work item**: mint the predicates, teach Tekton Chains and Conforma to emit and check them. (Previously written "items 3–6", which wrongly swept in the MCP tool catalogue — a distribution problem, not a predicate — and left out the AI-authorship predicate.) That is a far smaller build than the slot count suggests.
 
 ## 2. Consolidations worth taking
 
@@ -57,7 +57,7 @@ That last pair breaks the composition-mechanism recommendation in `design/01` §
 
 ### The real risk class
 
-**Twelve sub-300-star projects sit on the critical path with no substitute:** `conforma/cli` (44), `uds-cli` (54), `sigstore/scaffolding` (89), `hermeto` (111), `archivista` (116), `trustee` (186), **`tektoncd/chains` (277)**, `compliance-trestle` (281).
+**Twelve sub-300-star projects carry the stack, nine of them on the critical path of `design/01`'s spine:** `conforma/cli` (44), `lula` (46), `uds-cli` (54), `go-vex` (71), `gocsaf/csaf` (72), `sigstore/scaffolding` (89), `hermeto` (111), `archivista` (116), `policy-controller` (182), `trustee` (186), **`tektoncd/chains` (277)**, `compliance-trestle` (281). **Only `conforma/cli` and `trustee` have no substitute at all** — for the rest, `research/11`'s table lists one, and "substitute" mostly means *write it yourself* or *accept a worse option*. Earlier versions of this line said "twelve… with no substitute" over a list of eight; both halves were wrong.
 
 This is the honest sustainability picture, and it is not a reason to abandon the approach — it is a reason to **contribute upstream to Chains, Conforma and Hermeto now**, which is cheaper than forking later. It also reframes the project's possible contribution: the most valuable thing an open-source secure factory could do for the ecosystem may be to become a *funded, accountable consumer* of three tiny projects that everything else quietly depends on.
 

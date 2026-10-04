@@ -1166,10 +1166,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#twelve-projects-on-the-critical-path-with-no-substitute" class="md-nav__link">
+  <a href="#twelve-projects-under-300-stars-nine-of-them-on-the-critical-path" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Twelve projects on the critical path with no substitute
+        Twelve projects under 300 stars, nine of them on the critical path
       
     </span>
   </a>
@@ -1395,49 +1395,79 @@
 
 <h1 id="ecosystem-risk">Ecosystem Risk</h1>
 <p>A factory is an assembly of other people's projects. So the health of those projects is an architectural property, not an operational detail, and every dependency below is a risk you are choosing to carry.</p>
-<h2 id="twelve-projects-on-the-critical-path-with-no-substitute">Twelve projects on the critical path with no substitute</h2>
+<h2 id="twelve-projects-under-300-stars-nine-of-them-on-the-critical-path">Twelve projects under 300 stars, nine of them on the critical path</h2>
 <table>
 <thead>
 <tr>
 <th>Role</th>
 <th>Stars</th>
+<th>If it dies</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>The only tool that issues a signed verdict over an attestation set</strong></td>
 <td><strong>44</strong></td>
+<td><strong>Nothing replaces it</strong></td>
+</tr>
+<tr>
+<td>Compliance-evidence generator</td>
+<td>46</td>
+<td>Build it</td>
 </tr>
 <tr>
 <td>Air-gapped bundle CLI</td>
 <td>54</td>
+<td>Drop to the bundler underneath it</td>
+</tr>
+<tr>
+<td>VEX document library</td>
+<td>71</td>
+<td>Write it</td>
+</tr>
+<tr>
+<td>CSAF/VEX library</td>
+<td>72</td>
+<td>Write it</td>
 </tr>
 <tr>
 <td>Private signing infrastructure scaffolding</td>
 <td>89</td>
+<td>Deploy the components by hand</td>
 </tr>
 <tr>
 <td>Hermetic dependency prefetch</td>
 <td>111</td>
+<td>A functional package manager, at roughly ten times the cost</td>
 </tr>
 <tr>
 <td>Attestation graph store</td>
 <td>116</td>
+<td>OCI referrers only, losing the graph queries</td>
+</tr>
+<tr>
+<td>Admission controller</td>
+<td>182</td>
+<td>A general-purpose policy engine</td>
 </tr>
 <tr>
 <td>Remote attestation verification</td>
 <td>186</td>
+<td><strong>Nothing replaces it</strong></td>
 </tr>
 <tr>
 <td><strong>The provenance generator the whole evidence chain hangs off</strong></td>
 <td><strong>277</strong></td>
+<td>One alternative, less mature</td>
 </tr>
 <tr>
 <td>Compliance toolkit</td>
 <td>281</td>
+<td>Hand-written documents</td>
 </tr>
 </tbody>
 </table>
+<p>Only two have no substitute at all. For the rest "substitute" means <em>write it yourself</em> or <em>accept a worse option</em>, which is a cost rather than a rescue -- and all twelve are small enough that one maintainer leaving is an architectural event.</p>
 <p>Two deserve particular attention.</p>
 <p>The <strong>44-star project</strong> is actively maintained and cutting releases. So the risk is <strong>bus factor, not abandonment</strong>. It's simultaneously the most load-bearing and the least known component in the whole stack: nothing else in open source signs a verdict over a set of attestations, which is the mechanism the entire delegated-verdict pattern depends on.</p>
 <p>The <strong>277-star project</strong> carries the entire evidence chain. Also healthy, also tiny.</p>
@@ -1527,7 +1557,7 @@
 <h2 id="where-disconnected-operation-is-genuinely-first-class">Where disconnected operation is genuinely first-class</h2>
 <p>Rare, and worth knowing precisely:</p>
 <p><strong>Only two projects in 2,430 catalogued exist <em>because of</em> air-gap.</strong> Three more treat disconnected operation as first-class -- one signing tool with the best offline flag surface of anything surveyed, one OS image system with <strong>the best delta design in open source</strong> (a signed index over static deltas, which is the pattern a transfer bundle should copy), and one scanner that reads a bundle in place without extraction or network.</p>
-<p><strong>Zero address cross-domain.</strong> Which is both the gap and the warning: nobody has done it, and the reasons may include it being genuinely hard.</p>
+<p><strong>Zero of the 2,430 address cross-domain.</strong> That bound is on the catalogue, not on open source as a whole: outside it, one-way transfer implementations do exist, and a universal negative over open code is exactly the claim this project had refuted once already. The gap is that nothing bundles artefacts <em>and</em> their evidence for a guard-mediated crossing -- and the warning inside it is that the reasons may include its being genuinely hard.</p>
 <p>One encouraging signal: the cloud-native community now has a formally recognised <strong>air-gapped working group</strong>. It's a stub with no content yet, but the problem domain has been acknowledged.</p>
 
 

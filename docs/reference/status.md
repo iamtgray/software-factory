@@ -31,7 +31,7 @@ Checked against primary sources, mostly source and commit history:
 - **OMB M-26-05 rescinds the US federal software self-attestation regime**, in those words, describing the prior policy as having "imposed unproven and burdensome software accounting processes".
 - What survived it: maintain a complete inventory, and provide "**an SBOM of the runtime production environment** upon request".
 - A cloud compliance framework requires that "authoritative sources are used to **automatically generate real-time inventories** of all information resources when needed" -- the strongest regulatory support the thesis has, and it is in a public git repository.
-- The **cATO memo** authorises *systems*, not organisations, and requires that "**all** security controls will need to be fed into a system level dashboard view, providing a real time and robust mechanism" for assessors. **But the 2024 evaluation criteria weakened "all" to "which"**, accept "screen shots of control gate output as displayed in a dashboard" as evidence, and list automated control validation as an *objective* rather than a threshold requirement. The memo cannot be presented as the current standard.
+- The **cATO memo** authorises *systems*, not organisations, and requires that "**all** security controls will need to be fed into a system level dashboard view, providing a real time and robust mechanism" for assessors. **But the 2024 evaluation criteria weakened "all" to "which"** and accept "screen shots of control gate output as displayed in a dashboard" as evidence. The memo itself also licenses the manual route -- "Manual controls will have different timelines associated" -- so it cannot be presented as the current standard.
 - One composition tool publishes its latest release as a rolling `latest` tag with no semantic version since 2024 -- **unpinnable, therefore unusable air-gapped.** Its main alternative is a release candidate.
 - The tool that issues signed verdicts over attestation sets is **actively maintained** despite 44 stars -- bus-factor risk, not abandonment.
 
@@ -53,7 +53,11 @@ Treat as leads. Re-check if search access improves:
 - "No standard exists for attesting AI-generated code."
 - "No regime imposes requirements on AI-generated code in assured software."
 - "No policy addresses handling assurance evidence across classification boundaries."
-- "No tooling exists for runtime or deployed SBOMs." *Which is awkward, because that's now the surviving US obligation.*
+
+!!! warning "One former weak negative has since been disproved -- do not repeat it"
+    **"No tooling exists for runtime or deployed SBOMs" is wrong.** A Kubernetes operator for the *Deployed* SBOM type exists at a few hundred stars, and the original research marked the claim a weak negative on a narrow search in the first place. Runtime SBOM tooling is **thin, not absent** -- size the gap, do not claim it. This matters because the runtime SBOM is now the surviving US federal obligation.
+
+    Likewise, **no universal negative over open code may be asserted at all.** The project's own claim that only one cross-domain implementation existed in open source was refuted within minutes once someone searched properly: `hairgap`, `eurydice` and ANSSI's `lidi` are all one-way transfer implementations. Where this site says "zero projects address cross-domain", that is scoped to the 2,430-project catalogue surveyed, and it must be stated with that scope attached.
 
 ## Unverified -- these must not leave the room
 

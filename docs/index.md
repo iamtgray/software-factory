@@ -34,7 +34,7 @@ This site reads the primary sources -- specifications, source code, commit histo
     | Does a platform actually make delivery faster? | [Mandate vs Adoption](tradeoffs/mandate-vs-adoption.md) -- the measured numbers, including the ones that say platforms *reduce* throughput |
     | Has this been tried before? | [What Has Failed Before](limits/history.md) -- four times since 1968, and the diagnoses are consistent |
     | What can't you tell me? | [What We Cannot Answer](limits/unanswerable.md) -- what is genuinely unknowable from public sources |
-    | What happens when a dependency dies? | [Ecosystem Health](limits/ecosystem.md) -- twelve projects under 300 stars sit on the critical path |
+    | What happens when a dependency dies? | [Ecosystem Health](limits/ecosystem.md) -- twelve projects under 300 stars carry the stack, nine on the critical path |
 
 ??? question "I care about the air-gapped / cross-domain case"
 
@@ -82,4 +82,4 @@ cATO
 :   Continuous Authorization to Operate. Real US DoD policy since February 2022, requiring continuous monitoring fed into a live dashboard. **It modifies how you keep an authorisation; it is not a route to getting one.** A few pre-2022 programmes still operate one; no count has ever been published.
 
 !!! note "On confidence"
-    Every claim on this site carries a provenance status -- verified against a primary source, reported, or explicitly unverified. Positive findings are unusually strong, because they come from reading specifications and source. Negative findings -- *nothing exists for this* -- are weak, and are marked as such. See [Evidence Status](reference/status.md).
+    Every claim on this site carries a provenance status -- verified against a primary source, reported, or explicitly unverified. Positive findings are unusually strong, because they come from reading specifications and source. Negative findings -- *nothing exists for this* -- are weak, and are marked as such. See [What You Can Quote](reference/status.md).

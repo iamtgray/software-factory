@@ -2,7 +2,7 @@
 
 The same fix, delivered into an enclave with no network path out. No DNS, no registry pull, no transparency log, no identity provider.
 
-Read this as a diff against [the connected flow](connected.md). Steps 1 to 9 happen on the low side much as before. After that, two steps break and a third only appears to.
+Read this as a diff against [the connected flow](connected.md). Most of the eleven steps happen on the low side much as before. Two break -- step 3, the agent, and step 9, attestation discovery -- and a third, step 10 onward, only appears to.
 
 ---
 
@@ -130,7 +130,7 @@ That is a complete integrity and authenticity check needing no understanding of 
 
     That is a delegated, auditable, *named* link rather than an unbroken cryptographic chain. Say so in the architecture document. An assessor who discovers it themselves will trust nothing else you wrote.
 
-## Steps 11 and 12 barely exist
+## Step 11, the loop closing, barely exists
 
 The feedback loop is the quiet casualty, and most designs forget it.
 

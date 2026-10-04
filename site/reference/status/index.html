@@ -1432,7 +1432,7 @@
 <li><strong>OMB M-26-05 rescinds the US federal software self-attestation regime</strong>, in those words, describing the prior policy as having "imposed unproven and burdensome software accounting processes".</li>
 <li>What survived it: maintain a complete inventory, and provide "<strong>an SBOM of the runtime production environment</strong> upon request".</li>
 <li>A cloud compliance framework requires that "authoritative sources are used to <strong>automatically generate real-time inventories</strong> of all information resources when needed" -- the strongest regulatory support the thesis has, and it is in a public git repository.</li>
-<li>The <strong>cATO memo</strong> authorises <em>systems</em>, not organisations, and requires that "<strong>all</strong> security controls will need to be fed into a system level dashboard view, providing a real time and robust mechanism" for assessors. <strong>But the 2024 evaluation criteria weakened "all" to "which"</strong>, accept "screen shots of control gate output as displayed in a dashboard" as evidence, and list automated control validation as an <em>objective</em> rather than a threshold requirement. The memo cannot be presented as the current standard.</li>
+<li>The <strong>cATO memo</strong> authorises <em>systems</em>, not organisations, and requires that "<strong>all</strong> security controls will need to be fed into a system level dashboard view, providing a real time and robust mechanism" for assessors. <strong>But the 2024 evaluation criteria weakened "all" to "which"</strong> and accept "screen shots of control gate output as displayed in a dashboard" as evidence. The memo itself also licenses the manual route -- "Manual controls will have different timelines associated" -- so it cannot be presented as the current standard.</li>
 <li>One composition tool publishes its latest release as a rolling <code>latest</code> tag with no semantic version since 2024 -- <strong>unpinnable, therefore unusable air-gapped.</strong> Its main alternative is a release candidate.</li>
 <li>The tool that issues signed verdicts over attestation sets is <strong>actively maintained</strong> despite 44 stars -- bus-factor risk, not abandonment.</li>
 </ul>
@@ -1452,8 +1452,12 @@
 <li>"No standard exists for attesting AI-generated code."</li>
 <li>"No regime imposes requirements on AI-generated code in assured software."</li>
 <li>"No policy addresses handling assurance evidence across classification boundaries."</li>
-<li>"No tooling exists for runtime or deployed SBOMs." <em>Which is awkward, because that's now the surviving US obligation.</em></li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">One former weak negative has since been disproved -- do not repeat it</p>
+<p><strong>"No tooling exists for runtime or deployed SBOMs" is wrong.</strong> A Kubernetes operator for the <em>Deployed</em> SBOM type exists at a few hundred stars, and the original research marked the claim a weak negative on a narrow search in the first place. Runtime SBOM tooling is <strong>thin, not absent</strong> -- size the gap, do not claim it. This matters because the runtime SBOM is now the surviving US federal obligation.</p>
+<p>Likewise, <strong>no universal negative over open code may be asserted at all.</strong> The project's own claim that only one cross-domain implementation existed in open source was refuted within minutes once someone searched properly: <code>hairgap</code>, <code>eurydice</code> and ANSSI's <code>lidi</code> are all one-way transfer implementations. Where this site says "zero projects address cross-domain", that is scoped to the 2,430-project catalogue surveyed, and it must be stated with that scope attached.</p>
+</div>
 <h2 id="unverified-these-must-not-leave-the-room">Unverified -- these must not leave the room</h2>
 <ul>
 <li>A registry's replication may silently drop signatures made with older signing tooling. If true, a transport conformance test is mandatory.</li>

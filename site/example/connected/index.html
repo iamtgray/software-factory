@@ -1592,7 +1592,7 @@
 <p>The alternative is measured: suppressions grow <strong>monotonically</strong>, <strong>50.8% suppress nothing at all</strong>, and dead suppressions <strong>silently mask future findings</strong>.</p>
 </div>
 <h2 id="9-signing-and-promotion">9. Signing and promotion</h2>
-<p>The release authority signs the image. All ten documents are attached to <strong>D</strong> in the registry as referrers, discoverable by querying the digest.</p>
+<p>The release authority signs a release approval, and signs the image. All ten documents -- build provenance, build-time SBOM, scan result, VEX, test results, review-policy evidence, AI authorship, the verdict, the release approval and the image signature -- are attached in the registry as referrers, discoverable by querying the digest.</p>
 <p><strong>Hard registry requirement:</strong> the referrers API must be supported. The fallback tag scheme is race-prone by the specification's own admission, and two concurrent attestation pushes will silently lose one.</p>
 <h2 id="10-deployment">10. Deployment</h2>
 <p>GitOps reconciles the new digest. Admission control verifies <strong>a signature and the verdict</strong>. Nothing else.</p>
@@ -1601,7 +1601,7 @@
 <p>The running-system inventory updates. The next scheduled scan sees the new version. If a future advisory affects it, step 1 begins again with current data.</p>
 <hr />
 <h2 id="what-exists-at-the-end">What exists at the end</h2>
-<p>Ten signed documents bound to one image digest, by six distinct identities:</p>
+<p>Ten signed documents by six distinct identities -- eight bound to the image digest <strong>D</strong>, and two (review-policy evidence and AI authorship) bound to the commit <strong>C</strong>, because that is what they are statements about:</p>
 <pre class="mermaid"><code>graph LR
     C[commit C] --&gt;|resolvedDependencies| P[Build provenance]
     P --&gt; D[image D]
@@ -1612,6 +1612,7 @@
     R[Review-policy evidence] --&gt; C
     A[AI authorship] --&gt; C
     G[&lt;b&gt;Verdict&lt;/b&gt;] --&gt; D
+    RA[Release approval] --&gt; D
     L[Image signature] --&gt; D
     G -.-&gt;|the only one admission reads| ADM[Admission control]</code></pre>
 <h2 id="four-things-this-flow-makes-obvious">Four things this flow makes obvious</h2>

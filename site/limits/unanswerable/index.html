@@ -1377,8 +1377,8 @@
 <td>Decides whether a flat blob store is viable at all</td>
 </tr>
 <tr>
-<td><strong>Does an uncompressed tar of content-addressed files count as a "simple, verifiable type", or as an archive requiring recursive expansion?</strong></td>
-<td><strong>This single answer determines the whole format.</strong> One reading passes through; the other triggers the transformation that breaks every signature.</td>
+<td><strong>Does a tar of content-addressed files count as a "simple, verifiable type", or as an archive requiring recursive expansion?</strong></td>
+<td><strong>This single answer determines the whole format.</strong> One reading passes through; the other triggers the transformation that breaks every signature. The payload <em>is</em> nested -- it is container layers -- so "nothing to recurse into" is not available as an answer.</td>
 </tr>
 <tr>
 <td>Is per-blob compression permitted?</td>
@@ -1416,7 +1416,8 @@
 <h2 id="the-ones-that-are-not-measured-by-anyone">The ones that are not measured, by anyone</h2>
 <p>Different category. These are knowable in principle; nobody has done the work.</p>
 <p><strong>Does any software factory improve delivery outcomes?</strong> Four separate audit findings record the absence, and the precise version is: <strong>nobody has published delivery or outcome metrics for a named software factory.</strong> There is measured data -- a self-reported cultural survey of 36 practitioners across 19 organisations -- but every delivery figure in it is cited to earlier publications rather than measured, the correlation between maturity score and delivery speed is described as something that could "potentially correlate" and was never run, and one of its four factory categories had <strong>no participants at all</strong>.</p>
-<p>DoD says the same thing about itself more bluntly than any auditor does. Its own modernisation plan carries, as <strong>Carryover</strong> items: <em>"Establish software factory criteria and metrics"</em>, <em>"Collect cost data on agile software programs"</em>, and <em>"Publish SBOM Implementation Guidance for DoD"</em>. And on continuous authorisation: <em>"Organizations don't have to provide metrics for cATO effectiveness, but we are interested in potential metrics to evaluate the effectiveness of the cATO process."</em> <strong>Effectiveness is unmeasured by design, not by oversight.</strong></p>
+<p>DoD says the same thing about itself more bluntly than any auditor does. Its <strong>Software Modernization Implementation Plan</strong> carries, as <em>Carryover</em> items, <em>"Establish software factory criteria and metrics"</em> and <em>"Collect cost data on agile software programs"</em> -- so there are no agreed criteria and no cost data, by the department's own accounting.</p>
+<p>And on continuous authorisation, from <em>The State of DevSecOps</em>: <em>"Organizations don't have to provide metrics for cATO effectiveness, but we are interested in potential metrics to evaluate the effectiveness of the cATO process from a DoD governance perspective."</em> <strong>Effectiveness is unmeasured by design rather than by oversight.</strong></p>
 <p>A metrics framework exists (published October 2024) and <strong>nobody has published any values against it.</strong> The word DORA appears zero times in 47 pages of DoD's own state-of-practice report.</p>
 <p><strong>What is the real pre-factory baseline for authorisation timelines?</strong> There's no agreed figure. One source says six months to two years; another says 18 to 24 months; neither cites anything. "Six months" circulates as a de facto baseline, converging independently across several vendors, with no documented origin.</p>
 <p><strong>Does agent-generated volume actually overwhelm review in practice?</strong> The claim that reviewer attention becomes the binding constraint is now supported, but whether the loop self-limits (reviewers rejecting low-quality change, so throughput plateaus rather than flooding) is unmeasured.</p>
