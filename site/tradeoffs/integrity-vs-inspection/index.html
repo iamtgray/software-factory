@@ -911,10 +911,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-honest-unknown" class="md-nav__link">
+  <a href="#the-unknown-that-blocks-the-format" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The honest unknown
+        The unknown that blocks the format
       
     </span>
   </a>
@@ -1367,7 +1367,7 @@
 
 
 <h1 id="integrity-vs-inspection">Integrity vs Inspection</h1>
-<p>The central unsolved tension, and the one worth understanding properly.</p>
+<p>The central unsolved tension.</p>
 <h2 id="the-two-requirements">The two requirements</h2>
 <p><strong>Supply-chain integrity</strong> says: bind evidence to bytes by cryptographic hash. Change one byte and every signature over it fails. That's the entire point -- the brittleness <em>is</em> the security property.</p>
 <p><strong>Content inspection at a classified boundary</strong> says: don't trust complex formats. Transform them into simple verifiable ones. UK guidance is explicit that complex data types "should be transformed into simple, verifiable data types", and that software-only verification of complex parsers "is usually unachievable... so is not recommended".</p>
@@ -1414,9 +1414,9 @@
 <p>One adjacent idea is reusable though -- sign an <em>index</em> that commits to content by hash, so the payload inherits the signature transitively. That's what the bundle manifest does.</p>
 </div>
 <div class="tabbed-block">
-<p><strong>The strongest argument against this is the honest one.</strong></p>
+<p><strong>The strongest argument against this isn't the loud one.</strong></p>
 <p>The overclaim to avoid: "CDR delivers close to zero security benefit." That's rhetoric and a hostile reviewer will dismantle it -- CDR <em>can</em> strip unexpected file types, normalise archive structure and detect polyglot files.</p>
-<p>The defensible version: <strong>no content-disarm engine has a sanitiser for compiled code.</strong> So transforming a software bundle changes every digest without touching the actual threat. Cite the measured figure rather than the rhetorical one -- binary reconstruction achieves roughly <strong>13% soundness</strong> (USENIX Security 2024).</p>
+<p>The defensible version: <strong>no content-disarm engine has a sanitiser for compiled code.</strong> So transforming a software bundle changes every digest without touching the actual threat. Cite the measured figure rather than the rhetorical one -- binary reconstruction achieves <strong>13% soundness</strong> (USENIX Security 2024).</p>
 <p>CDR protects document viewers from documents. It cannot protect a cluster from a backdoored binary, because the payload is executable by design.</p>
 </div>
 <div class="tabbed-block">
@@ -1438,22 +1438,9 @@
 <p>Be explicit about this, because an assessor will ask.</p>
 <p><strong>Byte-identical pass-through means malicious content in a blob is not neutralised.</strong> You've moved from <em>"the guard protects the far side from malicious bytes"</em> to <em>"the near side's attestations plus far-side runtime controls protect the far side"</em>.</p>
 <p>For executable software that was always the truth. Don't argue that CDR is worthless. Argue that <strong>it was never going to examine this payload meaningfully</strong>, and that the control doing the work is the evidence chain plus runtime enforcement.</p>
-<h2 id="the-honest-unknown">The honest unknown</h2>
-<p>A format designed against a <em>guessed</em> guard specification is worthless, and six of the seven things you'd need to know aren't publicly answerable:</p>
-<ul>
-<li>maximum single-file size and object count</li>
-<li><strong>whether a flat tar of content-addressed files reads as a "simple, verifiable type" or as an archive requiring recursive expansion</strong></li>
-<li>whether per-blob compression is permitted</li>
-<li>whether a hash-only validation policy is acceptable in lieu of semantic inspection</li>
-<li>sustained throughput and transfer cadence</li>
-<li>whether any acknowledgement in the return direction is permissible at all</li>
-</ul>
-<p>The relevant requirement sets are controlled rather than merely hard to find.</p>
-<div class="admonition danger">
-<p class="admonition-title">The practical consequence</p>
-<p><strong>Stop designing the envelope format until someone cleared answers those questions.</strong> It's a conversation, not a research task.</p>
-<p>The two-control-point <em>structure</em> survives not knowing the limits. The specific encoding doesn't.</p>
-</div>
+<h2 id="the-unknown-that-blocks-the-format">The unknown that blocks the format</h2>
+<p>A format designed against a <em>guessed</em> guard specification is worthless, and six of the seven things you'd need to know aren't publicly answerable -- the questions, and what each one decides, are set out in <a href="../../limits/unanswerable/">What We Cannot Answer</a>. The relevant requirement sets are controlled rather than merely hard to find.</p>
+<p>So stop designing the envelope format until someone cleared answers them. It's a conversation, not a research task, and the two-control-point <em>structure</em> survives not knowing the limits. The specific encoding doesn't.</p>
 <h2 id="and-the-one-nobody-asks-for">And the one nobody asks for</h2>
 <p>Across four key defence documents, there are <strong>zero genuine references to signature verification at admission, or to reproducible builds.</strong> Two things the technical community treats as table stakes, and no policy demands either.</p>
 <p>That's not an argument against doing them. It's an argument for justifying them on merit rather than waving them through as compliance requirements -- because when budgets tighten, the things nobody asked for go first.</p>

@@ -1,6 +1,6 @@
 # Integrity vs Inspection
 
-The central unsolved tension, and the one worth understanding properly.
+The central unsolved tension.
 
 ## The two requirements
 
@@ -44,11 +44,11 @@ So a diode preserves digests. **A guard in front of it may not.** And published 
 
 === "Apply content-disarm-and-reconstruct to the bundle"
 
-    **The strongest argument against this is the honest one.**
+    **The strongest argument against this isn't the loud one.**
 
     The overclaim to avoid: "CDR delivers close to zero security benefit." That's rhetoric and a hostile reviewer will dismantle it -- CDR *can* strip unexpected file types, normalise archive structure and detect polyglot files.
 
-    The defensible version: **no content-disarm engine has a sanitiser for compiled code.** So transforming a software bundle changes every digest without touching the actual threat. Cite the measured figure rather than the rhetorical one -- binary reconstruction achieves roughly **13% soundness** (USENIX Security 2024).
+    The defensible version: **no content-disarm engine has a sanitiser for compiled code.** So transforming a software bundle changes every digest without touching the actual threat. Cite the measured figure rather than the rhetorical one -- binary reconstruction achieves **13% soundness** (USENIX Security 2024).
 
     CDR protects document viewers from documents. It cannot protect a cluster from a backdoored binary, because the payload is executable by design.
 
@@ -79,23 +79,11 @@ Be explicit about this, because an assessor will ask.
 
 For executable software that was always the truth. Don't argue that CDR is worthless. Argue that **it was never going to examine this payload meaningfully**, and that the control doing the work is the evidence chain plus runtime enforcement.
 
-## The honest unknown
+## The unknown that blocks the format
 
-A format designed against a *guessed* guard specification is worthless, and six of the seven things you'd need to know aren't publicly answerable:
+A format designed against a *guessed* guard specification is worthless, and six of the seven things you'd need to know aren't publicly answerable -- the questions, and what each one decides, are set out in [What We Cannot Answer](../limits/unanswerable.md). The relevant requirement sets are controlled rather than merely hard to find.
 
-- maximum single-file size and object count
-- **whether a flat tar of content-addressed files reads as a "simple, verifiable type" or as an archive requiring recursive expansion**
-- whether per-blob compression is permitted
-- whether a hash-only validation policy is acceptable in lieu of semantic inspection
-- sustained throughput and transfer cadence
-- whether any acknowledgement in the return direction is permissible at all
-
-The relevant requirement sets are controlled rather than merely hard to find.
-
-!!! danger "The practical consequence"
-    **Stop designing the envelope format until someone cleared answers those questions.** It's a conversation, not a research task.
-
-    The two-control-point *structure* survives not knowing the limits. The specific encoding doesn't.
+So stop designing the envelope format until someone cleared answers them. It's a conversation, not a research task, and the two-control-point *structure* survives not knowing the limits. The specific encoding doesn't.
 
 ## And the one nobody asks for
 

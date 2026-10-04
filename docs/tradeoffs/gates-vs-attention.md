@@ -36,7 +36,7 @@ Most volume comes from the base image. A minimal, continuously rebuilt base **re
 
 It's the highest-leverage intervention available and it's thoroughly unglamorous: the way to keep a gate switched on is to give it less to complain about.
 
-### 2. Make recording a judgement cost thirty seconds
+### 2. Make recording a judgement cheap
 
 !!! success "Already solved, and it contains no AI"
     An existing tool turns a maintainer typing one structured comment into a **Sigstore-signed in-toto VEX attestation**, authorised against a code-owners file.
@@ -49,7 +49,7 @@ And a model should *not* make this call -- the best measured performance on sele
 
 ### 3. Use AI where it has a deterministic check, not where it has judgement
 
-The strongest real result in this area, and it's genuinely good: **LLM triage of static-analysis false positives** achieves F1 of 0.91-0.96, with one reported deployment eliminating 94-98% of false positives at under $0.12 per alarm against 10-20 minutes of human time.
+**LLM triage of static-analysis false positives** is the strongest real result in this area: F1 of 0.91-0.96, with one reported deployment eliminating 94-98% of false positives at under $0.12 per alarm against 10-20 minutes of human time.
 
 That works because the output is checkable. Compare AI code review *as a gate*: 31,073 comments in the wild, a **56.3% rejection rate and 36.4% acceptance**, and nothing emitting a signed verdict. It's advice, not a gate.
 
@@ -57,7 +57,7 @@ That works because the output is checkable. Compare AI code review *as a gate*: 
 
 Every real gate needs break-glass. The good implementations make exclusions carry `effectiveOn` and `effectiveUntil` dates, a link to a tracking issue, and warnings before expiry.
 
-That turns the monotonic-growth problem into a self-pruning one. **Steal this design** -- it's the difference between a waiver list and a graveyard.
+That turns the monotonic-growth problem into a self-pruning one.
 
 ### 5. Start in audit mode
 
@@ -70,9 +70,9 @@ One measured finding is nearly absent from every vendor maturity model:
 !!! quote "DORA 2025"
     **Clear, actionable feedback on task outcomes** is *the* platform attribute most correlated with positive user experience.
 
-Not capability. Not breadth. Feedback quality.
+Feedback quality, not capability or breadth.
 
-Which points at something concrete: a red cross and a 4,000-line SARIF file is a failure, even when the finding is correct. The gate's job isn't to detect. It's to **tell a human exactly what to do in as few words as possible**.
+A red cross and a 4,000-line SARIF file is a failure, even when the finding is correct. The gate's job isn't to detect. It's to **tell a human exactly what to do in as few words as possible**.
 
 ## Why this is getting more acute
 
@@ -80,7 +80,7 @@ Generation is getting cheaper. Review is not.
 
 So the scarce resource isn't review capacity in the abstract -- it's **reviewer attention**, measured in human-attention-units per merged change. And one correction follows from that: build, test and CI capacity *rise* in importance rather than falling, because mechanical verification is how you spend less attention per change.
 
-!!! tip "The design instruction"
+!!! tip "What the factory is actually for"
     **The highest-value output of the factory isn't the artefact. It's the evidence that makes a change cheap to review.**
 
     A passing test suite that genuinely covers the diff. A reachability verdict. A statement that this change touches nothing else. An explanation of a finding in one sentence.

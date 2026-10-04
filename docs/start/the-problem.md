@@ -66,21 +66,21 @@ Anything that **gates a build** gets maintained, because it breaks loudly when i
 
 ## The sharper diagnosis
 
-The obvious reading is that evidence rots because nothing fails when it does. True, but incomplete.
+Evidence rots because nothing fails when it does. That diagnosis is true but incomplete.
 
 !!! quote "Evidence rots because nothing *reads* it."
     Give it a reader with an appetite and the freshness problem partly solves itself, because stale input produces visibly worse output.
 
-This matters more now than it did three years ago, because there's a new and very hungry reader: an AI agent working inside the factory wants exactly this data. An agent fixing a vulnerability needs the SBOM and reachability analysis to judge whether the finding is real. An agent proposing a dependency bump needs the provenance of the thing it's bumping to.
+This matters more now than it did three years ago, because there's a new and hungry reader: an AI agent working inside the factory wants exactly this data. An agent fixing a vulnerability needs the SBOM and reachability analysis to judge whether the finding is real. An agent proposing a dependency bump needs the provenance of the thing it's bumping to.
 
 Of **36,870** real-world dependency upgrade recommendations analysed from registry telemetry, **27.76% referenced versions that do not exist**. That's what ungrounded generation looks like at scale, and it's an argument for the evidence graph being queryable rather than merely attached -- "which versions actually exist for this component" is a graph question.
 
 ## Why this is not just a defence problem
 
-The air-gapped and cross-domain case is the **sharpest demonstration** of the thesis, because a boundary that strips evidence makes the failure visible and unavoidable. It's not the general case.
+The air-gapped and cross-domain case is the **sharpest demonstration** of the thesis, because a boundary that strips evidence makes the failure visible and unavoidable.
 
 The general case is any organisation that has to answer "what is running, where did it come from, and what is wrong with it" on demand rather than on an annual cycle. Which, after a survey of twelve regimes, is most of them.
 
 ---
 
-**Next:** [What We Got Wrong](corrections.md) -- before you repeat any of the above, read the four claims on this page that did not survive verification.
+**Next:** [What We Got Wrong](corrections.md) -- before you repeat any of the above, find out which parts of it didn't survive verification.

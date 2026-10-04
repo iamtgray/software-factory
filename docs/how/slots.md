@@ -10,7 +10,7 @@ Each position then accepts a swappable implementation chosen by environment.
 
 AI-assisted development uses a managed frontier model in a hyperscale cloud, and a locally-hosted open-weight model behind a gateway in a disconnected enclave.
 
-**Same slot. Different implementation. Not a separate build.**
+**Same slot, different implementation, and not a separate build.**
 
 If the enclave needs its own build, the abstraction has failed and you have two products to maintain, two accreditations to obtain, and a second-class environment that drifts.
 

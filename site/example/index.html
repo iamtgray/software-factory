@@ -1244,13 +1244,34 @@
 
 <h1 id="a-worked-example">A Worked Example</h1>
 <p>One change, traced end to end, twice.</p>
-<p>The scenario is deliberately ordinary: <strong>a vulnerability is reported in a library used by a production service, and someone has to fix it.</strong> No novel architecture, no exotic requirement -- just the most common piece of work a factory handles.</p>
-<p><strong><a href="connected/">A Change, End to End</a></strong> -- The connected case. Eleven steps from advisory to running container, showing at each step what is produced, who signs it, and what the next step actually checks. By the end there are ten signed documents bound to one image digest, and admission control reads exactly one of them.</p>
-<p><strong><a href="airgap/">The Same Change, Air-Gapped</a></strong> -- The same fix, delivered into a disconnected enclave. What survives the crossing, what does not, which steps gain a second implementation, and the three places the connected flow silently assumed a network it no longer has.</p>
-<div class="admonition tip">
-<p class="admonition-title">Read them in order</p>
-<p>The second page only makes sense as a diff against the first. Three steps break in the air-gapped flow, and two of them aren't the obvious ones.</p>
-</div>
+<p>The scenario is deliberately ordinary: <strong>a vulnerability is reported in a library used by a production service, and someone has to fix it.</strong> It is the most common piece of work a factory handles.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><a href="connected/">A Change, End to End</a></th>
+<th><a href="airgap/">The Same Change, Air-Gapped</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>The setting</strong></td>
+<td>Connected: registry, transparency log and identity provider all reachable</td>
+<td>An enclave with no network path out -- no DNS, no registry pull, no transparency log</td>
+</tr>
+<tr>
+<td><strong>What it traces</strong></td>
+<td>Eleven steps from advisory to running container, showing at each step what is produced, who signs it, and what the next step actually checks</td>
+<td>The same eleven steps, read as a diff against the connected flow</td>
+</tr>
+<tr>
+<td><strong>Where it ends</strong></td>
+<td>Ten signed documents bound to one image digest, of which admission control reads exactly one</td>
+<td>Three steps break: the agent degrades by GPU count, attestation discovery loses the referrers API, and keyless signing stops working across trust domains</td>
+</tr>
+</tbody>
+</table>
+<p>The air-gapped page assumes you've read the connected one. It's written as a diff and doesn't stand alone.</p>
 
 
 

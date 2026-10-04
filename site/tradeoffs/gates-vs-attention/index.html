@@ -929,10 +929,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-make-recording-a-judgement-cost-thirty-seconds" class="md-nav__link">
+  <a href="#2-make-recording-a-judgement-cheap" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Make recording a judgement cost thirty seconds
+        2. Make recording a judgement cheap
       
     </span>
   </a>
@@ -1441,7 +1441,7 @@
 <h3 id="1-remove-findings-rather-than-suppressing-them">1. Remove findings rather than suppressing them</h3>
 <p>Most volume comes from the base image. A minimal, continuously rebuilt base <strong>removes</strong> findings instead of requiring a judgement on each one.</p>
 <p>It's the highest-leverage intervention available and it's thoroughly unglamorous: the way to keep a gate switched on is to give it less to complain about.</p>
-<h3 id="2-make-recording-a-judgement-cost-thirty-seconds">2. Make recording a judgement cost thirty seconds</h3>
+<h3 id="2-make-recording-a-judgement-cheap">2. Make recording a judgement cheap</h3>
 <div class="admonition success">
 <p class="admonition-title">Already solved, and it contains no AI</p>
 <p>An existing tool turns a maintainer typing one structured comment into a <strong>Sigstore-signed in-toto VEX attestation</strong>, authorised against a code-owners file.</p>
@@ -1450,11 +1450,11 @@
 <p>The economics decide everything here. If recording "the vulnerable code is not present" takes ten minutes and yields a signed artefact, the gate survives. If it takes a ticket and a security review, the gate gets disabled.</p>
 <p>And a model should <em>not</em> make this call -- the best measured performance on selecting the correct VEX justification is <strong>under 70% macro-F1</strong>. Signing the wrong justification is worse than signing none.</p>
 <h3 id="3-use-ai-where-it-has-a-deterministic-check-not-where-it-has-judgement">3. Use AI where it has a deterministic check, not where it has judgement</h3>
-<p>The strongest real result in this area, and it's genuinely good: <strong>LLM triage of static-analysis false positives</strong> achieves F1 of 0.91-0.96, with one reported deployment eliminating 94-98% of false positives at under $0.12 per alarm against 10-20 minutes of human time.</p>
+<p><strong>LLM triage of static-analysis false positives</strong> is the strongest real result in this area: F1 of 0.91-0.96, with one reported deployment eliminating 94-98% of false positives at under $0.12 per alarm against 10-20 minutes of human time.</p>
 <p>That works because the output is checkable. Compare AI code review <em>as a gate</em>: 31,073 comments in the wild, a <strong>56.3% rejection rate and 36.4% acceptance</strong>, and nothing emitting a signed verdict. It's advice, not a gate.</p>
 <h3 id="4-waivers-that-expire-by-construction">4. Waivers that expire by construction</h3>
 <p>Every real gate needs break-glass. The good implementations make exclusions carry <code>effectiveOn</code> and <code>effectiveUntil</code> dates, a link to a tracking issue, and warnings before expiry.</p>
-<p>That turns the monotonic-growth problem into a self-pruning one. <strong>Steal this design</strong> -- it's the difference between a waiver list and a graveyard.</p>
+<p>That turns the monotonic-growth problem into a self-pruning one.</p>
 <h3 id="5-start-in-audit-mode">5. Start in audit mode</h3>
 <p>Report-only for a quarter. Drive the count to zero. <em>Then</em> enforce. The mature tools have an explicit audit level for exactly this.</p>
 <h2 id="the-reframing-that-matters">The reframing that matters</h2>
@@ -1463,13 +1463,13 @@
 <p class="admonition-title">DORA 2025</p>
 <p><strong>Clear, actionable feedback on task outcomes</strong> is <em>the</em> platform attribute most correlated with positive user experience.</p>
 </div>
-<p>Not capability. Not breadth. Feedback quality.</p>
-<p>Which points at something concrete: a red cross and a 4,000-line SARIF file is a failure, even when the finding is correct. The gate's job isn't to detect. It's to <strong>tell a human exactly what to do in as few words as possible</strong>.</p>
+<p>Feedback quality, not capability or breadth.</p>
+<p>A red cross and a 4,000-line SARIF file is a failure, even when the finding is correct. The gate's job isn't to detect. It's to <strong>tell a human exactly what to do in as few words as possible</strong>.</p>
 <h2 id="why-this-is-getting-more-acute">Why this is getting more acute</h2>
 <p>Generation is getting cheaper. Review is not.</p>
 <p>So the scarce resource isn't review capacity in the abstract -- it's <strong>reviewer attention</strong>, measured in human-attention-units per merged change. And one correction follows from that: build, test and CI capacity <em>rise</em> in importance rather than falling, because mechanical verification is how you spend less attention per change.</p>
 <div class="admonition tip">
-<p class="admonition-title">The design instruction</p>
+<p class="admonition-title">What the factory is actually for</p>
 <p><strong>The highest-value output of the factory isn't the artefact. It's the evidence that makes a change cheap to review.</strong></p>
 <p>A passing test suite that genuinely covers the diff. A reachability verdict. A statement that this change touches nothing else. An explanation of a finding in one sentence.</p>
 <p>Everything that reduces attention-per-change is worth more than another check that increases it.</p>

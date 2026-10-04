@@ -2,8 +2,6 @@
 
 A factory is an assembly of other people's projects. So the health of those projects is an architectural property, not an operational detail.
 
-The picture is mixed, and the mix isn't where you'd expect it.
-
 ## Twelve projects on the critical path with no substitute
 
 | Role | Stars |
@@ -23,10 +21,7 @@ The **44-star project** is actively maintained -- it cut a release two days befo
 
 The **277-star project** carries the entire evidence chain. Also healthy, also tiny.
 
-!!! success "The response, and a possible contribution"
-    Contribute upstream now. It's cheaper than forking later, and far cheaper than discovering a maintainer has moved on.
-
-    It also suggests something a funded programme could give the ecosystem that isn't code: **being an accountable, funded consumer of three tiny projects that everything else quietly depends on.** Arguably worth more than another platform.
+What to do about that is a decision rather than a health finding, so it lives on [Build vs Adopt](../tradeoffs/build-vs-adopt.md).
 
 ## The graveyard, with famous residents
 
@@ -71,21 +66,7 @@ A related finding: the open factory most often cited as a reference implementati
 
 ## The OSCAL retreat
 
-The clearest case of informed abandonment:
-
-- one project **deleted** its OSCAL and replaced the tool, stating that **"OSCAL proved too complex... automated tests alone were insufficient"**
-- a government compliance-automation repository is **404**
-- two major vendors migrated to different formats entirely; a third **archived both of its attempts**
-- the **next major version of the standard has no active work**
-- one project's live-cluster validation was **built, then disabled, then deleted** over eighteen months
-- and across four defence documents, OSCAL has **zero genuine references** -- it isn't even demanded
-
-Meanwhile, the one remaining project generating control evidence from a live system has **46 stars and no release since February**.
-
-!!! quote "Read the direction, not the snapshot"
-    Multiple well-resourced, independently motivated organisations built this and walked away. At least one said why.
-
-    **The ecosystem is drifting back towards documents.** Which means a factory that solves this will own the capability rather than consume it -- and should be clear-eyed about why everyone else stopped.
+The clearest case of informed abandonment in the whole survey. Several well-resourced, independently motivated organisations built on OSCAL and walked away, and at least one said why. Read the direction rather than the snapshot: **the ecosystem is drifting back towards documents.** The evidence is catalogued under [Build vs Adopt](../tradeoffs/build-vs-adopt.md), since what it changes is a decision about what to build rather than a tool to cross off.
 
 ## Where disconnected operation is genuinely first-class
 
@@ -95,4 +76,4 @@ Rare, and worth knowing precisely:
 
 **Zero address cross-domain.** Which is both the gap and the warning: nobody has done it, and the reasons may include it being genuinely hard.
 
-One encouraging signal: the cloud-native community now has a formally recognised **air-gapped working group**. It's a stub with no content yet, but the problem domain has been acknowledged -- which makes it a place to contribute rather than compete.
+One encouraging signal: the cloud-native community now has a formally recognised **air-gapped working group**. It's a stub with no content yet, but the problem domain has been acknowledged.

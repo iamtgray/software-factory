@@ -1,9 +1,11 @@
 # Getting Started
 
-Three pages, in order. The second one matters more than the first.
+Three pages that make one argument in sequence -- here is the problem, here is which parts of our account of it didn't survive checking, and here is the boundary that stops the whole idea collapsing.
 
-**[The Problem](the-problem.md)** -- What a software factory is for, why the interesting part is evidence rather than build automation, and the general pattern behind every documented failure in the field: evidence is produced as a side effect, stored where nothing reads it, and never checked against the thing it describes.
+1. **[The Problem](the-problem.md)** -- What a software factory is for, why the evidence is the interesting half and not the build automation, and the general pattern behind every documented failure in the field: evidence is produced as a side effect, stored where nothing reads it, and never checked against the thing it describes.
 
-**[What We Got Wrong](corrections.md)** -- Four confident claims that adversarial verification demolished, including the project's own central thesis. Read this before repeating anything from the first page. The corrected versions are narrower, and they hold up in a room full of sceptics.
+2. **[What We Got Wrong](corrections.md)** -- Two claims refuted outright, including the project's own central thesis, five more weakened, and a couple of factual errors caught along the way. The corrected versions are narrower, and they hold up in a room full of sceptics.
 
-**[Scope -- What This Is Not](scope.md)** -- The single most consequential decision on this site, and it's about scope rather than technology. Three layers: one is a platform, one is a product line, and one is explicitly out of bounds because it's where two previous attempts died.
+3. **[Scope -- What This Is Not](scope.md)** -- Three layers, three different disciplines: one is a platform consumed verbatim, one is a genuine product line, and application architecture is explicitly out of bounds because it's where two previous attempts died.
+
+Read them in that order. The second page exists to stop you quoting the first one.

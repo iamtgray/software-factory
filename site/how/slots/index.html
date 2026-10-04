@@ -1361,7 +1361,7 @@
 <p>Each position then accepts a swappable implementation chosen by environment.</p>
 <h2 id="the-test-case-that-proves-or-breaks-it">The test case that proves or breaks it</h2>
 <p>AI-assisted development uses a managed frontier model in a hyperscale cloud, and a locally-hosted open-weight model behind a gateway in a disconnected enclave.</p>
-<p><strong>Same slot. Different implementation. Not a separate build.</strong></p>
+<p><strong>Same slot, different implementation, and not a separate build.</strong></p>
 <p>If the enclave needs its own build, the abstraction has failed and you have two products to maintain, two accreditations to obtain, and a second-class environment that drifts.</p>
 <h2 id="why-the-interface-must-be-a-kubernetes-api">Why the interface must be a Kubernetes API</h2>
 <p>The obvious implementation is configuration (a values file with a <code>sbomProvider: syft</code> key). That doesn't work, and there's a worked example of why.</p>

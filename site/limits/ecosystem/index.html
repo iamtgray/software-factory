@@ -1363,7 +1363,6 @@
 
 <h1 id="ecosystem-health">Ecosystem Health</h1>
 <p>A factory is an assembly of other people's projects. So the health of those projects is an architectural property, not an operational detail.</p>
-<p>The picture is mixed, and the mix isn't where you'd expect it.</p>
 <h2 id="twelve-projects-on-the-critical-path-with-no-substitute">Twelve projects on the critical path with no substitute</h2>
 <table>
 <thead>
@@ -1410,11 +1409,7 @@
 <p>Two deserve particular attention.</p>
 <p>The <strong>44-star project</strong> is actively maintained -- it cut a release two days before this was written. So the risk is <strong>bus factor, not abandonment</strong>. It's simultaneously the most load-bearing and the least known component in the whole stack: nothing else in open source signs a verdict over a set of attestations, which is the mechanism the entire delegated-verdict pattern depends on.</p>
 <p>The <strong>277-star project</strong> carries the entire evidence chain. Also healthy, also tiny.</p>
-<div class="admonition success">
-<p class="admonition-title">The response, and a possible contribution</p>
-<p>Contribute upstream now. It's cheaper than forking later, and far cheaper than discovering a maintainer has moved on.</p>
-<p>It also suggests something a funded programme could give the ecosystem that isn't code: <strong>being an accountable, funded consumer of three tiny projects that everything else quietly depends on.</strong> Arguably worth more than another platform.</p>
-</div>
+<p>What to do about that is a decision rather than a health finding, so it lives on <a href="../../tradeoffs/build-vs-adopt/">Build vs Adopt</a>.</p>
 <h2 id="the-graveyard-with-famous-residents">The graveyard, with famous residents</h2>
 <p>Projects that look alive from their star count and aren't:</p>
 <table>
@@ -1497,26 +1492,12 @@
 </div>
 <p>A related finding: the open factory most often cited as a reference implementation has its security-scanning slot filled by <strong>commercial products</strong>, with dependency scanning requiring a paid forge tier. <strong>An all-open-source version of it doesn't exist.</strong> Mine its patterns; don't adopt it as a substrate and expect to stay open source.</p>
 <h2 id="the-oscal-retreat">The OSCAL retreat</h2>
-<p>The clearest case of informed abandonment:</p>
-<ul>
-<li>one project <strong>deleted</strong> its OSCAL and replaced the tool, stating that <strong>"OSCAL proved too complex... automated tests alone were insufficient"</strong></li>
-<li>a government compliance-automation repository is <strong>404</strong></li>
-<li>two major vendors migrated to different formats entirely; a third <strong>archived both of its attempts</strong></li>
-<li>the <strong>next major version of the standard has no active work</strong></li>
-<li>one project's live-cluster validation was <strong>built, then disabled, then deleted</strong> over eighteen months</li>
-<li>and across four defence documents, OSCAL has <strong>zero genuine references</strong> -- it isn't even demanded</li>
-</ul>
-<p>Meanwhile, the one remaining project generating control evidence from a live system has <strong>46 stars and no release since February</strong>.</p>
-<div class="admonition quote">
-<p class="admonition-title">Read the direction, not the snapshot</p>
-<p>Multiple well-resourced, independently motivated organisations built this and walked away. At least one said why.</p>
-<p><strong>The ecosystem is drifting back towards documents.</strong> Which means a factory that solves this will own the capability rather than consume it -- and should be clear-eyed about why everyone else stopped.</p>
-</div>
+<p>The clearest case of informed abandonment in the whole survey. Several well-resourced, independently motivated organisations built on OSCAL and walked away, and at least one said why. Read the direction rather than the snapshot: <strong>the ecosystem is drifting back towards documents.</strong> The evidence is catalogued under <a href="../../tradeoffs/build-vs-adopt/">Build vs Adopt</a>, since what it changes is a decision about what to build rather than a tool to cross off.</p>
 <h2 id="where-disconnected-operation-is-genuinely-first-class">Where disconnected operation is genuinely first-class</h2>
 <p>Rare, and worth knowing precisely:</p>
 <p><strong>Only two projects in 2,430 catalogued exist <em>because of</em> air-gap.</strong> Three more treat disconnected operation as first-class -- one signing tool with the best offline flag surface of anything surveyed, one OS image system with <strong>the best delta design in open source</strong> (a signed index over static deltas, which is the pattern a transfer bundle should copy), and one scanner that reads a bundle in place without extraction or network.</p>
 <p><strong>Zero address cross-domain.</strong> Which is both the gap and the warning: nobody has done it, and the reasons may include it being genuinely hard.</p>
-<p>One encouraging signal: the cloud-native community now has a formally recognised <strong>air-gapped working group</strong>. It's a stub with no content yet, but the problem domain has been acknowledged -- which makes it a place to contribute rather than compete.</p>
+<p>One encouraging signal: the cloud-native community now has a formally recognised <strong>air-gapped working group</strong>. It's a stub with no content yet, but the problem domain has been acknowledged.</p>
 
 
 

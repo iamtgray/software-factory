@@ -1439,7 +1439,7 @@
 <h2 id="1-the-advisory-arrives">1. The advisory arrives</h2>
 <p>A new CVE lands in the vulnerability database. A scheduled scan of what is <em>already running</em> flags <code>payments-api</code> as affected.</p>
 <p><strong>The scan is of the running system, not of a build.</strong> The surviving US federal obligation after the 2026 deregulation is "an SBOM of the <strong>runtime production environment</strong> upon request" -- so this scan is the compliance artefact, not the build-time one. And runtime SBOM assembly is a slot with <strong>no mature tooling</strong> anywhere.</p>
-<p><strong>The finding is probably wrong.</strong> Registry telemetry puts the odds in perspective: 65% of open-source CVEs lack a severity score in the national database, and independent severity assessments agree with it only <strong>55.7%</strong> of the time. Matching on vendor-product identifiers against open-ended version ranges is the dominant source of false positives, and false positives are what get gates switched off.</p>
+<p><strong>The finding is probably wrong.</strong> Registry telemetry: 65% of open-source CVEs lack a severity score in the national database, and independent severity assessments agree with it only <strong>55.7%</strong> of the time. Matching on vendor-product identifiers against open-ended version ranges is the dominant source of false positives, and false positives are what get gates switched off.</p>
 <p>So the first real step is not fixing anything.</p>
 <h2 id="2-triage-and-the-question-that-actually-matters">2. Triage, and the question that actually matters</h2>
 <p>Is the vulnerable code <strong>reachable</strong> from this application?</p>
@@ -1583,7 +1583,7 @@
 <h2 id="four-things-this-flow-makes-obvious">Four things this flow makes obvious</h2>
 <p><strong>Admission control reads one document.</strong> Everything else exists to justify it. If admission is doing expensive work, the design failed upstream.</p>
 <p><strong>Six identities, not one.</strong> If a single key signed all of this, the verdict would be worthless -- a compromised build could issue its own pass.</p>
-<p><strong>The expensive step is step 2, and it is social.</strong> Triage, not fixing. A factory that makes recording a VEX justification cost thirty seconds keeps its gate. One that makes it cost a ticket loses the gate within a quarter.</p>
+<p><strong>The expensive step is step 2, and it is social.</strong> Triage, not fixing. A factory where recording a VEX justification is one comment keeps its gate. One where it costs a ticket and a security review loses the gate within a quarter.</p>
 <p><strong>The scarce resource is reviewer attention.</strong> Generation is cheap and getting cheaper. So the highest-value thing the factory produces isn't the artefact; it's the evidence that makes step 5 quick: a passing test suite that actually covers the diff, a reachability verdict, a statement that this change touches nothing else.</p>
 <hr />
 <p><strong>Next:</strong> <a href="../airgap/">The Same Change, Air-Gapped</a> -- the same eleven steps, with three of them broken.</p>

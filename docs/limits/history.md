@@ -1,6 +1,6 @@
 # What Has Failed Before
 
-The software factory idea has been tried four times and has failed four times. The diagnoses are consistent and unflattering, and they contain the best positioning argument available.
+The software factory idea has been tried four times and failed four times. The diagnoses are consistent and unflattering, and one of them describes modern platform engineering forty years before the industry reinvented it.
 
 ## Four attempts, and the rejection that came first
 
@@ -35,16 +35,16 @@ Two details change how you read this.
 !!! danger "This failure is encoded in modern funding models"
     RAND finds that current defence software factories are mostly **customer-funded** -- each one must win its customers' budgets.
 
-    That's SDC's exact failure mode written into the budget line: optional adoption, leading to a decline in the flow of work. **Fund as a product, or buy. Do not fund as a project with customer-recovered costs.**
+    That's SDC's exact failure mode written into the budget line: optional adoption, leading to a decline in the flow of work. What to do about it is a funding decision, and it sits on [Mandate vs Adoption](../tradeoffs/mandate-vs-adoption.md).
 
-### The best positioning argument available
+### The compromise they retreated to
 
 The compromise SDC retreated to was to *"maintain the factory procedures and some of the tools, but **decentralize the factory workers**."*
 
 !!! success "That is modern platform engineering, described in 1978."
     The surviving half of the 1978 failure is the thing the industry independently reinvented forty years later.
 
-    So the honest framing isn't "this time it will work". It's: **the part that survived is the part we're building, and we're deliberately not building the part that died.**
+    So the framing isn't "this time it will work". It's: **the part that survived is the part we're building, and we're deliberately not building the part that died.**
 
 ## Diagnosis 2: Japan faded rather than collapsed
 
@@ -56,16 +56,13 @@ The headline claim of the entire movement doesn't survive its own best study. Cu
 
 And Toshiba's own productivity curve is the cautionary one: **+22% in year one, +70% by year five, then +8% across the next four** -- because they hit a practical reuse ceiling of about 50%.
 
-!!! quote "The single most prescriptive finding in the research"
-    Reuse **pays above 80% unchanged, does nothing between 20% and 80%, and is net harmful below 20%.** A step function, not a gradient.
-
-    So measure the modification rate of shared assets. A slot implementation every programme forks by 40% is worse than having no shared asset -- you pay the coordination cost and get none of the benefit.
+The reuse numbers underneath it are a step function rather than a gradient. Reuse **pays above 80% unchanged, does nothing between 20% and 80%, and is net harmful below 20%.** So the thing to measure is the modification rate of shared assets: a slot implementation every programme forks by 40% is worse than having no shared asset, because you pay the coordination cost and get none of the benefit.
 
 ## Does the modern version repeat them?
 
 **Solved:** the 1968 objections about machine dependence and component cataloguing.
 
-**Shifted rather than solved:** the objection that reusable modules cannot be both general and efficient. The *assurance machinery* -- SBOMs, provenance, signing, control evidence -- genuinely is uniform across applications. *Application architecture* is not. Which is why [scope](../start/scope.md) is the most important decision on this site.
+**Shifted rather than solved:** the objection that reusable modules cannot be both general and efficient. The *assurance machinery* -- SBOMs, provenance, signing, control evidence -- genuinely is uniform across applications. *Application architecture* is not. Which is why [scope](../start/scope.md) gets a page of its own.
 
 **Avoided:** centralising people. Nobody is proposing 200 programmers in one building.
 
@@ -92,7 +89,7 @@ The binding constraint has moved from **code production to evidence production.*
 
 But the dependency is explicit: if control inheritance is weak, that leverage vanishes and you're back in SDC's losing position.
 
-## The modern case study, honestly
+## The modern case study
 
 The most-cited success story.
 
@@ -106,7 +103,7 @@ Its co-founder, in 2025: it was **"failing"** and **"not doing its mission"** --
 
 In March 2025 it reverted to a government-led, vendor-managed model with a single vendor per portfolio. A serving engineer, anonymously: *"It's back to the future."*
 
-**In February 2026 it opened a new programme for the same capability -- ten years after the cancellation it was created to fix.**
+In February 2026 it opened a new programme for the same capability, ten years after the cancellation it was created to fix.
 
 !!! tip "Design against operator rotation"
     Fifty per cent turnover every six months was the proximate cause of death. A factory whose operation depends on institutional memory won't survive contact with the organisations that need it most.

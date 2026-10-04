@@ -1129,10 +1129,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-best-positioning-argument-available" class="md-nav__link">
+  <a href="#the-compromise-they-retreated-to" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The best positioning argument available
+        The compromise they retreated to
       
     </span>
   </a>
@@ -1184,10 +1184,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-modern-case-study-honestly" class="md-nav__link">
+  <a href="#the-modern-case-study" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The modern case study, honestly
+        The modern case study
       
     </span>
   </a>
@@ -1390,7 +1390,7 @@
 
 
 <h1 id="what-has-failed-before">What Has Failed Before</h1>
-<p>The software factory idea has been tried four times and has failed four times. The diagnoses are consistent and unflattering, and they contain the best positioning argument available.</p>
+<p>The software factory idea has been tried four times and failed four times. The diagnoses are consistent and unflattering, and one of them describes modern platform engineering forty years before the industry reinvented it.</p>
 <h2 id="four-attempts-and-the-rejection-that-came-first">Four attempts, and the rejection that came first</h2>
 <p>The 1968 entry isn't one of the four. It's the field being told, before anyone built anything, that this wouldn't work -- and two of its three objections have since been solved.</p>
 <table>
@@ -1444,14 +1444,14 @@
 <div class="admonition danger">
 <p class="admonition-title">This failure is encoded in modern funding models</p>
 <p>RAND finds that current defence software factories are mostly <strong>customer-funded</strong> -- each one must win its customers' budgets.</p>
-<p>That's SDC's exact failure mode written into the budget line: optional adoption, leading to a decline in the flow of work. <strong>Fund as a product, or buy. Do not fund as a project with customer-recovered costs.</strong></p>
+<p>That's SDC's exact failure mode written into the budget line: optional adoption, leading to a decline in the flow of work. What to do about it is a funding decision, and it sits on <a href="../../tradeoffs/mandate-vs-adoption/">Mandate vs Adoption</a>.</p>
 </div>
-<h3 id="the-best-positioning-argument-available">The best positioning argument available</h3>
+<h3 id="the-compromise-they-retreated-to">The compromise they retreated to</h3>
 <p>The compromise SDC retreated to was to <em>"maintain the factory procedures and some of the tools, but </em><em>decentralize the factory workers</em><em>."</em></p>
 <div class="admonition success">
 <p class="admonition-title">That is modern platform engineering, described in 1978.</p>
 <p>The surviving half of the 1978 failure is the thing the industry independently reinvented forty years later.</p>
-<p>So the honest framing isn't "this time it will work". It's: <strong>the part that survived is the part we're building, and we're deliberately not building the part that died.</strong></p>
+<p>So the framing isn't "this time it will work". It's: <strong>the part that survived is the part we're building, and we're deliberately not building the part that died.</strong></p>
 </div>
 <h2 id="diagnosis-2-japan-faded-rather-than-collapsed">Diagnosis 2: Japan faded rather than collapsed</h2>
 <ol>
@@ -1461,14 +1461,10 @@
 </ol>
 <p>The headline claim of the entire movement doesn't survive its own best study. Cusumano and Kemerer, <em>Management Science</em> 1990, n=40: <strong>no statistically significant difference between US and Japanese organisations on productivity, quality or reuse.</strong> Reused code costs about 64% of new.</p>
 <p>And Toshiba's own productivity curve is the cautionary one: <strong>+22% in year one, +70% by year five, then +8% across the next four</strong> -- because they hit a practical reuse ceiling of about 50%.</p>
-<div class="admonition quote">
-<p class="admonition-title">The single most prescriptive finding in the research</p>
-<p>Reuse <strong>pays above 80% unchanged, does nothing between 20% and 80%, and is net harmful below 20%.</strong> A step function, not a gradient.</p>
-<p>So measure the modification rate of shared assets. A slot implementation every programme forks by 40% is worse than having no shared asset -- you pay the coordination cost and get none of the benefit.</p>
-</div>
+<p>The reuse numbers underneath it are a step function rather than a gradient. Reuse <strong>pays above 80% unchanged, does nothing between 20% and 80%, and is net harmful below 20%.</strong> So the thing to measure is the modification rate of shared assets: a slot implementation every programme forks by 40% is worse than having no shared asset, because you pay the coordination cost and get none of the benefit.</p>
 <h2 id="does-the-modern-version-repeat-them">Does the modern version repeat them?</h2>
 <p><strong>Solved:</strong> the 1968 objections about machine dependence and component cataloguing.</p>
-<p><strong>Shifted rather than solved:</strong> the objection that reusable modules cannot be both general and efficient. The <em>assurance machinery</em> -- SBOMs, provenance, signing, control evidence -- genuinely is uniform across applications. <em>Application architecture</em> is not. Which is why <a href="../../start/scope/">scope</a> is the most important decision on this site.</p>
+<p><strong>Shifted rather than solved:</strong> the objection that reusable modules cannot be both general and efficient. The <em>assurance machinery</em> -- SBOMs, provenance, signing, control evidence -- genuinely is uniform across applications. <em>Application architecture</em> is not. Which is why <a href="../../start/scope/">scope</a> gets a page of its own.</p>
 <p><strong>Avoided:</strong> centralising people. Nobody is proposing 200 programmers in one building.</p>
 <p><strong>At risk of repeating:</strong></p>
 <ul>
@@ -1490,14 +1486,14 @@
 <h3 id="the-one-genuinely-new-condition-in-our-favour">The one genuinely new condition, in our favour</h3>
 <p>The binding constraint has moved from <strong>code production to evidence production.</strong> That puts a factory on a compliance chokepoint no team can opt out of -- which is structurally stronger than SDC's position, because SDC's customers could simply decline.</p>
 <p>But the dependency is explicit: if control inheritance is weak, that leverage vanishes and you're back in SDC's losing position.</p>
-<h2 id="the-modern-case-study-honestly">The modern case study, honestly</h2>
+<h2 id="the-modern-case-study">The modern case study</h2>
 <p>The most-cited success story.</p>
 <p><strong>Created</strong> 2017, after a programme cancellation that had run from $374m to $745m in development against a lifecycle estimate over $3.5bn.</p>
 <p><strong>Delivered:</strong> real applications, including one used during the Kabul evacuation of 123,000 people, and durable policy change -- continuous authorisation and a new software acquisition pathway exist partly because of it.</p>
 <p><strong>Did not deliver:</strong> the system replacement it was created to produce.</p>
 <p>Its co-founder, in 2025: it was <strong>"failing"</strong> and <strong>"not doing its mission"</strong> -- but pointedly, <em>"It's the Air Force that failed Kessel Run."</em> The structural cause he names: <em>"We were turning over 50 percent of our staff every six months"</em>, and <em>"What software company... turns over their entire C suite every two years?"</em></p>
 <p>In March 2025 it reverted to a government-led, vendor-managed model with a single vendor per portfolio. A serving engineer, anonymously: <em>"It's back to the future."</em></p>
-<p><strong>In February 2026 it opened a new programme for the same capability -- ten years after the cancellation it was created to fix.</strong></p>
+<p>In February 2026 it opened a new programme for the same capability, ten years after the cancellation it was created to fix.</p>
 <div class="admonition tip">
 <p class="admonition-title">Design against operator rotation</p>
 <p>Fifty per cent turnover every six months was the proximate cause of death. A factory whose operation depends on institutional memory won't survive contact with the organisations that need it most.</p>

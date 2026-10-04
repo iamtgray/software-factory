@@ -1379,7 +1379,7 @@
 <li>the <code>Assisted-by</code> trailer is present where generation was material</li>
 <li>mechanical checks that human review <em>cannot</em> perform have run</li>
 </ul>
-<p>That last point is not a nicety. The GlassWorm malware used Unicode variation selectors that render as blank lines -- invisible in editors, in diffs, and in most static analysis, but executable to the interpreter. <strong>Human review is not a detection control against adversarial content.</strong></p>
+<p>The GlassWorm malware used Unicode variation selectors that render as blank lines -- invisible in editors, in diffs, and in most static analysis, but executable to the interpreter. <strong>Human review is not a detection control against adversarial content.</strong></p>
 <div class="admonition quote">
 <p class="admonition-title">Split the two jobs and stop conflating them</p>
 <p><strong>Machines detect.</strong> Unicode normalisation, invisible-character detection, licence and snippet scanning, reachability analysis, tests, policy evaluation. All mechanical, all attestable.</p>
@@ -1392,7 +1392,7 @@
 <p>Which is awkward, because under heavy AI authorship this is the transition that becomes the integrity boundary -- see <a href="../../tradeoffs/ai/">AI: Capability vs Provability</a>.</p>
 </div>
 <h2 id="a-agent-to-agent">A′ -- agent to agent</h2>
-<p><strong>The recommendation is: don't.</strong> Keep agents as leaves; don't build a multi-agent delegation chain inside the factory core.</p>
+<p><strong>Keep agents as leaves.</strong> Don't build a multi-agent delegation chain inside the factory core.</p>
 <p>Two reasons:</p>
 <p><strong>Attribution laundering.</strong> A chain destroys the link between a change and an accountable identity. If agent A asked agent B to ask agent C, and C made the edit, the trailer says nothing useful and no human is in the loop at the point the decision was made.</p>
 <p><strong>False independence.</strong> "Independent" verifying agents collapse to very few genuinely corruption-distinct domains -- same model family, same prompt lineage, same tool outputs. Redundancy buys much less than the agent count suggests.</p>

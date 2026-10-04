@@ -41,7 +41,7 @@ Checked directly, mostly by reading source and commit history:
 
 ## Corrected
 
-The most useful category. Each of these was asserted confidently and then demolished:
+Each of these was asserted confidently and then demolished:
 
 | Original claim | Status | Corrected to |
 |---|---|---|
@@ -53,7 +53,7 @@ The most useful category. Each of these was asserted confidently and then demoli
 | "CDR delivers close to zero security benefit" | **Overreach** | No CDR engine has a sanitiser for compiled code; cite the measured 13% soundness figure instead |
 | "Review becomes the bottleneck" | **Imprecise** | **Reviewer attention** is scarce; build and test capacity *rise* in importance |
 
-Of eight load-bearing claims put through adversarial verification: **two refuted, five weakened, none survived intact.**
+Eight load-bearing claims went to adversarial verification; seven were adjudicated before an outage killed the eighth. **Two refuted, five weakened, nothing survived intact.**
 
 ## Blocked
 
@@ -69,7 +69,7 @@ Not publicly knowable. Needs cleared conversations:
 
 Treat as leads. Re-check if search access improves:
 
-- "No published standard, vendor document or paper reconciles transform-based inspection with artefact signing." *The most important negative on the site, and it's weak.*
+- "No published standard, vendor document or paper reconciles transform-based inspection with artefact signing." *This one is load-bearing, and it's weak.*
 - "No standard exists for attesting AI-generated code."
 - "No regime imposes requirements on AI-generated code in assured software."
 - "No policy addresses handling assurance evidence across classification boundaries."

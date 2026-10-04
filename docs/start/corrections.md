@@ -1,16 +1,18 @@
 # What We Got Wrong
 
-Eight load-bearing claims were put through adversarial verification: three independent agents per claim, each instructed to *refute* it rather than confirm it, working from primary sources.
+Eight load-bearing claims went through adversarial verification: three independent agents per claim, each instructed to *refute* it rather than confirm it, working from primary sources. Seven were adjudicated before a network outage killed the eighth.
 
-**Result: two refuted, five weakened, none survived intact.**
+**Result: two refuted, five weakened, nothing survived intact.**
 
-This page is the most useful on the site. Every correction below makes the position narrower and harder to knock down in front of someone who knows the field.
+Sections 2, 3 and 5 below come from that exercise. Sections 1 and 4 are errors caught elsewhere in the research, and they are here because they would embarrass you in the same room.
+
+Every correction makes the position narrower and harder to knock down in front of someone who knows the field.
 
 ---
 
 ## 1. "No open-source project is a software factory" -- false
 
-**Konflux-CI's own README** describes it as *"a cloud-native software factory"* that brings together *"best-in-class open source projects"*. Apache-2.0, self-hostable on any conformant Kubernetes.
+Konflux-CI's own README describes it as *"a cloud-native software factory"* that brings together *"best-in-class open source projects"*. Apache-2.0, self-hostable on any conformant Kubernetes.
 
 **And SBOM generation is commodity.** Konflux attaches them, Zarf generates them by default via Syft, Iron Bank emits four formats.
 

@@ -49,7 +49,7 @@ OCI referrers
 :   The registry mechanism for discovering what is attached to an artefact digest -- signatures, SBOMs, attestations. A **live API call** with no file-based equivalent, so a bundle must materialise the graph into tags before crossing a boundary. The rule: *the registry must support it; the bundle must not depend on it.*
 
 OSCAL
-:   A machine-readable format for compliance information. The obvious candidate for automated control evidence, and **an ecosystem graveyard** -- multiple well-resourced organisations built on it and abandoned it. Build to the outcome; keep the serialisation swappable. See [Build vs Adopt](tradeoffs/build-vs-adopt.md).
+:   A machine-readable format for compliance information. The obvious candidate for automated control evidence, and **the clearest case of informed abandonment in the ecosystem** -- multiple well-resourced organisations built on it and walked away. Build to the outcome; keep the serialisation swappable. See [Build vs Adopt](tradeoffs/build-vs-adopt.md).
 
 Provenance
 :   An attestation describing how an artefact was built -- builder identity, parameters, resolved dependencies. Its trust model splits parameters into **external** (untrusted, must be verified downstream) and **internal** (platform-set, trusted).
@@ -64,7 +64,7 @@ SLSA
 :   A framework of levels for build integrity. Level 3 demands isolation, ephemerality, and -- the sleeper requirement -- that **cache poisoning be impossible**, meaning output must be identical whether or not the cache is used. Most CI caches fail this. And **SLSA appears in zero regulatory texts**: you comply *via* it, never *by* it.
 
 Trusted importer
-:   An accountable party on the near side of a boundary that verifies the upstream chain and signs its own attestation of what crossed. The honest cost: the far side's cryptographic trust now terminates at the importer rather than the original builder. Say so rather than implying an unbroken chain.
+:   An accountable party on the near side of a boundary that verifies the upstream chain and signs its own attestation of what crossed. The cost is that the far side's cryptographic trust now terminates at the importer rather than the original builder. Say so rather than implying an unbroken chain.
 
 VEX -- Vulnerability Exploitability eXchange
 :   A statement that a vulnerability does or does not affect a product, with a machine-readable justification. The mechanism that keeps a gate switched on -- but only if recording one costs thirty seconds rather than a ticket. **No registered predicate type exists**, and the specification has been frozen since 2023.

@@ -1,6 +1,6 @@
 # Build vs Adopt
 
-The default answer is adopt. The interesting question is the second one: **will it still exist in three years, and is the feature you need behind a licence?**
+The default answer is adopt. The harder question is **whether it will still exist in three years, and whether the feature you need sits behind a licence.**
 
 ## The strongest consensus in the field
 
@@ -33,54 +33,16 @@ From a sweep of 24 outcome-defined slots against open source, with 250+ reposito
 
 And one that moved from the build list to the adopt list on inspection: **signed VEX already exists.** A tool turns a maintainer's single structured comment into a Sigstore-signed in-toto attestation, authorised against a code-owners file. It's coupled to one forge by default but through pluggable interfaces, so porting it is bounded work against a designed seam. **Port, don't build** -- and note it contains no AI, which is correct, because a model scores under 70% on that decision.
 
-## The sustainability problem
+## What adopting costs you later
 
-This is the part that should give you pause. **Twelve projects with fewer than 300 stars sit on the critical path with no substitute:**
+Health is the part of the adopt decision nobody prices in. Twelve projects under 300 stars sit on the critical path with no substitute, several well-known tools are dead despite their star counts, and in five separate cases a vendor's paid tier *is* the feature a disconnected deployment needs. The survey behind those findings is on [Ecosystem Health](../limits/ecosystem.md).
 
-| Project role | Stars |
-|---|---|
-| **The only tool that issues a signed verdict over an attestation set** | **44** |
-| Air-gapped bundle CLI | 54 |
-| Private signing infrastructure scaffolding | 89 |
-| Hermetic dependency prefetch | 111 |
-| Attestation graph store | 116 |
-| Remote attestation verification | 186 |
-| **The provenance generator the whole evidence chain hangs off** | **277** |
-| Compliance toolkit | 281 |
+Two things fall out of it for the decision. Health-check before you adopt, every time -- a release feed and a last-commit date take thirty seconds and will save you a year. And where the gated feature is the slot-critical one, the answer is the open fork or the empty slot rather than the paid tier; one of the eight slots above is empty partly by commercial design.
 
-Two of those deserve emphasis. The 44-star project is **actively maintained** (a release two days before this was written), so the risk is **bus factor, not abandonment.** It's simultaneously the most load-bearing and least-known component in the stack. And the 277-star one carries the entire evidence chain.
+!!! success "The response, and a possible contribution"
+    Contribute upstream now. It's cheaper than forking later, and far cheaper than discovering a maintainer has moved on.
 
-!!! success "The honest response, and a possible contribution"
-    Contribute upstream now. It's cheaper than forking later.
-
-    And it suggests something a funded programme could offer that isn't code: **becoming an accountable, funded consumer of three tiny projects that everything else quietly depends on.** Arguably worth more than another platform.
-
-## The graveyard
-
-Projects that look alive and aren't:
-
-- **the canonical reference implementation of the DORA metrics** -- last commit January 2024
-- **a container builder with 15,700 stars** -- dead since mid-2025
-- **a development-environment tool with 15,000 stars** -- alpha-only releases since mid-2025
-- the official prototype of a well-known reference architecture -- **zero releases, ever**
-
-And version numbers that overstate maturity: one project is at v5.130.1 on 62 stars; another has been at v0.0.3 since 2024.
-
-!!! warning "Health-check before adopting, every time"
-    Stars measure past attention, not current maintenance. A release feed and a last-commit date take thirty seconds to check and will save you a year.
-
-## The licence pattern, which is not a coincidence
-
-| Trap | Consequence |
-|---|---|
-| A major secrets manager relicensed to a non-open business-source licence, with **FIPS builds behind the enterprise tier** | Use the open fork |
-| A workspace platform puts **prebuilds behind its paid tier** | That is *the one feature* an air-gapped deployment needs |
-| A forge's community edition puts **the entire signed-review outcome behind its paid tier** | The empty slot above is empty partly by commercial design |
-| A secret scanner under a strong copyleft licence | Fine to run, awkward to redistribute |
-| A DoD-adjacent platform core under a strong copyleft licence | Surprising, and worth checking before you build on it |
-
-!!! danger "In five separate cases the paid tier *is* the slot-critical feature"
-    Open-core vendors have converged on gating exactly what a regulated or disconnected deployment needs. Assume this and check, rather than discovering it at renewal.
+    It also suggests something a funded programme could give the ecosystem that isn't code: **becoming an accountable, funded consumer of three tiny projects that everything else quietly depends on.** Arguably worth more than another platform.
 
 ## Consolidations that reduce the surface
 
@@ -94,7 +56,7 @@ The slot count is 24. The component count should be far lower, and the reasons a
 
 **Encrypted-file secrets rather than a secrets server** covers the slot by **removing a component from the enclave.** Whenever an option removes a server, take it.
 
-!!! tip "On adopting an assembled stack"
+!!! example "On adopting an assembled stack"
     One integrated open factory collapses five slots at once. The reason to care isn't the product. It's that the components arrive **integrated and tested together** rather than adopted blind.
 
     **Steal the assembly, not the product.**
@@ -107,6 +69,7 @@ A natural conclusion from everything on this site is "we should generate complia
 - a government automation repository is **404**
 - two major vendors migrated to different formats entirely; a third **archived both of its attempts**
 - **the next major version of the standard has no active work**
+- one project's live-cluster validation was **built, then disabled, then deleted** over eighteen months
 - and across four key defence documents, OSCAL has **zero genuine references** -- it is not even demanded
 
 That's multiple well-resourced, independently motivated organisations building this and abandoning it. Concluding "we'll simply do it better" is exactly the arrogance that killed the 1978 attempt.
@@ -114,7 +77,7 @@ That's multiple well-resourced, independently motivated organisations building t
 !!! success "Separate the outcome from the serialisation"
     The **outcome** -- continuous, machine-verifiable control status -- is demanded verbatim by policy.
 
-    The **serialisation** is contested, and the obvious candidate is a graveyard.
+    The **serialisation** is contested, and its most obvious candidate is the one its own adopters have walked away from.
 
     So build to the outcome and keep the format swappable -- which is this project's founding principle applied to itself. **Never pitch "we generate OSCAL". Pitch "we generate continuous control evidence, currently serialised as X".**
 

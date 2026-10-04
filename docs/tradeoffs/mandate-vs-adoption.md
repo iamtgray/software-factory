@@ -1,6 +1,6 @@
 # Mandate vs Adoption
 
-The uncomfortable page. The measured evidence says platforms can make delivery worse, and that mandating one makes it worse still.
+The measured evidence says platforms can make delivery worse, and that mandating one makes it worse still.
 
 ## The numbers
 
@@ -16,25 +16,22 @@ From DORA's 2024 research, with the caveats stated below:
 
 The report's own words: *"change failure rate and rate of rework are significantly increased when a platform is being used."*
 
-And the findings that rarely get quoted:
+Three further findings:
 
-- **Mandated exclusive use costs a further 6% of throughput.**
+- Mandated exclusive use costs **a further 6% of throughput**.
 - Platform use combined with instability **predicts burnout**.
 - The lever that helps is **developer independence, +5%**.
 
 !!! quote "DORA's own prescription"
     "A platform should provide methods for users... to **break out** of the tools and automations provided in the platform."
 
-### The caveats, stated honestly
+### The caveats
 
 Correlational, not causal. 89% of respondents reported using a platform, so the comparison group is small. The definition of "platform" is broad. DORA itself raises reverse causation (struggling organisations may adopt platforms). And platform engineering follows a **J-curve**: gains, then a dip, then recovery.
 
 None of that makes the numbers ignorable. It makes them a prediction to plan against.
 
-!!! danger "A mandated, air-gapped platform sits in the worst cell of that table"
-    Mandated exclusive use. No escape hatch. Nothing external to build thinly on top of.
-
-    The mitigations below aren't optional extras. They're the measured difference between a platform that helps and one that harms.
+A mandated, air-gapped platform sits in the worst cell of that table. Mandated exclusive use, no escape hatch, nothing external to build thinly on top of -- so the mitigations below aren't optional extras. They're the measured difference between a platform that helps and one that harms.
 
 ## Why the usual remedy is unavailable
 
@@ -42,21 +39,13 @@ The consensus advice is "platform as a product" -- a named product manager, self
 
 It has four steps, and **step three breaks** in a mandated environment: *earn adoption through competition.* There is no exit, no internal market, and the mandate is a legal constraint rather than a choice. One of the originators of the framing is explicit that "a little competition is a necessary ingredient".
 
-A second piece of consensus advice also breaks. "Build the thinnest viable platform over externally provided managed services" assumes those services exist. Air-gapped, they don't -- so the platform team carries considerably more load than the guidance assumes.
-
-!!! tip "That is a staffing and funding argument, and it must be made early"
-    Not discovered in year two when the team is underwater and the deployment path has become something nobody can explain.
+A second piece of consensus advice also breaks. "Build the thinnest viable platform over externally provided managed services" assumes those services exist. Air-gapped, they don't -- so the platform team carries considerably more load than the guidance assumes. That's a staffing and funding argument, and it needs making early rather than in year two, when the team is underwater and the deployment path has become something nobody can explain.
 
 ## The inversion that rescues it
 
-This is the argument that makes the civilian evidence land in a defence programme:
+In a classified environment, shadow IT is a security incident rather than a productivity loss. DORA's "ivory tower leads to shadow IT workarounds" pitfall stops being an efficiency concern and becomes a **security risk** -- which makes developer experience a **security control**.
 
-!!! success "In a classified environment, shadow IT is a security incident -- not a productivity loss."
-    DORA's "ivory tower leads to shadow IT workarounds" pitfall stops being an efficiency concern and becomes a **security risk**.
-
-    Which makes developer experience a **security control**.
-
-That's not a rhetorical move. It's the mechanism in the best-documented failure anywhere in this research -- a national audit office finding, with cause and effect in a single audited sentence:
+It is the mechanism in the best-documented failure anywhere in this research -- a national audit office finding, with cause and effect in a single audited sentence:
 
 > The organisation had *"a culture focused on the approvals process rather than outcomes"*, which *"incentivised [CIOs] to maintain or produce their own separate capabilities... rather than rely on shared ones."*
 
@@ -78,16 +67,13 @@ If you can't have competition, you need something that does competition's job:
 
 A mandated factory is stuck at adoption level 2 of 4 for ever, because the model's higher levels assume voluntary uptake. So restate the question counterfactually -- **would** teams choose it? -- and measure the thing that answers it:
 
-!!! quote "Track the workaround rate as the programme's headline health metric."
-    It's the air-gapped equivalent of churn. It's measurable. And it's the only number a mandate can't game.
+**Track the workaround rate as the programme's headline health metric.** It's the air-gapped equivalent of churn, it's measurable, and it's the only number a mandate can't game.
 
-A second metric, from the reuse evidence: **track the modification rate of shared assets.** Reuse pays above 80% unchanged, does nothing between 20% and 80%, and is **net harmful below 20%**. A slot every programme forks by 40% is worse than no shared asset at all.
+A second metric, from the reuse evidence: **track the modification rate of shared assets.** Reuse [only pays above 80% unchanged](../limits/history.md), so a slot every programme forks by 40% is worse than having no shared asset at all.
 
 ## And the funding model, which is where this usually dies
 
-The documented failure mode is specific and recurring.
-
-The first organisation to build a software factory, in 1978, failed in part because middle management *"were not required by top management to use the Software Factory, leading to a decline in the flow of work"*. Demand starvation.
+The documented failure mode is specific, recurring, and nearly fifty years old: the first organisation to build a software factory was starved of demand because nobody above it was required to use the thing ([the 1978 account](../limits/history.md)).
 
 RAND finds that modern defence software factories are mostly **customer-funded** -- which writes that exact failure into the budget line. A factory that must win each customer's budget is a factory whose work flow can decline.
 
@@ -96,11 +82,6 @@ RAND finds that modern defence software factories are mostly **customer-funded**
 
 ## Nobody has measured any of this properly
 
-Four separate audit findings record the absence. There is **no controlled study, no before-and-after baseline, and no peer-reviewed evaluation of any named software factory.** One audit found only **6 of 36** programmes self-reporting agile methods delivered software to users in under three months.
+The absence is [catalogued under what we cannot answer](../limits/unanswerable.md) -- no controlled study, no baseline, no peer-reviewed evaluation of any named factory. One audit found only **6 of 36** programmes self-reporting agile methods delivered software to users in under three months. A metrics framework does exist -- published in October 2024, combining the four DORA measures with value and cyber-resilience measures including average time to achieve authorisation. **Nobody has published any values against it.**
 
-A metrics framework exists -- published in October 2024, combining the four DORA measures with value and cyber-resilience measures including average time to achieve authorisation. **Nobody has published any values against it.**
-
-!!! success "Which is the opening"
-    Position the work around the **absence of measurement**, not around claimed benefit. Everyone else is claiming; nobody is measuring.
-
-    Shipping per-tenant outcome measurement, baselined *before* adoption, is cheap and would make this the first factory anywhere able to answer "did it work".
+Which is the opening. Position the work around the absence of measurement rather than around claimed benefit: everyone else is claiming; nobody is measuring. Shipping per-tenant outcome measurement, baselined *before* adoption, is cheap, and it would make this the first factory anywhere able to answer "did it work".

@@ -2,11 +2,11 @@
 
 The same fix, delivered into an enclave with no network path out. No DNS, no registry pull, no transparency log, no identity provider.
 
-Read this as a diff against [the connected flow](connected.md). Steps 1 to 9 happen on the low side much as before. After that, three steps break -- and two of the three are not the ones people expect.
+Read this as a diff against [the connected flow](connected.md). Steps 1 to 9 happen on the low side much as before. After that, three steps break.
 
 ---
 
-## First: two words that get conflated, and shouldn't
+## Air gap and cross-domain are different problems
 
 **Air gap** means no network path. Transfer happens by physical media, and nothing inspects the bytes.
 
@@ -54,7 +54,7 @@ And one genuine inversion: **the enclave gets the better AI story on the things 
 
 ### Break 2 -- step 9, discovery by API becomes discovery by tag
 
-This is the break that gets missed, and it silently produces a bundle whose evidence is present but unfindable.
+This break silently produces a bundle whose evidence is present but unfindable.
 
 Attestations are discovered by querying the registry: *what is attached to this digest?* That is a **live HTTP call**, and it has no file-based equivalent.
 

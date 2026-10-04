@@ -1321,8 +1321,8 @@
 
 
 <h1 id="secure-software-factory">Secure Software Factory</h1>
-<p>What a software factory actually is, what the evidence says it can deliver, and where the trade-offs are (the part most material skips).</p>
-<p>This site is the readable version of a research programme that read the primary sources rather than the marketing. It includes the places where the research proved the original premise <strong>wrong</strong>, because those turned out to be the most useful findings.</p>
+<p>What a software factory actually is, what the evidence says it can deliver, and where the trade-offs are.</p>
+<p>This site is the readable version of a research programme that read the primary sources instead of the marketing. Where the research proved the original premise <strong>wrong</strong>, the corrections are here too -- the central thesis was one of them.</p>
 <hr />
 <details class="question">
 <summary>I'm new to this -- where do I start?</summary>
@@ -1330,45 +1330,63 @@
 <ol>
 <li><strong><a href="start/the-problem/">The Problem</a></strong> -- what a software factory is for, and the gap worth attacking</li>
 <li><strong><a href="start/corrections/">What We Got Wrong</a></strong> -- four confident claims the evidence demolished. Read this before repeating anything from the first page.</li>
-<li><strong><a href="start/scope/">Scope -- What This Is Not</a></strong> -- the single most important decision, and why it's about scope rather than technology</li>
+<li><strong><a href="start/scope/">Scope -- What This Is Not</a></strong> -- three layers: a platform, a product line, and one that is out of bounds</li>
 <li><strong><a href="example/connected/">A Worked Example</a></strong> -- one bug fix traced from ticket to running container, showing what gets signed at each step</li>
 </ol>
-<p>Then <a href="tradeoffs/">Trade-offs</a>, which is the part you actually came for.</p>
+<p>Then <a href="tradeoffs/">Trade-offs</a>.</p>
 </details>
 <details class="question">
 <summary>I'm an architect and I want the mechanism</summary>
-<ol>
-<li><strong><a href="how/primitives/">The Five Primitives</a></strong> -- every hand-off in the factory is built from five things. Fix these and the tool choices become nearly arbitrary.</li>
-<li><strong><a href="how/handoffs/">The Hand-offs</a></strong> -- five trust-domain transitions. Everything else is plumbing.</li>
-<li><strong><a href="how/slots/">Slots and Outcomes</a></strong> -- how a component is defined by what it must produce rather than what it is</li>
-<li><strong><a href="example/connected/">A Change, End to End</a></strong> and then <strong><a href="example/airgap/">The Same Change, Air-Gapped</a></strong></li>
-</ol>
+<p>Start with <a href="how/primitives/">The Five Primitives</a> -- a digest-bound statement, a delegated verdict, a capability descriptor, trust configuration, and freshness state. Fix those five and the tool choices become close to arbitrary, which is what <a href="how/slots/">Slots and Outcomes</a> then exploits: a component position is defined by the outcome it owes, and the contract for it lives in a Kubernetes custom resource.</p>
+<p><a href="how/handoffs/">The Hand-offs</a> is where the primitives get spent. Five transitions where the receiver cannot verify what the sender did by inspection and has to rely on a signature; everything else is plumbing.</p>
+<p>Then the same change twice -- <a href="example/connected/">end to end</a>, and <a href="example/airgap/">air-gapped</a>.</p>
 </details>
 <details class="question">
 <summary>I'm deciding whether to fund or buy one of these</summary>
-<p>Start with the uncomfortable material:</p>
-<ol>
-<li><strong><a href="tradeoffs/mandate-vs-adoption/">Mandate vs Adoption</a></strong> -- the measured numbers, including the ones that say platforms <em>reduce</em> throughput</li>
-<li><strong><a href="limits/history/">What Has Failed Before</a></strong> -- the idea has failed four times since 1968, and the diagnoses are consistent</li>
-<li><strong><a href="limits/unanswerable/">What We Cannot Answer</a></strong> -- what is genuinely unknowable from public sources</li>
-<li><strong><a href="limits/ecosystem/">Ecosystem Health</a></strong> -- twelve projects under 300 stars sit on the critical path</li>
-</ol>
+<p>The uncomfortable material first.</p>
+<table>
+<thead>
+<tr>
+<th>What someone will ask you</th>
+<th>Where it's answered</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Does a platform actually make delivery faster?</td>
+<td><a href="tradeoffs/mandate-vs-adoption/">Mandate vs Adoption</a> -- the measured numbers, including the ones that say platforms <em>reduce</em> throughput</td>
+</tr>
+<tr>
+<td>Has this been tried before?</td>
+<td><a href="limits/history/">What Has Failed Before</a> -- four times since 1968, and the diagnoses are consistent</td>
+</tr>
+<tr>
+<td>What can't you tell me?</td>
+<td><a href="limits/unanswerable/">What We Cannot Answer</a> -- what is genuinely unknowable from public sources</td>
+</tr>
+<tr>
+<td>What happens when a dependency dies?</td>
+<td><a href="limits/ecosystem/">Ecosystem Health</a> -- twelve projects under 300 stars sit on the critical path</td>
+</tr>
+</tbody>
+</table>
 </details>
 <details class="question">
 <summary>I care about the air-gapped / cross-domain case</summary>
-<ol>
-<li><strong><a href="tradeoffs/integrity-vs-inspection/">Integrity vs Inspection</a></strong> -- the central tension: sanitising content destroys the signatures that prove it is trustworthy</li>
-<li><strong><a href="example/airgap/">The Same Change, Air-Gapped</a></strong> -- what survives the crossing and what does not</li>
-<li><strong><a href="limits/unanswerable/">What We Cannot Answer</a></strong> -- six of seven questions about real guard behaviour are not publicly answerable</li>
-</ol>
+<p>The distinction the field muddles: an air gap is the absence of a network path, and cross-domain means a guard sits in the path and may refuse or rewrite what crosses. Sneakernet is largely solved. The guard case is not, because changed bytes break every signature over them.</p>
+<ul>
+<li><a href="tradeoffs/integrity-vs-inspection/">Integrity vs Inspection</a> -- sanitising content destroys the signatures that prove it is trustworthy, and no published standard reconciles the two</li>
+<li><a href="example/airgap/">The Same Change, Air-Gapped</a> -- what survives the crossing, what does not, and the three places the connected flow assumed a network</li>
+<li><a href="limits/unanswerable/">What We Cannot Answer</a> -- six of seven questions about real guard behaviour are not publicly answerable</li>
+</ul>
 </details>
 <hr />
 <h2 id="the-one-paragraph-version">The one-paragraph version</h2>
-<p>A software factory is a set of components that turn source code into a deployable artefact <strong>together with machine-verifiable evidence about how it was made</strong>. The artefact was never the hard part. The evidence is. Producing it is commodity now; making it <em>current</em>, <em>bound to the thing it describes</em>, and <em>actually read by something</em> is not. Every documented failure here is a failure of evidence rather than of build automation: evidence that drifted from reality, evidence that was discarded at a boundary, evidence whose validator was switched off because it kept failing.</p>
+<p>A software factory is a set of components that turn source code into a deployable artefact <strong>together with machine-verifiable evidence about how it was made</strong>. The artefact was never the hard part. The evidence is. Producing it is commodity now; making it <em>current</em>, <em>bound to the thing it describes</em>, and <em>actually read by something</em> is not. Every documented failure here is a failure of evidence, not of build automation: evidence that drifted from reality, evidence that was discarded at a boundary, evidence whose validator was switched off because it kept failing.</p>
 <h2 id="three-things-worth-knowing-before-anything-else">Three things worth knowing before anything else</h2>
 <p><strong>The term is contested and has failed before.</strong> "Software factory" was rejected at the 1968 NATO conference, trademarked and abandoned by a US defence contractor in 1978, pursued in Japan for two decades without ever being statistically validated, and revived by Microsoft in 2003. The civilian world has since settled on <em>platform engineering</em> instead. See <a href="limits/history/">What Has Failed Before</a>.</p>
-<p><strong>Most of what you need already exists.</strong> Signed SBOMs, build provenance, policy gates, offline verification, air-gapped bundling -- all solved, by several projects, under permissive licences. The genuinely empty slots number about eight, and half of those collapse into one work item. See <a href="tradeoffs/build-vs-adopt/">Build vs Adopt</a>.</p>
-<p><strong>The measured evidence is not flattering.</strong> Internal developer platforms correlate with <strong>−8% throughput and −14% change stability</strong>, and <em>mandating</em> one costs a further 6% of throughput. A factory that doesn't plan for this is planning to be cancelled during it. See <a href="tradeoffs/mandate-vs-adoption/">Mandate vs Adoption</a>.</p>
+<p><strong>Most of what you need already exists.</strong> Signed SBOMs, build provenance, policy gates, offline verification, air-gapped bundling -- all solved, by several projects, under permissive licences. The genuinely empty slots number eight, and half of those collapse into one work item; <a href="tradeoffs/build-vs-adopt/">Build vs Adopt</a> covers which ones, and which features sit behind a paid licence.</p>
+<p><strong>The measured evidence is not flattering.</strong> Internal developer platforms correlate with <strong>−8% throughput and −14% change stability</strong>, and <em>mandating</em> one costs a further 6% of throughput. A factory that doesn't plan for this is planning to be cancelled during it. The numbers, and what to do about them, are in <a href="tradeoffs/mandate-vs-adoption/">Mandate vs Adoption</a>.</p>
 <h2 id="key-concepts">Key concepts</h2>
 <dl>
 <dt>Software factory</dt>
@@ -1378,7 +1396,7 @@
 <dt>Delegated verdict</dt>
 <dd>An accountable party performs an expensive verification once and signs a cheap assertion that everything downstream trusts instead of repeating the work. The same pattern covers the policy gate, the cross-domain importer and the human reviewer.</dd>
 <dt>Slot</dt>
-<dd>A component position defined by the <strong>outcome it must produce</strong> -- a signed SBOM, a reviewed diff, a scanned artefact -- rather than by the tool that fills it. Lets one architecture serve a hyperscale cloud and a disconnected enclave. See <a href="how/slots/">Slots and Outcomes</a>.</dd>
+<dd>A component position defined by the <strong>outcome it must produce</strong> -- a signed SBOM, a reviewed diff, a scanned artefact -- and not by the tool that fills it. Lets one architecture serve a hyperscale cloud and a disconnected enclave. See <a href="how/slots/">Slots and Outcomes</a>.</dd>
 <dt>Air-gap</dt>
 <dd>An environment with no network path to the outside. Distinct from <strong>cross-domain</strong>, where a guard or diode mediates transfer and may <em>refuse or rewrite</em> what crosses. Conflating the two causes most of the confusion in this field.</dd>
 <dt>Guard</dt>

@@ -33,14 +33,11 @@ There's an uncomfortable structural gap here. This transition (author to source 
 
 ## 2. Verifiability and determinism trade off against each other
 
-This is the genuinely surprising one.
-
 The intuition is that making generation reproducible (pin the weights, pin the prompt, temperature zero) gets you back to a derivation, and therefore back to strong provenance. An air-gapped enclave with fixed local weights is the one place all of that is natural.
 
 The evidence says the opposite. A pre-registered study found that the **uncited** generation condition is significantly *more* deterministic (d ≈ −0.72 to −0.76), while **only** the cited condition enables hallucination detection -- **86-88% versus 0%**.
 
-!!! quote "You cannot have both"
-    The more reproducible configuration is the **less checkable** one.
+You cannot have both: the more reproducible configuration is the **less checkable** one.
 
 **So don't chase reproducible generation.** Take the deterministic **citation-resolution check** at verify time instead: 86-88% hallucination detection at a 0% false-positive rate, with **no model in the verification path at all**.
 
@@ -57,7 +54,7 @@ If a specification becomes the source of truth and code is generated from it, wh
 
 The usual framing is that a disconnected enclave is the degraded tier. For AI specifically, that's backwards.
 
-**The capability gap is now a hardware gap, not a classification gap:**
+The capability gap is now a hardware gap rather than a classification gap:
 
 | Tier | Capability vs frontier |
 |---|---|
@@ -67,7 +64,7 @@ The usual framing is that a disconnected enclave is the degraded tier. For AI sp
 
 On the one contamination-controlled independent leaderboard available, an open-weight model placed **fourth of seventeen at 62.9% against a 64.5% leader**, within overlapping error bars, with the highest pass-at-any score on the board, at **a third of the cost**. Permissively licensed weights are available at every size band that matters, which materially simplifies accreditation.
 
-!!! success "The inversion"
+!!! info "The inversion"
     **What survives without frontier models is exactly the set of patterns that have deterministic verifiers -- which is exactly the set that is attestable.**
 
     Survives: false-positive triage of scanner findings, validated test generation behind a filter chain, mechanical refactoring from recipes, local evaluation harnesses, agent sandboxing.
@@ -80,8 +77,7 @@ On the one contamination-controlled independent leaderboard available, an open-w
 
 Across every stage where AI is genuinely useful today, one structure recurs:
 
-!!! quote "A non-deterministic generator proposes. A deterministic verifier decides."
-    Which is why **AI doesn't change the architecture -- it validates it.** The delegated verdict was already the right pattern; AI makes it mandatory rather than merely sensible.
+A non-deterministic generator proposes; a deterministic verifier decides. So **AI validates the architecture rather than changing it** -- the delegated verdict was already the right pattern, and AI makes it mandatory rather than merely sensible.
 
 Two additions this forces:
 
@@ -89,8 +85,6 @@ Two additions this forces:
 - the capability descriptor must carry **measured** capability -- last night's signed evaluation score -- not a hand-maintained list of promises
 
 ## What is real, what is not
-
-Harsh, because the field is full of launch announcements:
 
 | Capability | Status |
 |---|---|
@@ -121,9 +115,4 @@ And one finding that redirects where to spend security effort: the critical vuln
 
 Across every regime surveyed, **nothing imposes requirements on AI-generated code in assured software.** The obligations attach to outcomes -- tested, reviewed, provenanced, vulnerability-managed -- regardless of authorship.
 
-That's good news: a factory producing the same evidence regardless of who wrote the code is already aligned.
-
-!!! tip "The asymmetry worth acting on"
-    The forward risk runs one way. If a future rule *does* require authorship disclosure, a factory that recorded nothing can't retrofit it.
-
-    **Recording model identity per diff from day one is cheap insurance against a regulation that doesn't exist yet** -- and it doesn't depend on any current rule to be worth doing.
+A factory producing the same evidence regardless of who wrote the code is therefore already aligned. The forward risk runs one way, though: if a future rule *does* require authorship disclosure, a factory that recorded nothing can't retrofit it. Recording model identity per diff is cheap now and impossible retrospectively.

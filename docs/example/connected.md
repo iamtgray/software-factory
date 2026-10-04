@@ -12,7 +12,7 @@ A new CVE lands in the vulnerability database. A scheduled scan of what is *alre
 
 **The scan is of the running system, not of a build.** The surviving US federal obligation after the 2026 deregulation is "an SBOM of the **runtime production environment** upon request" -- so this scan is the compliance artefact, not the build-time one. And runtime SBOM assembly is a slot with **no mature tooling** anywhere.
 
-**The finding is probably wrong.** Registry telemetry puts the odds in perspective: 65% of open-source CVEs lack a severity score in the national database, and independent severity assessments agree with it only **55.7%** of the time. Matching on vendor-product identifiers against open-ended version ranges is the dominant source of false positives, and false positives are what get gates switched off.
+**The finding is probably wrong.** Registry telemetry: 65% of open-source CVEs lack a severity score in the national database, and independent severity assessments agree with it only **55.7%** of the time. Matching on vendor-product identifiers against open-ended version ranges is the dominant source of false positives, and false positives are what get gates switched off.
 
 So the first real step is not fixing anything.
 
@@ -158,7 +158,7 @@ graph LR
 
 **Six identities, not one.** If a single key signed all of this, the verdict would be worthless -- a compromised build could issue its own pass.
 
-**The expensive step is step 2, and it is social.** Triage, not fixing. A factory that makes recording a VEX justification cost thirty seconds keeps its gate. One that makes it cost a ticket loses the gate within a quarter.
+**The expensive step is step 2, and it is social.** Triage, not fixing. A factory where recording a VEX justification is one comment keeps its gate. One where it costs a ticket and a security review loses the gate within a quarter.
 
 **The scarce resource is reviewer attention.** Generation is cheap and getting cheaper. So the highest-value thing the factory produces isn't the artefact; it's the evidence that makes step 5 quick: a passing test suite that actually covers the diff, a reachability verdict, a statement that this change touches nothing else.
 

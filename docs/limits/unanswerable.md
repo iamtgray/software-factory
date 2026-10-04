@@ -22,10 +22,10 @@ Six of seven things you'd need to design a transfer format aren't publicly answe
 
 The relevant requirement sets, baseline lists and assessment methodologies are **controlled rather than merely obscure**. Vendor sites give marketing figures. Published guidance gives principles, not limits.
 
-!!! danger "The practical instruction"
-    **Stop designing the envelope format until someone cleared answers these.**
+!!! danger "Stop designing the envelope format until someone cleared answers these"
+    It's a conversation, not a research task.
 
-    It's a conversation, not a research task. The two-control-point *structure* survives not knowing the limits; the specific encoding doesn't.
+    The two-control-point *structure* survives not knowing the limits; the specific encoding doesn't.
 
 ## The ones that are simply not published
 
@@ -50,10 +50,7 @@ Different category. These are knowable in principle; nobody has done the work.
 
 **Does agent-generated volume actually overwhelm review in practice?** The claim that reviewer attention becomes the binding constraint is now supported, but whether the loop self-limits (reviewers rejecting low-quality change, so throughput plateaus rather than flooding) is unmeasured.
 
-!!! success "This absence is an opening rather than a problem"
-    Position the work around the **absence of measurement**, not around claimed benefit. Everyone else is claiming; nobody is measuring.
-
-    Shipping per-tenant outcome measurement, baselined before adoption, would make it the first factory able to answer "did it work".
+What to do with that absence is a positioning decision rather than a research task, and it sits on [Mandate vs Adoption](../tradeoffs/mandate-vs-adoption.md).
 
 ## The research conditions, and what they weaken
 
@@ -65,10 +62,10 @@ Two consequences, pulling in opposite directions:
 
 **Every negative finding is weak.** "We found no X" means "we did not find one by constructing likely URLs and following links". That isn't the same as absence.
 
-!!! warning "The rule that came out of this"
-    **No claim may assert a universal negative over open code.**
+!!! example "How that was learned"
+    The claim "only one cross-domain implementation exists in open code" was refuted within minutes once someone went looking properly -- three one-way transfer projects turned up that nobody had mentioned.
 
-    This was learned the hard way: the claim "only one cross-domain implementation exists in open code" was refuted within minutes once someone went looking properly. Three one-way transfer projects turned up that nobody had mentioned.
+    Hence the standing rule on [Evidence Status](../reference/status.md): no claim may assert a universal negative over open code.
 
 ## How to read confidence on this site
 

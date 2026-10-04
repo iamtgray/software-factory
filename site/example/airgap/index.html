@@ -742,10 +742,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#first-two-words-that-get-conflated-and-shouldnt" class="md-nav__link">
+  <a href="#air-gap-and-cross-domain-are-different-problems" class="md-nav__link">
     <span class="md-ellipsis">
       
-        First: two words that get conflated, and shouldn't
+        Air gap and cross-domain are different problems
       
     </span>
   </a>
@@ -1396,9 +1396,9 @@
 
 <h1 id="the-same-change-air-gapped">The Same Change, Air-Gapped</h1>
 <p>The same fix, delivered into an enclave with no network path out. No DNS, no registry pull, no transparency log, no identity provider.</p>
-<p>Read this as a diff against <a href="../connected/">the connected flow</a>. Steps 1 to 9 happen on the low side much as before. After that, three steps break -- and two of the three are not the ones people expect.</p>
+<p>Read this as a diff against <a href="../connected/">the connected flow</a>. Steps 1 to 9 happen on the low side much as before. After that, three steps break.</p>
 <hr />
-<h2 id="first-two-words-that-get-conflated-and-shouldnt">First: two words that get conflated, and shouldn't</h2>
+<h2 id="air-gap-and-cross-domain-are-different-problems">Air gap and cross-domain are different problems</h2>
 <p><strong>Air gap</strong> means no network path. Transfer happens by physical media, and nothing inspects the bytes.</p>
 <p><strong>Cross-domain</strong> means a guard or diode mediates the transfer, and <strong>may refuse or rewrite what crosses</strong>.</p>
 <p>Almost all confusion in this field comes from treating these as one thing. They have completely different answers, and one of them is largely solved.</p>
@@ -1453,7 +1453,7 @@
 <p>The capability descriptor acts on this. In the GPU-poor tier it disables <code>autonomous-multi-file-change</code> and <code>long-horizon-task</code>, and <strong>increases the review scrutiny tier</strong> -- because weaker generation means more human attention per change, which is a policy consequence rather than a feature flag.</p>
 <p>And one genuine inversion: <strong>the enclave gets the better AI story on the things that matter.</strong> What survives without frontier models is exactly the set of patterns that have deterministic verifiers -- false-positive triage of scanner findings, validated test generation with a filter chain, mechanical refactoring from recipes. What dies -- agentic review as a gate, autonomous multi-file remediation, VEX justification selection -- is mostly what a factory shouldn't have trusted anyway. See <a href="../../tradeoffs/ai/">AI: Capability vs Provability</a>.</p>
 <h3 id="break-2-step-9-discovery-by-api-becomes-discovery-by-tag">Break 2 -- step 9, discovery by API becomes discovery by tag</h3>
-<p>This is the break that gets missed, and it silently produces a bundle whose evidence is present but unfindable.</p>
+<p>This break silently produces a bundle whose evidence is present but unfindable.</p>
 <p>Attestations are discovered by querying the registry: <em>what is attached to this digest?</em> That is a <strong>live HTTP call</strong>, and it has no file-based equivalent.</p>
 <div class="admonition warning">
 <p class="admonition-title">The rule</p>

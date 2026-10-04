@@ -1390,9 +1390,9 @@
 </table>
 <p>The relevant requirement sets, baseline lists and assessment methodologies are <strong>controlled rather than merely obscure</strong>. Vendor sites give marketing figures. Published guidance gives principles, not limits.</p>
 <div class="admonition danger">
-<p class="admonition-title">The practical instruction</p>
-<p><strong>Stop designing the envelope format until someone cleared answers these.</strong></p>
-<p>It's a conversation, not a research task. The two-control-point <em>structure</em> survives not knowing the limits; the specific encoding doesn't.</p>
+<p class="admonition-title">Stop designing the envelope format until someone cleared answers these</p>
+<p>It's a conversation, not a research task.</p>
+<p>The two-control-point <em>structure</em> survives not knowing the limits; the specific encoding doesn't.</p>
 </div>
 <h2 id="the-ones-that-are-simply-not-published">The ones that are simply not published</h2>
 <p><strong>How software actually gets into classified cloud regions.</strong> The regions exist, their accreditations are published, and the ingest mechanism is described nowhere reachable.</p>
@@ -1408,20 +1408,16 @@
 <p><strong>Does any software factory improve delivery outcomes?</strong> Four separate audit findings record the absence. No controlled study, no before-and-after baseline, no peer-reviewed evaluation of any named factory. A metrics framework exists (published October 2024) and <strong>nobody has published any values against it.</strong></p>
 <p><strong>What is the real pre-factory baseline for authorisation timelines?</strong> There's no agreed figure. One source says six months to two years; another says 18 to 24 months; neither cites anything. "Six months" circulates as a de facto baseline, converging independently across several vendors, with no documented origin.</p>
 <p><strong>Does agent-generated volume actually overwhelm review in practice?</strong> The claim that reviewer attention becomes the binding constraint is now supported, but whether the loop self-limits (reviewers rejecting low-quality change, so throughput plateaus rather than flooding) is unmeasured.</p>
-<div class="admonition success">
-<p class="admonition-title">This absence is an opening rather than a problem</p>
-<p>Position the work around the <strong>absence of measurement</strong>, not around claimed benefit. Everyone else is claiming; nobody is measuring.</p>
-<p>Shipping per-tenant outcome measurement, baselined before adoption, would make it the first factory able to answer "did it work".</p>
-</div>
+<p>What to do with that absence is a positioning decision rather than a research task, and it sits on <a href="../../tradeoffs/mandate-vs-adoption/">Mandate vs Adoption</a>.</p>
 <h2 id="the-research-conditions-and-what-they-weaken">The research conditions, and what they weaken</h2>
 <p><strong>No search engine was available for any of this work.</strong> The fetch tooling failed session-wide, and every general search engine tried was blocked by CAPTCHAs or rate limits. Everything was gathered by fetching known URLs, cloning repositories and grepping them, and using open APIs -- plus, late in the programme, a text-extraction proxy that turned out to defeat the government-site blocking that had stopped everything else.</p>
 <p>Two consequences, pulling in opposite directions:</p>
 <p><strong>Positive findings are unusually strong.</strong> They come from reading specifications, source code and commit histories rather than summarising blog posts. Several corrections on this site exist <em>because</em> someone read the source instead of the documentation.</p>
 <p><strong>Every negative finding is weak.</strong> "We found no X" means "we did not find one by constructing likely URLs and following links". That isn't the same as absence.</p>
-<div class="admonition warning">
-<p class="admonition-title">The rule that came out of this</p>
-<p><strong>No claim may assert a universal negative over open code.</strong></p>
-<p>This was learned the hard way: the claim "only one cross-domain implementation exists in open code" was refuted within minutes once someone went looking properly. Three one-way transfer projects turned up that nobody had mentioned.</p>
+<div class="admonition example">
+<p class="admonition-title">How that was learned</p>
+<p>The claim "only one cross-domain implementation exists in open code" was refuted within minutes once someone went looking properly -- three one-way transfer projects turned up that nobody had mentioned.</p>
+<p>Hence the standing rule on <a href="../../reference/status/">Evidence Status</a>: no claim may assert a universal negative over open code.</p>
 </div>
 <h2 id="how-to-read-confidence-on-this-site">How to read confidence on this site</h2>
 <table>

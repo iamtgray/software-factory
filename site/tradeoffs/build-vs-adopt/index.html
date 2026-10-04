@@ -990,32 +990,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-sustainability-problem" class="md-nav__link">
+  <a href="#what-adopting-costs-you-later" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The sustainability problem
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-graveyard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The graveyard
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-licence-pattern-which-is-not-a-coincidence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The licence pattern, which is not a coincidence
+        What adopting costs you later
       
     </span>
   </a>
@@ -1378,7 +1356,7 @@
 
 
 <h1 id="build-vs-adopt">Build vs Adopt</h1>
-<p>The default answer is adopt. The interesting question is the second one: <strong>will it still exist in three years, and is the feature you need behind a licence?</strong></p>
+<p>The default answer is adopt. The harder question is <strong>whether it will still exist in three years, and whether the feature you need sits behind a licence.</strong></p>
 <h2 id="the-strongest-consensus-in-the-field">The strongest consensus in the field</h2>
 <div class="admonition quote">
 <p class="admonition-title">Do not build your own platform</p>
@@ -1436,103 +1414,13 @@
 <p>Far smaller than the slot count suggests.</p>
 </div>
 <p>And one that moved from the build list to the adopt list on inspection: <strong>signed VEX already exists.</strong> A tool turns a maintainer's single structured comment into a Sigstore-signed in-toto attestation, authorised against a code-owners file. It's coupled to one forge by default but through pluggable interfaces, so porting it is bounded work against a designed seam. <strong>Port, don't build</strong> -- and note it contains no AI, which is correct, because a model scores under 70% on that decision.</p>
-<h2 id="the-sustainability-problem">The sustainability problem</h2>
-<p>This is the part that should give you pause. <strong>Twelve projects with fewer than 300 stars sit on the critical path with no substitute:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Project role</th>
-<th>Stars</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>The only tool that issues a signed verdict over an attestation set</strong></td>
-<td><strong>44</strong></td>
-</tr>
-<tr>
-<td>Air-gapped bundle CLI</td>
-<td>54</td>
-</tr>
-<tr>
-<td>Private signing infrastructure scaffolding</td>
-<td>89</td>
-</tr>
-<tr>
-<td>Hermetic dependency prefetch</td>
-<td>111</td>
-</tr>
-<tr>
-<td>Attestation graph store</td>
-<td>116</td>
-</tr>
-<tr>
-<td>Remote attestation verification</td>
-<td>186</td>
-</tr>
-<tr>
-<td><strong>The provenance generator the whole evidence chain hangs off</strong></td>
-<td><strong>277</strong></td>
-</tr>
-<tr>
-<td>Compliance toolkit</td>
-<td>281</td>
-</tr>
-</tbody>
-</table>
-<p>Two of those deserve emphasis. The 44-star project is <strong>actively maintained</strong> (a release two days before this was written), so the risk is <strong>bus factor, not abandonment.</strong> It's simultaneously the most load-bearing and least-known component in the stack. And the 277-star one carries the entire evidence chain.</p>
+<h2 id="what-adopting-costs-you-later">What adopting costs you later</h2>
+<p>Health is the part of the adopt decision nobody prices in. Twelve projects under 300 stars sit on the critical path with no substitute, several well-known tools are dead despite their star counts, and in five separate cases a vendor's paid tier <em>is</em> the feature a disconnected deployment needs. The survey behind those findings is on <a href="../../limits/ecosystem/">Ecosystem Health</a>.</p>
+<p>Two things fall out of it for the decision. Health-check before you adopt, every time -- a release feed and a last-commit date take thirty seconds and will save you a year. And where the gated feature is the slot-critical one, the answer is the open fork or the empty slot rather than the paid tier; one of the eight slots above is empty partly by commercial design.</p>
 <div class="admonition success">
-<p class="admonition-title">The honest response, and a possible contribution</p>
-<p>Contribute upstream now. It's cheaper than forking later.</p>
-<p>And it suggests something a funded programme could offer that isn't code: <strong>becoming an accountable, funded consumer of three tiny projects that everything else quietly depends on.</strong> Arguably worth more than another platform.</p>
-</div>
-<h2 id="the-graveyard">The graveyard</h2>
-<p>Projects that look alive and aren't:</p>
-<ul>
-<li><strong>the canonical reference implementation of the DORA metrics</strong> -- last commit January 2024</li>
-<li><strong>a container builder with 15,700 stars</strong> -- dead since mid-2025</li>
-<li><strong>a development-environment tool with 15,000 stars</strong> -- alpha-only releases since mid-2025</li>
-<li>the official prototype of a well-known reference architecture -- <strong>zero releases, ever</strong></li>
-</ul>
-<p>And version numbers that overstate maturity: one project is at v5.130.1 on 62 stars; another has been at v0.0.3 since 2024.</p>
-<div class="admonition warning">
-<p class="admonition-title">Health-check before adopting, every time</p>
-<p>Stars measure past attention, not current maintenance. A release feed and a last-commit date take thirty seconds to check and will save you a year.</p>
-</div>
-<h2 id="the-licence-pattern-which-is-not-a-coincidence">The licence pattern, which is not a coincidence</h2>
-<table>
-<thead>
-<tr>
-<th>Trap</th>
-<th>Consequence</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A major secrets manager relicensed to a non-open business-source licence, with <strong>FIPS builds behind the enterprise tier</strong></td>
-<td>Use the open fork</td>
-</tr>
-<tr>
-<td>A workspace platform puts <strong>prebuilds behind its paid tier</strong></td>
-<td>That is <em>the one feature</em> an air-gapped deployment needs</td>
-</tr>
-<tr>
-<td>A forge's community edition puts <strong>the entire signed-review outcome behind its paid tier</strong></td>
-<td>The empty slot above is empty partly by commercial design</td>
-</tr>
-<tr>
-<td>A secret scanner under a strong copyleft licence</td>
-<td>Fine to run, awkward to redistribute</td>
-</tr>
-<tr>
-<td>A DoD-adjacent platform core under a strong copyleft licence</td>
-<td>Surprising, and worth checking before you build on it</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition danger">
-<p class="admonition-title">In five separate cases the paid tier <em>is</em> the slot-critical feature</p>
-<p>Open-core vendors have converged on gating exactly what a regulated or disconnected deployment needs. Assume this and check, rather than discovering it at renewal.</p>
+<p class="admonition-title">The response, and a possible contribution</p>
+<p>Contribute upstream now. It's cheaper than forking later, and far cheaper than discovering a maintainer has moved on.</p>
+<p>It also suggests something a funded programme could give the ecosystem that isn't code: <strong>becoming an accountable, funded consumer of three tiny projects that everything else quietly depends on.</strong> Arguably worth more than another platform.</p>
 </div>
 <h2 id="consolidations-that-reduce-the-surface">Consolidations that reduce the surface</h2>
 <p>The slot count is 24. The component count should be far lower, and the reasons are operational rather than feature-driven:</p>
@@ -1540,7 +1428,7 @@
 <p><strong>One build system plus its provenance tool</strong> covers build execution, signing and test evidence under a single key-separation story.</p>
 <p><strong>A declarative minimal base-image builder</strong> covers base images, their SBOMs and most of the vulnerability surface -- because it <em>removes</em> findings rather than suppressing them, which is what keeps the gate switched on.</p>
 <p><strong>Encrypted-file secrets rather than a secrets server</strong> covers the slot by <strong>removing a component from the enclave.</strong> Whenever an option removes a server, take it.</p>
-<div class="admonition tip">
+<div class="admonition example">
 <p class="admonition-title">On adopting an assembled stack</p>
 <p>One integrated open factory collapses five slots at once. The reason to care isn't the product. It's that the components arrive <strong>integrated and tested together</strong> rather than adopted blind.</p>
 <p><strong>Steal the assembly, not the product.</strong></p>
@@ -1552,13 +1440,14 @@
 <li>a government automation repository is <strong>404</strong></li>
 <li>two major vendors migrated to different formats entirely; a third <strong>archived both of its attempts</strong></li>
 <li><strong>the next major version of the standard has no active work</strong></li>
+<li>one project's live-cluster validation was <strong>built, then disabled, then deleted</strong> over eighteen months</li>
 <li>and across four key defence documents, OSCAL has <strong>zero genuine references</strong> -- it is not even demanded</li>
 </ul>
 <p>That's multiple well-resourced, independently motivated organisations building this and abandoning it. Concluding "we'll simply do it better" is exactly the arrogance that killed the 1978 attempt.</p>
 <div class="admonition success">
 <p class="admonition-title">Separate the outcome from the serialisation</p>
 <p>The <strong>outcome</strong> -- continuous, machine-verifiable control status -- is demanded verbatim by policy.</p>
-<p>The <strong>serialisation</strong> is contested, and the obvious candidate is a graveyard.</p>
+<p>The <strong>serialisation</strong> is contested, and its most obvious candidate is the one its own adopters have walked away from.</p>
 <p>So build to the outcome and keep the format swappable -- which is this project's founding principle applied to itself. <strong>Never pitch "we generate OSCAL". Pitch "we generate continuous control evidence, currently serialised as X".</strong></p>
 </div>
 <h2 id="the-one-thing-standards-give-you-for-free">The one thing standards give you for free</h2>

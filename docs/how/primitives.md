@@ -1,6 +1,6 @@
 # The Five Primitives
 
-Four research streams working on different questions (supply-chain integrity, cross-domain transfer, deployment composition, the AI layer) independently arrived at the same small set of mechanisms. That convergence is the strongest signal in the whole programme.
+Four research streams working on different questions (supply-chain integrity, cross-domain transfer, deployment composition, the AI layer) independently arrived at the same small set of mechanisms.
 
 Strip the domain language away and there are five building blocks. Every hand-off in the factory is made from them.
 

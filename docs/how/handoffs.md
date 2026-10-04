@@ -32,7 +32,7 @@ graph TD
 - the `Assisted-by` trailer is present where generation was material
 - mechanical checks that human review *cannot* perform have run
 
-That last point is not a nicety. The GlassWorm malware used Unicode variation selectors that render as blank lines -- invisible in editors, in diffs, and in most static analysis, but executable to the interpreter. **Human review is not a detection control against adversarial content.**
+The GlassWorm malware used Unicode variation selectors that render as blank lines -- invisible in editors, in diffs, and in most static analysis, but executable to the interpreter. **Human review is not a detection control against adversarial content.**
 
 !!! quote "Split the two jobs and stop conflating them"
     **Machines detect.** Unicode normalisation, invisible-character detection, licence and snippet scanning, reachability analysis, tests, policy evaluation. All mechanical, all attestable.
@@ -48,7 +48,7 @@ That last point is not a nicety. The GlassWorm malware used Unicode variation se
 
 ## A′ -- agent to agent
 
-**The recommendation is: don't.** Keep agents as leaves; don't build a multi-agent delegation chain inside the factory core.
+**Keep agents as leaves.** Don't build a multi-agent delegation chain inside the factory core.
 
 Two reasons:
 
