@@ -9,3 +9,7 @@ __pycache__/
 
 site/
 secure-software-factory-complete.html
+
+# local research cache -- deliberately not published
+sources/
+research/
