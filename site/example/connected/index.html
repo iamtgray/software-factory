@@ -1145,6 +1145,8 @@
       
         
       
+        
+      
     
     
     
@@ -1199,6 +1201,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../limits/unasked/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Nobody Asked
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1438,7 +1468,7 @@
 <hr />
 <h2 id="1-the-advisory-arrives">1. The advisory arrives</h2>
 <p>A new CVE lands in the vulnerability database. A scheduled scan of what is <em>already running</em> flags <code>payments-api</code> as affected.</p>
-<p><strong>The scan is of the running system, not of a build.</strong> The surviving US federal obligation after the 2026 deregulation is "an SBOM of the <strong>runtime production environment</strong> upon request" -- so this scan is the compliance artefact, not the build-time one. And runtime SBOM assembly is a slot with <strong>no mature tooling</strong> anywhere.</p>
+<p><strong>The scan is of the running system, not of a build.</strong> The surviving US federal obligation after the 2026 deregulation is "an SBOM of the <strong>runtime production environment</strong> upon request" -- so this scan is the compliance artefact, not the build-time one. Runtime SBOM assembly is thinly served rather than empty: a Kubernetes operator for the <em>Deployed</em> type exists at a few hundred stars, and the underlying research marked this a <strong>weak negative on a narrow search</strong> rather than an absence. Treat it as a gap to size properly, not a gap to claim.</p>
 <p><strong>The finding is probably wrong.</strong> Registry telemetry: 65% of open-source CVEs lack a severity score in the national database, and independent severity assessments agree with it only <strong>55.7%</strong> of the time. Matching on vendor-product identifiers against open-ended version ranges is the dominant source of false positives, and false positives are what get gates switched off.</p>
 <p>So the first real step is not fixing anything.</p>
 <h2 id="2-triage-and-the-question-that-actually-matters">2. Triage, and the question that actually matters</h2>
@@ -1471,10 +1501,12 @@
 </tbody>
 </table>
 <p>This is where most factories fail, and the failure is social rather than technical. If recording "not reachable" takes a ticket and a security review, nobody does it, findings accumulate, and the gate gets disabled or blanket-waived within a quarter.</p>
-<div class="admonition success">
-<p class="admonition-title">This is already solved, and it contains no AI</p>
+<div class="admonition note">
+<p class="admonition-title">A tool exists for this, and it contains no AI -- but read the version number</p>
 <p>An existing open-source tool turns a maintainer typing a single structured comment into a <strong>Sigstore-signed in-toto VEX attestation</strong>, authorised against a code-owners file. Thirty seconds of human effort produces a durable, verifiable statement.</p>
-<p>It's coupled to one forge by default, but through pluggable interfaces -- so porting it is bounded work against a designed seam. <strong>Port it; do not build it.</strong> And note that a model should <em>not</em> make this call: the best measured performance on selecting the right VEX justification is under 70%.</p>
+<p>It's coupled to one forge by default, but through pluggable interfaces, so porting it is bounded work against a designed seam.</p>
+<p><strong>The correction, though:</strong> this site originally said that removed the signed-VEX work from the build list entirely. It doesn't. The tool is at <strong>10 stars, v0.0.1, one maintainer, and its own README calls it experimental.</strong> The <em>design</em> is the thing worth adopting; the implementation is a prototype you would end up owning. Treat it as a head start, not a dependency.</p>
+<p>A model should <em>not</em> make this call either way: the best measured performance on selecting the right VEX justification is under 70%.</p>
 </div>
 <p>A caveat: <strong>52.9% of 78,000 real-world SBOMs declare no dependency edges at all.</strong> Reachability analysis over a graph with no edges silently returns "not reachable" for everything. Detecting that degenerate case moved recall on known-exploited vulnerabilities from 0.60 to 0.95 -- a cheap mechanical check with a very large effect.</p>
 <h2 id="3-the-fix-gets-written">3. The fix gets written</h2>
@@ -1541,7 +1573,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>The SBOM must be signed.</strong> The most mature open factory in existence ships its build SBOM unsigned, and says so in its own documentation. An author signature is now a baseline element in the current minimum-elements guidance, so that is simultaneously a security gap and a compliance gap -- and closing it is probably the cheapest differentiator available to anyone building one.</p>
+<p><strong>The SBOM must be signed</strong>, and an author signature is now a baseline element in the current minimum-elements guidance. Note the correction here: the most mature open factory ships its <em>build-time</em> SBOM unsigned but does cryptographically sign its <em>release-time</em> one, so this is a narrower gap than this site originally claimed and <strong>not</strong> the cheap differentiator it was billed as.</p>
 <h2 id="8-the-gate">8. The gate</h2>
 <p>Now the expensive reasoning happens, once:</p>
 <ul>
@@ -1586,7 +1618,7 @@
 <p><strong>The expensive step is step 2, and it is social.</strong> Triage, not fixing. A factory where recording a VEX justification is one comment keeps its gate. One where it costs a ticket and a security review loses the gate within a quarter.</p>
 <p><strong>The scarce resource is reviewer attention.</strong> Generation is cheap and getting cheaper. So the highest-value thing the factory produces isn't the artefact; it's the evidence that makes step 5 quick: a passing test suite that actually covers the diff, a reachability verdict, a statement that this change touches nothing else.</p>
 <hr />
-<p><strong>Next:</strong> <a href="../airgap/">The Same Change, Air-Gapped</a> -- the same eleven steps, with three of them broken.</p>
+<p><strong>Next:</strong> <a href="../airgap/">The Same Change, Air-Gapped</a> -- the same eleven steps, with two of them broken and a third that only looks it.</p>
 
 
 

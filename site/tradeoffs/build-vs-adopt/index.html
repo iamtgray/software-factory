@@ -1068,6 +1068,8 @@
       
         
       
+        
+      
     
     
     
@@ -1122,6 +1124,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../limits/unasked/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Nobody Asked
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1413,7 +1443,9 @@
 <p>The predicate-shaped gaps -- VEX, test results, AI authorship, review policy -- collapse into: <strong>mint the predicates, then teach the provenance tool and the policy gate to emit and check them.</strong></p>
 <p>Far smaller than the slot count suggests.</p>
 </div>
-<p>And one that moved from the build list to the adopt list on inspection: <strong>signed VEX already exists.</strong> A tool turns a maintainer's single structured comment into a Sigstore-signed in-toto attestation, authorised against a code-owners file. It's coupled to one forge by default but through pluggable interfaces, so porting it is bounded work against a designed seam. <strong>Port, don't build</strong> -- and note it contains no AI, which is correct, because a model scores under 70% on that decision.</p>
+<p>One of those eight looked as though it could move to the adopt list, and the story of why it can't is instructive. A tool exists that turns a maintainer's single structured comment into a Sigstore-signed in-toto VEX attestation, authorised against a code-owners file. The design is exactly right, and it contains no AI -- correctly, since a model scores under 70% on that decision.</p>
+<p>But it is at <strong>10 stars, v0.0.1, one maintainer, with a README that calls it experimental.</strong> An earlier version of this page said that removed the signed-VEX item from the build list. It doesn't: adopting it means owning it. <strong>Take the design as a head start; budget for the implementation.</strong></p>
+<p>That is the general shape of the adopt decision in this field, and it is why the next section matters more than the slot count.</p>
 <h2 id="what-adopting-costs-you-later">What adopting costs you later</h2>
 <p>Health is the part of the adopt decision nobody prices in. Twelve projects under 300 stars sit on the critical path with no substitute, several well-known tools are dead despite their star counts, and in five separate cases a vendor's paid tier <em>is</em> the feature a disconnected deployment needs. The survey behind those findings is on <a href="../../limits/ecosystem/">Ecosystem Health</a>.</p>
 <p>Two things fall out of it for the decision. Health-check before you adopt, every time -- a release feed and a last-commit date take thirty seconds and will save you a year. And where the gated feature is the slot-critical one, the answer is the open fork or the empty slot rather than the paid tier; one of the eight slots above is empty partly by commercial design.</p>

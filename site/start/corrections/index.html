@@ -473,10 +473,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-claims-that-were-weakened-rather-than-broken" class="md-nav__link">
+  <a href="#5-keyless-signing-cant-cross-a-trust-boundary-refuted-and-backwards" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Claims that were weakened rather than broken
+        5. "Keyless signing can't cross a trust boundary" -- refuted, and backwards
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-claims-that-were-weakened-rather-than-broken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Claims that were weakened rather than broken
       
     </span>
   </a>
@@ -1085,6 +1096,8 @@
       
         
       
+        
+      
     
     
     
@@ -1139,6 +1152,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../limits/unasked/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Nobody Asked
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1373,9 +1414,9 @@
 
 
 <h1 id="what-we-got-wrong">What We Got Wrong</h1>
-<p>Eight load-bearing claims went through adversarial verification: three independent agents per claim, each instructed to <em>refute</em> it rather than confirm it, working from primary sources. Seven were adjudicated before a network outage killed the eighth.</p>
-<p><strong>Result: two refuted, five weakened, nothing survived intact.</strong></p>
-<p>Sections 2, 3 and 5 below come from that exercise. Sections 1 and 4 are errors caught elsewhere in the research, and they are here because they would embarrass you in the same room.</p>
+<p>Eight load-bearing claims went through adversarial verification: three independent agents per claim, each instructed to <em>refute</em> it rather than confirm it, working from primary sources.</p>
+<p><strong>Result: three refuted, five weakened, nothing survived intact.</strong></p>
+<p>Sections 2, 3, 5 and 6 below come from that exercise. Sections 1 and 4 are errors caught elsewhere in the research, and they are here because they would embarrass you in the same room.</p>
 <p>Every correction makes the position narrower and harder to knock down in front of someone who knows the field.</p>
 <hr />
 <h2 id="1-no-open-source-project-is-a-software-factory-false">1. "No open-source project is a software factory" -- false</h2>
@@ -1417,7 +1458,14 @@
 <p>So the content <em>is</em> about three years stale, but the mechanism is more damning: <strong>mechanical sweeps make it look maintained in the commit log</strong> while nobody has reviewed its substance.</p>
 <p>The better framing is the gate story: built Feb 2024, disabled Aug 2024, deleted Sep 2025. See <a href="../the-problem/">The Problem</a>.</p>
 <hr />
-<h2 id="5-claims-that-were-weakened-rather-than-broken">5. Claims that were weakened rather than broken</h2>
+<h2 id="5-keyless-signing-cant-cross-a-trust-boundary-refuted-and-backwards">5. "Keyless signing can't cross a trust boundary" -- <strong>refuted, and backwards</strong></h2>
+<p>The rule asserted here was <em>keyless within a trust domain, long-lived hardware keys across trust domains</em>, on the reasoning that a ten-minute certificate can't be validated by a far side that can't reach the issuer.</p>
+<p>That reasoning inverts the thing Sigstore exists to do. The signer has the signature timestamped; the verifier checks the timestamp falls inside the certificate's validity window. The client specification states the goal outright: <em>"we decouple the payload lifetime from the certificate lifetime."</em> The proof travels in the bundle as a transparency-log inclusion proof and signed checkpoint, or an RFC 3161 timestamp.</p>
+<p>The verifier tested it rather than reasoning about it. A package bundle whose leaf certificate was valid for ten minutes on 28 July 2026, carrying no RFC 3161 timestamps and no long-lived key, verified offline <strong>two months after expiry</strong> with all egress forced through a dead proxy. Corrupting one byte of the inclusion proof's root hash made it fail, which confirms the Merkle proof is load-bearing rather than incidental.</p>
+<p>What survives is narrower. Inside a trust domain, keyless is right and is configuration rather than code -- the certificate authority has a first-class SPIFFE issuer type with a validated trust-domain field. Across a boundary, keyless still works <strong>provided the bundle carries its own verification material</strong>, which is a bundle-construction requirement rather than a key-management one. A hardware-held long-lived key remains a legitimate choice for accreditation reasons, but don't claim you need one because keyless cannot cross.</p>
+<p>This one was marked as blocking, because the wrong version was advice someone could have acted on.</p>
+<hr />
+<h2 id="6-claims-that-were-weakened-rather-than-broken">6. Claims that were weakened rather than broken</h2>
 <p><strong>"Don't transform software, verify it"</strong> survives in principle but was naive in detail. The flat <em>uncompressed</em> blob store doesn't survive contact, and the design needs an explicit <strong>two-control-point split</strong>: a low-side structural inspector that expands blobs under recursion limits, rejects path escapes, device nodes, setuid bits and capability attributes, and <strong>emits only a verdict -- never modified bytes</strong>. See <a href="../../tradeoffs/integrity-vs-inspection/">Integrity vs Inspection</a>.</p>
 <p><strong>"CDR delivers close to zero security benefit for software"</strong> was rhetorical overreach. The defensible version: <em>no content-disarm engine has a sanitiser for compiled code, so transforming a software bundle changes every digest without touching the threat.</em> Cite the measured figure instead of the rhetoric: 13% soundness for binary reconstruction (USENIX Security 2024).</p>
 <p><strong>"Three primitives suffice"</strong> -- there are <strong>five</strong>. See <a href="../../how/primitives/">The Five Primitives</a>.</p>

@@ -53,7 +53,7 @@ Each of these was asserted confidently and then demolished:
 | "CDR delivers close to zero security benefit" | **Overreach** | No CDR engine has a sanitiser for compiled code; cite the measured 13% soundness figure instead |
 | "Review becomes the bottleneck" | **Imprecise** | **Reviewer attention** is scarce; build and test capacity *rise* in importance |
 
-Eight load-bearing claims went to adversarial verification; seven were adjudicated before an outage killed the eighth. **Two refuted, five weakened, nothing survived intact.**
+Eight load-bearing claims went to adversarial verification. **Three refuted, five weakened, nothing survived intact.**
 
 ## Blocked
 

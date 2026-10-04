@@ -2,7 +2,7 @@
 
 The same fix, delivered into an enclave with no network path out. No DNS, no registry pull, no transparency log, no identity provider.
 
-Read this as a diff against [the connected flow](connected.md). Steps 1 to 9 happen on the low side much as before. After that, three steps break.
+Read this as a diff against [the connected flow](connected.md). Steps 1 to 9 happen on the low side much as before. After that, two steps break and a third only appears to.
 
 ---
 
@@ -28,7 +28,7 @@ Almost all confusion in this field comes from treating these as one thing. They 
 
 ---
 
-## The three steps that break
+## What breaks, and what only looks like it does
 
 ### Break 1 -- step 3, the agent, degrades by hardware rather than by classification
 
@@ -69,16 +69,26 @@ Three related things that also break, all of them network calls with no offline 
 - transparency-log lookup -- needs an inclusion proof and signed checkpoint carried *inside* the bundle
 - package-manager metadata refresh, including module checksum databases that perform a live log lookup by default
 
-### Break 3 -- step 10 onward, signing identity
+### Break 3 -- step 10 onward, and this one is less broken than it looks
 
-Keyless signing exchanges an identity token for a short-lived certificate (valid for about ten minutes). Fine in connected CI. Useless for an artefact verified in a *different* trust domain six months later, because the far side can't reach the issuer to establish that the signature was made while the certificate was valid.
+Keyless signing exchanges an identity token for a certificate valid for about ten minutes. The intuition is that this is useless for an artefact verified in a different trust domain six months later, because the far side can't reach the issuer to establish the signature was made while the certificate was valid.
 
-!!! success "The rule that resolves it"
-    **Keyless within a trust domain. Long-lived hardware-held keys across trust domains.**
+That intuition is wrong, and it is the problem Sigstore was built to solve.
 
-    A workload-identity system feeding a local certificate authority works *inside* the enclave, and inside the low-side factory, because each runs its own. But anything whose signature must be checked in a different trust domain than it was made in needs a long-lived key in a hardware security module, plus a timestamp as the transparency substitute.
+!!! info "Payload lifetime is decoupled from certificate lifetime"
+    The signer has the signature timestamped, and the verifier checks that the timestamp falls inside the certificate's validity window. The client specification states the design goal directly: *"we decouple the payload lifetime from the certificate lifetime."*
 
-A production defence pipeline already does exactly this -- its signing wrapper carries a parameter documented for use *"during re-signing or cross IL"*, meaning across impact levels. Re-signing at a classification boundary is live practice, not a theory.
+    The proof ships inside the bundle -- a transparency-log inclusion proof and signed checkpoint, or an RFC 3161 timestamp. No network call, and no long-lived key.
+
+This was tested rather than argued. A package bundle whose leaf certificate was valid for ten minutes on 28 July 2026, carrying no RFC 3161 timestamps and no long-lived key, verified successfully offline **two months after that certificate expired**, with all egress forced through a dead proxy. Flipping one byte of the inclusion proof's root hash made it fail, so the Merkle proof is doing the work.
+
+So the earlier rule here -- *keyless within a trust domain, long-lived keys across* -- had the pairing backwards, and it has been removed. What is genuinely true is narrower:
+
+- **Inside a trust domain, keyless is right and cheap.** A workload-identity system feeding your own certificate authority is configuration rather than code: the CA has a first-class SPIFFE issuer type, a validated trust-domain field, and config validation that rejects a SPIFFE issuer without one.
+- **Across a boundary, keyless still works, provided the bundle carries its own verification material** -- the inclusion proof, the checkpoint, the trusted root. That is a bundle-construction requirement, not a key-management one.
+- **A long-lived key in a hardware module is a legitimate choice**, but for accreditation reasons rather than cryptographic necessity. Some regimes mandate it. Do not claim you need one because keyless cannot cross.
+
+Re-signing at a classification boundary remains live practice regardless -- a production defence pipeline's signing wrapper carries a parameter documented for use *"during re-signing or cross IL"*. But that is about who vouches for what crossed, not about whether a signature survives.
 
 ---
 

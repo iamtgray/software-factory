@@ -1,10 +1,10 @@
 # What We Got Wrong
 
-Eight load-bearing claims went through adversarial verification: three independent agents per claim, each instructed to *refute* it rather than confirm it, working from primary sources. Seven were adjudicated before a network outage killed the eighth.
+Eight load-bearing claims went through adversarial verification: three independent agents per claim, each instructed to *refute* it rather than confirm it, working from primary sources.
 
-**Result: two refuted, five weakened, nothing survived intact.**
+**Result: three refuted, five weakened, nothing survived intact.**
 
-Sections 2, 3 and 5 below come from that exercise. Sections 1 and 4 are errors caught elsewhere in the research, and they are here because they would embarrass you in the same room.
+Sections 2, 3, 5 and 6 below come from that exercise. Sections 1 and 4 are errors caught elsewhere in the research, and they are here because they would embarrass you in the same room.
 
 Every correction makes the position narrower and harder to knock down in front of someone who knows the field.
 
@@ -73,7 +73,21 @@ The better framing is the gate story: built Feb 2024, disabled Aug 2024, deleted
 
 ---
 
-## 5. Claims that were weakened rather than broken
+## 5. "Keyless signing can't cross a trust boundary" -- **refuted, and backwards**
+
+The rule asserted here was *keyless within a trust domain, long-lived hardware keys across trust domains*, on the reasoning that a ten-minute certificate can't be validated by a far side that can't reach the issuer.
+
+That reasoning inverts the thing Sigstore exists to do. The signer has the signature timestamped; the verifier checks the timestamp falls inside the certificate's validity window. The client specification states the goal outright: *"we decouple the payload lifetime from the certificate lifetime."* The proof travels in the bundle as a transparency-log inclusion proof and signed checkpoint, or an RFC 3161 timestamp.
+
+The verifier tested it rather than reasoning about it. A package bundle whose leaf certificate was valid for ten minutes on 28 July 2026, carrying no RFC 3161 timestamps and no long-lived key, verified offline **two months after expiry** with all egress forced through a dead proxy. Corrupting one byte of the inclusion proof's root hash made it fail, which confirms the Merkle proof is load-bearing rather than incidental.
+
+What survives is narrower. Inside a trust domain, keyless is right and is configuration rather than code -- the certificate authority has a first-class SPIFFE issuer type with a validated trust-domain field. Across a boundary, keyless still works **provided the bundle carries its own verification material**, which is a bundle-construction requirement rather than a key-management one. A hardware-held long-lived key remains a legitimate choice for accreditation reasons, but don't claim you need one because keyless cannot cross.
+
+This one was marked as blocking, because the wrong version was advice someone could have acted on.
+
+---
+
+## 6. Claims that were weakened rather than broken
 
 **"Don't transform software, verify it"** survives in principle but was naive in detail. The flat *uncompressed* blob store doesn't survive contact, and the design needs an explicit **two-control-point split**: a low-side structural inspector that expands blobs under recursion limits, rejects path escapes, device nodes, setuid bits and capability attributes, and **emits only a verdict -- never modified bytes**. See [Integrity vs Inspection](../tradeoffs/integrity-vs-inspection.md).
 

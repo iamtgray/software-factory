@@ -31,7 +31,11 @@ From a sweep of 24 outcome-defined slots against open source, with 250+ reposito
 
     Far smaller than the slot count suggests.
 
-And one that moved from the build list to the adopt list on inspection: **signed VEX already exists.** A tool turns a maintainer's single structured comment into a Sigstore-signed in-toto attestation, authorised against a code-owners file. It's coupled to one forge by default but through pluggable interfaces, so porting it is bounded work against a designed seam. **Port, don't build** -- and note it contains no AI, which is correct, because a model scores under 70% on that decision.
+One of those eight looked as though it could move to the adopt list, and the story of why it can't is instructive. A tool exists that turns a maintainer's single structured comment into a Sigstore-signed in-toto VEX attestation, authorised against a code-owners file. The design is exactly right, and it contains no AI -- correctly, since a model scores under 70% on that decision.
+
+But it is at **10 stars, v0.0.1, one maintainer, with a README that calls it experimental.** An earlier version of this page said that removed the signed-VEX item from the build list. It doesn't: adopting it means owning it. **Take the design as a head start; budget for the implementation.**
+
+That is the general shape of the adopt decision in this field, and it is why the next section matters more than the slot count.
 
 ## What adopting costs you later
 

@@ -1,6 +1,8 @@
 # Limitations
 
-What this approach cannot do, what cannot be known, and what has already been tried.
+What this approach cannot do, what cannot be known, what nobody thought to ask, and what has already been tried.
+
+**[What Nobody Asked](unasked.md)** -- Three critics were pointed at the research and asked what was missing. There is no named buyer, no operating model, no cost in money, and no response in the architecture to either of the two failure modes the research itself ranked highest. Also a correctness defect: restoring the high side from backup silently defeats the anti-rollback guarantee. Start here if you are deciding whether to fund this.
 
 **[What We Cannot Answer](unanswerable.md)** -- Questions that aren't answerable from public sources, most of them about how real cross-domain guards actually behave. Six of seven things you'd need to design a transfer format are controlled information. Designing against a guess is worse than not designing.
 

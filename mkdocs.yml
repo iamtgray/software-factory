@@ -73,6 +73,7 @@ nav:
 
   - Limitations:
     - limits/index.md
+    - What Nobody Asked: limits/unasked.md
     - What We Cannot Answer: limits/unanswerable.md
     - What Has Failed Before: limits/history.md
     - Ecosystem Health: limits/ecosystem.md

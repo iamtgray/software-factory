@@ -10,7 +10,7 @@ Throughout: **D** is the final image digest, **C** is the git commit.
 
 A new CVE lands in the vulnerability database. A scheduled scan of what is *already running* flags `payments-api` as affected.
 
-**The scan is of the running system, not of a build.** The surviving US federal obligation after the 2026 deregulation is "an SBOM of the **runtime production environment** upon request" -- so this scan is the compliance artefact, not the build-time one. And runtime SBOM assembly is a slot with **no mature tooling** anywhere.
+**The scan is of the running system, not of a build.** The surviving US federal obligation after the 2026 deregulation is "an SBOM of the **runtime production environment** upon request" -- so this scan is the compliance artefact, not the build-time one. Runtime SBOM assembly is thinly served rather than empty: a Kubernetes operator for the *Deployed* type exists at a few hundred stars, and the underlying research marked this a **weak negative on a narrow search** rather than an absence. Treat it as a gap to size properly, not a gap to claim.
 
 **The finding is probably wrong.** Registry telemetry: 65% of open-source CVEs lack a severity score in the national database, and independent severity assessments agree with it only **55.7%** of the time. Matching on vendor-product identifiers against open-ended version ranges is the dominant source of false positives, and false positives are what get gates switched off.
 
@@ -30,10 +30,14 @@ Three outcomes, and only one of them is work:
 
 This is where most factories fail, and the failure is social rather than technical. If recording "not reachable" takes a ticket and a security review, nobody does it, findings accumulate, and the gate gets disabled or blanket-waived within a quarter.
 
-!!! success "This is already solved, and it contains no AI"
+!!! note "A tool exists for this, and it contains no AI -- but read the version number"
     An existing open-source tool turns a maintainer typing a single structured comment into a **Sigstore-signed in-toto VEX attestation**, authorised against a code-owners file. Thirty seconds of human effort produces a durable, verifiable statement.
 
-    It's coupled to one forge by default, but through pluggable interfaces -- so porting it is bounded work against a designed seam. **Port it; do not build it.** And note that a model should *not* make this call: the best measured performance on selecting the right VEX justification is under 70%.
+    It's coupled to one forge by default, but through pluggable interfaces, so porting it is bounded work against a designed seam.
+
+    **The correction, though:** this site originally said that removed the signed-VEX work from the build list entirely. It doesn't. The tool is at **10 stars, v0.0.1, one maintainer, and its own README calls it experimental.** The *design* is the thing worth adopting; the implementation is a prototype you would end up owning. Treat it as a head start, not a dependency.
+
+    A model should *not* make this call either way: the best measured performance on selecting the right VEX justification is under 70%.
 
 A caveat: **52.9% of 78,000 real-world SBOMs declare no dependency edges at all.** Reachability analysis over a graph with no edges silently returns "not reachable" for everything. Detecting that degenerate case moved recall on known-exploited vulnerabilities from 0.60 to 0.95 -- a cheap mechanical check with a very large effect.
 
@@ -96,7 +100,7 @@ The build emits, all bound to **D** by digest, all wrapped in the same envelope:
 | Test results | Test task identity |
 | The step-2 VEX | VEX-issuer identity |
 
-**The SBOM must be signed.** The most mature open factory in existence ships its build SBOM unsigned, and says so in its own documentation. An author signature is now a baseline element in the current minimum-elements guidance, so that is simultaneously a security gap and a compliance gap -- and closing it is probably the cheapest differentiator available to anyone building one.
+**The SBOM must be signed**, and an author signature is now a baseline element in the current minimum-elements guidance. Note the correction here: the most mature open factory ships its *build-time* SBOM unsigned but does cryptographically sign its *release-time* one, so this is a narrower gap than this site originally claimed and **not** the cheap differentiator it was billed as.
 
 ## 8. The gate
 
@@ -164,4 +168,4 @@ graph LR
 
 ---
 
-**Next:** [The Same Change, Air-Gapped](airgap.md) -- the same eleven steps, with three of them broken.
+**Next:** [The Same Change, Air-Gapped](airgap.md) -- the same eleven steps, with two of them broken and a third that only looks it.

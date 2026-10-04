@@ -39,7 +39,7 @@ It's the highest-leverage intervention available and it's thoroughly unglamorous
 ### 2. Make recording a judgement cheap
 
 !!! success "Already solved, and it contains no AI"
-    An existing tool turns a maintainer typing one structured comment into a **Sigstore-signed in-toto VEX attestation**, authorised against a code-owners file.
+    An existing tool turns a maintainer typing one structured comment into a **Sigstore-signed in-toto VEX attestation**, authorised against a code-owners file. (It's at v0.0.1 with one maintainer, so take the design rather than the dependency -- see [Build vs Adopt](build-vs-adopt.md).)
 
     Thirty seconds of human effort, producing a durable verifiable statement that travels with the artefact.
 

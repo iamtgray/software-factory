@@ -753,15 +753,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-three-steps-that-break" class="md-nav__link">
+  <a href="#what-breaks-and-what-only-looks-like-it-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The three steps that break
+        What breaks, and what only looks like it does
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The three steps that break">
+    <nav class="md-nav" aria-label="What breaks, and what only looks like it does">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -787,10 +787,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#break-3-step-10-onward-signing-identity" class="md-nav__link">
+  <a href="#break-3-step-10-onward-and-this-one-is-less-broken-than-it-looks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Break 3 -- step 10 onward, signing identity
+        Break 3 -- step 10 onward, and this one is less broken than it looks
       
     </span>
   </a>
@@ -1107,6 +1107,8 @@
       
         
       
+        
+      
     
     
     
@@ -1161,6 +1163,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../limits/unasked/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Nobody Asked
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1396,7 +1426,7 @@
 
 <h1 id="the-same-change-air-gapped">The Same Change, Air-Gapped</h1>
 <p>The same fix, delivered into an enclave with no network path out. No DNS, no registry pull, no transparency log, no identity provider.</p>
-<p>Read this as a diff against <a href="../connected/">the connected flow</a>. Steps 1 to 9 happen on the low side much as before. After that, three steps break.</p>
+<p>Read this as a diff against <a href="../connected/">the connected flow</a>. Steps 1 to 9 happen on the low side much as before. After that, two steps break and a third only appears to.</p>
 <hr />
 <h2 id="air-gap-and-cross-domain-are-different-problems">Air gap and cross-domain are different problems</h2>
 <p><strong>Air gap</strong> means no network path. Transfer happens by physical media, and nothing inspects the bytes.</p>
@@ -1415,7 +1445,7 @@
 </div>
 </div>
 <hr />
-<h2 id="the-three-steps-that-break">The three steps that break</h2>
+<h2 id="what-breaks-and-what-only-looks-like-it-does">What breaks, and what only looks like it does</h2>
 <h3 id="break-1-step-3-the-agent-degrades-by-hardware-rather-than-by-classification">Break 1 -- step 3, the agent, degrades by hardware rather than by classification</h3>
 <p>The enclave has no managed frontier model. The slot takes a different implementation: a gateway in front of locally-hosted open-weight models.</p>
 <p>The honest numbers, from the one contamination-controlled independent leaderboard available:</p>
@@ -1466,14 +1496,22 @@
 <li>transparency-log lookup -- needs an inclusion proof and signed checkpoint carried <em>inside</em> the bundle</li>
 <li>package-manager metadata refresh, including module checksum databases that perform a live log lookup by default</li>
 </ul>
-<h3 id="break-3-step-10-onward-signing-identity">Break 3 -- step 10 onward, signing identity</h3>
-<p>Keyless signing exchanges an identity token for a short-lived certificate (valid for about ten minutes). Fine in connected CI. Useless for an artefact verified in a <em>different</em> trust domain six months later, because the far side can't reach the issuer to establish that the signature was made while the certificate was valid.</p>
-<div class="admonition success">
-<p class="admonition-title">The rule that resolves it</p>
-<p><strong>Keyless within a trust domain. Long-lived hardware-held keys across trust domains.</strong></p>
-<p>A workload-identity system feeding a local certificate authority works <em>inside</em> the enclave, and inside the low-side factory, because each runs its own. But anything whose signature must be checked in a different trust domain than it was made in needs a long-lived key in a hardware security module, plus a timestamp as the transparency substitute.</p>
+<h3 id="break-3-step-10-onward-and-this-one-is-less-broken-than-it-looks">Break 3 -- step 10 onward, and this one is less broken than it looks</h3>
+<p>Keyless signing exchanges an identity token for a certificate valid for about ten minutes. The intuition is that this is useless for an artefact verified in a different trust domain six months later, because the far side can't reach the issuer to establish the signature was made while the certificate was valid.</p>
+<p>That intuition is wrong, and it is the problem Sigstore was built to solve.</p>
+<div class="admonition info">
+<p class="admonition-title">Payload lifetime is decoupled from certificate lifetime</p>
+<p>The signer has the signature timestamped, and the verifier checks that the timestamp falls inside the certificate's validity window. The client specification states the design goal directly: <em>"we decouple the payload lifetime from the certificate lifetime."</em></p>
+<p>The proof ships inside the bundle -- a transparency-log inclusion proof and signed checkpoint, or an RFC 3161 timestamp. No network call, and no long-lived key.</p>
 </div>
-<p>A production defence pipeline already does exactly this -- its signing wrapper carries a parameter documented for use <em>"during re-signing or cross IL"</em>, meaning across impact levels. Re-signing at a classification boundary is live practice, not a theory.</p>
+<p>This was tested rather than argued. A package bundle whose leaf certificate was valid for ten minutes on 28 July 2026, carrying no RFC 3161 timestamps and no long-lived key, verified successfully offline <strong>two months after that certificate expired</strong>, with all egress forced through a dead proxy. Flipping one byte of the inclusion proof's root hash made it fail, so the Merkle proof is doing the work.</p>
+<p>So the earlier rule here -- <em>keyless within a trust domain, long-lived keys across</em> -- had the pairing backwards, and it has been removed. What is genuinely true is narrower:</p>
+<ul>
+<li><strong>Inside a trust domain, keyless is right and cheap.</strong> A workload-identity system feeding your own certificate authority is configuration rather than code: the CA has a first-class SPIFFE issuer type, a validated trust-domain field, and config validation that rejects a SPIFFE issuer without one.</li>
+<li><strong>Across a boundary, keyless still works, provided the bundle carries its own verification material</strong> -- the inclusion proof, the checkpoint, the trusted root. That is a bundle-construction requirement, not a key-management one.</li>
+<li><strong>A long-lived key in a hardware module is a legitimate choice</strong>, but for accreditation reasons rather than cryptographic necessity. Some regimes mandate it. Do not claim you need one because keyless cannot cross.</li>
+</ul>
+<p>Re-signing at a classification boundary remains live practice regardless -- a production defence pipeline's signing wrapper carries a parameter documented for use <em>"during re-signing or cross IL"</em>. But that is about who vouches for what crossed, not about whether a signature survives.</p>
 <hr />
 <h2 id="what-crosses-concretely">What crosses, concretely</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>bundle.tar                      # sorted entries, fixed timestamps

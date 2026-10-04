@@ -1129,6 +1129,8 @@
       
         
       
+        
+      
     
     
     
@@ -1183,6 +1185,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../limits/unasked/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Nobody Asked
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1444,7 +1474,7 @@
 <h3 id="2-make-recording-a-judgement-cheap">2. Make recording a judgement cheap</h3>
 <div class="admonition success">
 <p class="admonition-title">Already solved, and it contains no AI</p>
-<p>An existing tool turns a maintainer typing one structured comment into a <strong>Sigstore-signed in-toto VEX attestation</strong>, authorised against a code-owners file.</p>
+<p>An existing tool turns a maintainer typing one structured comment into a <strong>Sigstore-signed in-toto VEX attestation</strong>, authorised against a code-owners file. (It's at v0.0.1 with one maintainer, so take the design rather than the dependency -- see <a href="../build-vs-adopt/">Build vs Adopt</a>.)</p>
 <p>Thirty seconds of human effort, producing a durable verifiable statement that travels with the artefact.</p>
 </div>
 <p>The economics decide everything here. If recording "the vulnerable code is not present" takes ten minutes and yields a signed artefact, the gate survives. If it takes a ticket and a security review, the gate gets disabled.</p>
