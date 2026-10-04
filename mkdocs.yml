@@ -50,7 +50,7 @@ nav:
   - Getting Started:
     - start/index.md
     - The Problem: start/the-problem.md
-    - Scope -- What This Is Not: start/scope.md
+    - Scope -- Three Layers, One Boundary: start/scope.md
 
   - How It Works:
     - how/index.md

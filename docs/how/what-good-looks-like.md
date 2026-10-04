@@ -1,17 +1,17 @@
 # What Good Looks Like
 
-Three standards exist to hold a real factory against: the official one, which is public, enumerated and not actually a test; the convergent one, where commercially opposed parties agree and the agreement therefore means something; and the structural one, which falls out of the architecture whether anyone writes it down or not.
+The official standard is public, enumerated and passable on screenshots. Underneath it I'd put a convergent one, where commercially opposed parties agree and the agreement therefore means something, and a structural one that falls out of the architecture whether anyone writes it down or not.
 
-Hold a factory against all three and you get a verdict. Hold it against only the first and you get a cATO.
+Hold a factory against all three and you get a verdict; the official one on its own gets you a cATO.
 
 !!! quote "The definition -- DoD Enterprise DevSecOps Fundamentals v2.5, Table 1"
     "In the DoD, a software factory is defined as a collection of people, tools, and processes that enables teams to continuously deliver value by deploying software to meet the needs of a specific community of end users. It leverages automation to replace manual processes."
 
-**People, tools and processes**, not a product; measured by **continuously delivering value by deploying**, not by throughput; scoped to **one specific community of end users**. A factory that cannot name its user community fails the definition before reaching the criteria.
+That definition does more work than it looks like it does. It names **people, tools and processes**, which puts a software factory in the category of organisation. It measures them by **continuously delivering value by deploying**, so the unit of measurement is value arriving in the hands of users. And it scopes the whole arrangement to **one specific community of end users**. On that reading, a factory that can't name its user community fails the definition before it reaches the criteria.
 
 ## 1. The official bar
 
-The **cATO Evaluation Criteria** (29 May 2024, Distribution Statement A) is the closest thing to an official definition of a good software factory: three competencies from the 2022 memo, assessed against three objects -- platform, process, people.
+The **cATO Evaluation Criteria** (29 May 2024, Distribution Statement A) is the closest thing to an official definition of a good software factory I've found: three competencies from the 2022 memo, assessed against three objects -- platform, process, people.
 
 ### The entry gates, which come before any criterion applies
 
@@ -19,7 +19,7 @@ The **cATO Evaluation Criteria** (29 May 2024, Distribution Statement A) is the 
 2. "In order to receive an approved cATO, the software factory must have a current ATO with no 'High' or 'Very High' unmitigated findings."
 3. The applicant already sits in one of two use cases: production inside the factory's own boundary, or delivery across a boundary holding its own ATO, governed by "a Memorandum of Understanding (MOU) and an Interconnection Security Agreement (ISA)."
 
-Then three eligibility conditions, verbatim: the platform "contains essential automation to enable CONMON, ACD, and to support DevSecOps (DSO) tooling for a Secure Software Supply Chain (SSSC)"; "Processes are defined for people using, operating, and maintaining the DSOP"; "People are trained on the DSOP and its processes."
+Then the eligibility conditions, verbatim: the platform "contains essential automation to enable CONMON, ACD, and to support DevSecOps (DSO) tooling for a Secure Software Supply Chain (SSSC)"; "Processes are defined for people using, operating, and maintaining the DSOP"; "People are trained on the DSOP and its processes."
 
 ### The criteria themselves
 
@@ -31,65 +31,67 @@ Then three eligibility conditions, verbatim: the platform "contains essential au
 | **Supply chain -- process** | IaC and CaC against environment drift; control gate and guardrail analysis | "Provide a description of each control gate and what triggers cause the gate to close and open" |
 | **Supply chain -- people** | Role-based training verification; separation of duties and least privilege; tabletop exercises with after-action reports; documented education and certification; an insider threat working group "chaired by senior leadership" | "Show evidence that all personnel have gone through the onboarding/offboarding process, without regard to their rank or position" |
 
-The process row is two bullets. The *process* half of platform-process-people is the least specified part of the official standard.
+The process row is two bullets, which leaves the *process* half of platform-process-people as the thinnest part of the official standard as far as I can see.
 
-!!! warning "The official standard is not a test"
+!!! warning "The official standard is gameable"
     The criteria are framed as "guidelines", scoped as "not limited to the way they conduct the following activities", and assessed such that "the presence of these activities will be **partly determined** through demonstrated use of system-level dashboards."
 
-    There is **no pass mark, no published scoring rubric and no published weighting.** The nearest thing to a decision rule is one sentence: "the key to receiving a cATO is having a robust continuous monitoring strategy that includes automated triggers based on approved thresholds within the auditing and incident response plans."
+    I can't find **a pass mark, a scoring rubric or a published weighting** anywhere in it. The nearest thing to a decision rule is one sentence: "the key to receiving a cATO is having a robust continuous monitoring strategy that includes automated triggers based on approved thresholds within the auditing and incident response plans."
 
     And the accepted evidence is weaker than the requirement implies: "Demonstrate each control gate in action (this may be in a non-production environment) **or provide screen shots of control gate output as displayed in a dashboard**." A PNG satisfies the control-gate criterion. Monitoring timelines are "automated every hour, minute, second; manual once a year, etc." -- no preference stated between the two ends of that sentence.
 
-    Necessary, insufficient, gameable. Pass it, then apply a real standard.
+    Necessary, insufficient, gameable. So what do you hold a factory against once it's passed?
 
-The strongest phrase in the document is the one nothing in it obliges you to produce: the platform "generates, analyzes, and displays machine evidence throughout the lifecycle in near real-time." Its only use of "machine evidence", with no format, signature or verification attached to it anywhere -- the subject of [Integrity vs Inspection](../tradeoffs/integrity-vs-inspection.md).
+The strongest phrase in the document, to my reading, is the one nothing in it obliges you to produce: the platform "generates, analyzes, and displays machine evidence throughout the lifecycle in near real-time." Its only use of "machine evidence", and I can't find a format, a signature or a verification requirement attached to it anywhere in the document -- the subject of [Integrity vs Inspection](../tradeoffs/integrity-vs-inspection.md).
 
 ## 2. What commercially opposed sources agree on
 
-Where a consultancy, a platform vendor and a government say the same thing, the agreement is evidence. Where two sources share an author it is one source counted twice -- Humanitec co-authored the CNCF maturity model, so those two corroborate nothing. Ranked by independence of agreement:
+Where a consultancy, a platform vendor and a government say the same thing, the agreement is evidence. Shared authorship collapses that arithmetic: Humanitec co-authored the CNCF maturity model, so that pair carries the weight of one source counted twice. Ranked by how independent the agreement is:
 
-1. **Platform as a product, with a named product manager.** Six independent sources including a survey and a research programme. Settled; treat as given.
+1. **Platform as a product, with a named product manager.** Six independent sources including a survey and a research programme. I'd treat it as settled.
 2. **Self-service without tickets.** Four unrelated sources.
-3. **Reduce cognitive load by shifting *down*, not left** -- shift-left *adds* load to the application team. Team Topologies in origin, adopted by both the CNCF model and DORA.
+3. **Reduce cognitive load by shifting *down*: the platform absorbs work that shift-left *adds* to the application team.** Team Topologies in origin, adopted by both the CNCF model and DORA.
 4. **The thinnest viable platform.** It "could be just a wiki page... don't make it any thicker than necessary."
-5. **Automated, low-friction dependency updating with clear ownership.** Agreed by a commercial scanning vendor and an OpenSSF specification -- unrelated parties, and the strongest security-side finding available.
-6. **Clear, actionable feedback on task outcomes.** One source, and the best-evidenced single claim available: DORA 2025 measured this as *the* platform attribute most correlated with positive user experience. Nearly absent from every vendor maturity model, which makes it the highest-leverage item here. A red cross and a 4,000-line SARIF file fails it even when the finding is correct ([Gates vs Attention](../tradeoffs/gates-vs-attention.md)).
+5. **Automated, low-friction dependency updating with clear ownership.** Agreed by a commercial scanning vendor and an OpenSSF specification -- unrelated parties, and the strongest security-side finding I've got.
+6. **Clear, actionable feedback on task outcomes.** One source, and the best-evidenced single claim I have: DORA 2025 measured this as *the* platform attribute most correlated with positive user experience. I haven't found it in any of the vendor maturity models I've read, which is why I'd call it the highest-leverage item here -- that bit's my own inference. A red cross and a 4,000-line SARIF file fails it even when the finding is correct ([Gates vs Attention](../tradeoffs/gates-vs-attention.md)).
 
-From the defence side, where a consultancy and a vendor converge -- with the public government position adding a cost argument rather than a prohibition: **don't build your own platform** (see [Build vs Adopt](../tradeoffs/build-vs-adopt.md)); **control inheritance from assessed common control providers is the economic engine**; **draw the authorisation boundary tightly, at design time**; **treat assessors and authorising officials as users** -- "the central delivery constraint is organisational decision confidence, not engineering capability"; **protect the operator feedback loop**.
+From the defence side, where a consultancy and a vendor converge -- and where the public government position adds a cost argument, leaving the choice formally open: **don't build your own platform** (see [Build vs Adopt](../tradeoffs/build-vs-adopt.md)); **control inheritance from assessed common control providers is the economic engine**; **draw the authorisation boundary tightly, at design time**; **treat assessors and authorising officials as users** -- "the central delivery constraint is organisational decision confidence, not engineering capability"; **protect the operator feedback loop**.
 
 ## 3. What the architecture requires regardless
 
-Four requirements fall out of the structure rather than anyone's guidance, which is why they survive disagreement about everything else. Each is a yes/no question:
+A few things fall out of the structure itself, and those are the ones I'd expect to survive disagreement about everything else. All yes/no questions:
 
-- **Does the gate live somewhere the tenant cannot edit it?** A gate defined in the repository it gates is not a gate.
+- **Does the gate live somewhere the tenant cannot edit it?**
 - **Does the pipeline definition live outside the application repo, inherited from a governed template?** If a team can change its own pipeline, the first answer is already no.
-- **Are there separate signing identities per document type** -- provenance, SBOM, scan results, VEX, test results, the verdict, the release approval? If one key signs the provenance and the verdict, a compromised build issues its own pass.
-- **Does admission verify a signature and a verdict, and nothing else?** Rich policy belongs at the gate, where failure is early and cheap. Admission has a one-second budget and an unbypassable position; evaluating hermeticity inside a webhook against attestations fetched over the network takes a cluster down.
+- **Are there separate signing identities per document type** -- provenance, SBOM, scan results, VEX, test results, the verdict, the release approval? A compromised build issues its own pass the moment one key signs both the provenance and the verdict.
+- **Does admission verify a signature and a verdict, and nothing else?** Rich policy belongs at the gate, where failure is early and cheap. Admission has a one-second budget and an unbypassable position; evaluating hermeticity inside a webhook, against attestations fetched over the network, is how I'd expect to take a cluster down.
 
 Reasoning in [The Hand-offs](handoffs.md) and [The Five Primitives](primitives.md).
 
-## 4. What good is not
+## 4. How factories fail
 
-Documented failure patterns, stated as checks:
+Patterns I've found documented, each stated as a check:
 
 | Pattern | What to check |
 |---|---|
 | **Fake production** | That the environment labelled prod is production. *"'We have 20 apps in prod' because they label an environment prod that's actually dev or test."* |
-| **Teams can bypass their own gates** | Whether a tenant can edit the file that gates it. The canonical failure, stated by a practitioner: *"developers have access to this Jenkinsfile."* |
-| **Ticket-ops** | Whether self-service terminates in a queue. A vending machine with a human behind it is not a platform. |
-| **The golden path as the only road** | Whether an exception route exists, is fast, and is non-punitive. Never be the only road; always be the fastest. |
-| **Gates whose false positives drive suppression** | The suppression count and its trend. Peer-reviewed (FSE 2025): suppressions grow **monotonically**, **50.8% suppress nothing at all**, dead ones silently mask future findings, and the top cause is false positives. Honest limit: no named organisation has been shown switching a gate off. |
+| **Teams can bypass their own gates** | Whether a tenant can edit the file that gates it. The failure a practitioner named directly: *"developers have access to this Jenkinsfile."* |
+| **Ticket-ops** | Whether self-service terminates in a queue. A vending machine with a human behind it is a queue with a nicer front end. |
+| **The golden path as the only road** | Whether an exception route exists, is fast, and is non-punitive. Is the golden path genuinely the fastest road, and does the exception stay open? |
+| **Gates whose false positives drive suppression** | The suppression count and its trend. Peer-reviewed (FSE 2025): suppressions grow **monotonically**, **50.8% suppress nothing at all**, dead ones silently mask future findings, and the top cause is false positives. Honest limit: I haven't found a named organisation shown switching a gate off. |
 | **Mandated adoption, unmeasured satisfaction** | Whether satisfaction is measured independently and published next to compliance, so *"100% adoption, 30% satisfaction"* reads as failure. See [Mandate vs Adoption](../tradeoffs/mandate-vs-adoption.md). |
-| **Ivory tower** | Whether teams are standing up a parallel capability. Air-gapped, a shadow platform is a security incident, not a productivity loss. |
+| **Ivory tower** | Whether teams are standing up a parallel capability. Air-gapped, a shadow platform is a security incident, because code reaches production down a path nobody assessed. |
 | **Bureaucratic re-encroachment** | Whether the user-contact budget survives year two. One documented chain: travel budget cut 75%, user-centred design collapsed, deployments fell from many per day to monthly to zero. |
 | **Pilot-bounded success** | Whether the second tenant got what the first did. *"The goodness doesn't scale past the protected pilot."* |
 
-## 5. The two metrics worth running the programme on
+## 5. The metrics I'd run the programme on
 
-Everything above can be satisfied on paper by a factory nobody wants to use, because a mandate guarantees the adoption number. Two measures cannot be produced by a mandate.
+Everything above can be satisfied on paper by a factory nobody wants to use, because a mandate guarantees the adoption number. Which leaves the measures I can't see a mandate reaching.
 
-**The workaround rate.** How often teams route around the factory to ship. The air-gapped equivalent of churn, measurable from the artefacts already in the registry, and it answers the counterfactual a mandate destroys -- *would* teams choose this?
+**The workaround rate.** How often teams route around the factory to ship. The air-gapped equivalent of churn, and I think it's measurable from the artefacts already in the registry -- it answers the counterfactual a mandate destroys: *would* teams choose this?
 
-**The modification rate of shared assets.** Reuse is a step function, not a gradient: it **pays above 80% unchanged, does nothing between 20% and 80%, and is net harmful below 20%** ([the measured curve, and the programme it sank](../limits/history.md)). A slot implementation every tenant forks by 40% is worse than shipping no shared asset -- you pay the coordination cost and collect none of the benefit.
+**The modification rate of shared assets.** Reuse behaves as a step function: it **pays above 80% unchanged, does nothing between 20% and 80%, and is net harmful below 20%** ([the measured curve, and the programme it sank](../limits/history.md)). A slot implementation every tenant forks by 40% is worse than shipping no shared asset -- you pay the coordination cost and collect none of the benefit.
 
-Both need a per-tenant baseline taken *before* adoption. Nobody does this, four audits complain about its absence, and it is cheap -- which makes it the one criterion here a programme could be first at.
+Both need a per-tenant baseline taken *before* adoption. I haven't found a programme that does this, and four audits complain about its absence, which looks like cheap ground to be first on.
+
+So, for a programme standing up now: what's the baseline, and how long before the mandate lands and makes it unobtainable?
