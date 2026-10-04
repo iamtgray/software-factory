@@ -18,7 +18,7 @@ Regulated organisations, mostly, and their demands converge far more than I expe
 | **B** | Build-and-release provenance | Attestation of practices, integrity validation data, SBOM author signature |
 | **C** | A vulnerability-and-remediation ledger | Scan artefacts, security test findings, patch SLA attainment |
 
-Plus the parts that don't automate: a risk narrative, and an accountable human signature. None of the twelve pretends otherwise.
+Plus the parts that don't automate: a risk narrative, and an accountable human signature. Both still need a person.
 
 *Twelve regimes asking twelve different things, and underneath they all seem to be asking what is in it, where it came from, and what is wrong with it -- plus a risk story and a signature.*
 
